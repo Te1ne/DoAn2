@@ -1,0 +1,72 @@
+
+
+
+
+/* > PC low resolution */
+@media (min-width: 1024px) {
+    .hide{
+        display: none;
+    }
+    .footer__container{
+        flex-wrap: wrap !important;
+        justify-content: left;
+    }
+}
+
+
+/* Tablet */
+
+@media (min-width: 740px) and (max-width: 1023px) {
+.hide-on-tablet{
+    display: none;
+}
+.list__product{
+    justify-content: left;
+}
+
+.sidebar__box {
+    justify-content: left;
+}
+
+.footer__container{
+    flex-wrap: wrap !important;
+    justify-content: left;
+}
+
+.powered__container{
+    flex-direction: column-reverse;
+}
+
+}
+
+/* Mobile */
+
+
+@media (max-width: 739px){
+
+.hide-on-mobile{
+    display: none;
+}
+
+.slider__container{
+    flex-wrap: wrap !important;
+    justify-content: space-between;
+}
+.list__product{
+    justify-content: left;
+}
+
+.sidebar__box {
+    justify-content: left;
+}
+
+.footer__container{
+    flex-wrap: wrap !important;
+    justify-content: left;
+}
+
+.powered__container{
+    flex-direction: column-reverse;
+}
+
+}

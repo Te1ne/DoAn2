@@ -1,0 +1,1221 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="~/Content/assets/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="~/Content/assets/css/main.css">
+    <link rel="stylesheet" href="~/Content/assets/css/grid.css">
+    <link rel="stylesheet" href="~/Content/assets/css/responsive.css">
+    <link rel="stylesheet" href="~/Content/assets/css/login.css">
+    <link rel="stylesheet" href="~/Content/assets/css/details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>SNS Simen - Clone</title>
+</head>
+
+<body>
+    <div class="main">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="grid wide">
+                <div class="navbar__box">
+                    <div class="navbar__left">
+                        <ul class="navbar__list">
+                            <li class="navbar__item language-switcher">
+                                <p class="navbar__language">
+                                    <i class="navbar__icon fa-solid fa-flag-usa"></i> English <i class="fa-solid fa-angle-down"></i>
+                                </p>
+                                <div class="subnav">
+                                    <ul class="subnav__list">
+                                        <li class="subnav__item">
+                                            <p class="subnav__text"><i class="fa-solid fa-flag-usa"></i> ENGLISH</p>
+                                        </li>
+                                        <li class="subnav__item">
+                                            <p class="subnav__text"><i class="fa-solid fa-font-awesome"></i> RUSSIA</p>
+                                        </li>
+                                        <li class="subnav__item">
+                                            <p class="subnav__text"><i class="fa-solid fa-font-awesome"></i> BRAZIL</p>
+                                        </li>
+                                        <li class="subnav__item">
+                                            <p class="subnav__text"><i class="fa-solid fa-font-awesome"></i> FRANCE</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="navbar__item currency-switcher">
+                                <p class="navbar__currency">USD <i class="fa-solid fa-angle-down"></i></p>
+                                <div class="subnav">
+                                    <ul class="subnav__list">
+                                        <li class="subnav__item">
+                                            <p class="subnav__text">USD</p>
+                                        </li>
+                                        <li class="subnav__item">
+                                            <p class="subnav__text">EUR</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navbar__right">
+                        <ul class="navbar__list">
+                            <li class="navbar__item navbar__item--mobile-tablet hide">
+                                <a href="#" class="navbar__link"><i class="navbar__icon fa-solid fa-bars"></i></a>
+                                <div class="subnav subnav--mobile-tablet">
+                                    <ul class="subnav__list">
+                                        <li class="subnav__item"><a href="" class="navbar__link"><i class="navbar__icon fa-solid fa-user"></i> My Account</a></li>
+                                        <li class="subnav__item"><a href="" class="navbar__link"><i class="navbar__icon fa-regular fa-heart"></i> Wishlist</a></li>
+                                        <li class="subnav__item"><a href="" class="navbar__link"><i class="navbar__icon fa-regular fa-square-check"></i> Checkout</a></li>
+                                        <li class="subnav__item"><a href="" class="navbar__link"><i class="navbar__icon fa-solid fa-key"></i> Login</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="navbar__item hide-on-mobile hide-on-tablet">
+                                <a href="Login" class="navbar__link"><i class="navbar__icon fa-solid fa-user"></i> My Account</a>
+                            </li>
+                            <li class="navbar__item hide-on-mobile hide-on-tablet">
+                                <a href="" class="navbar__link"><i class="navbar__icon fa-regular fa-heart"></i> Wishlist</a>
+                            </li>
+                            <li class="navbar__item hide-on-mobile hide-on-tablet">
+                                <a href="" class="navbar__link"><i class="navbar__icon fa-regular fa-square-check"></i> Checkout</a>
+                            </li>
+                            <li class="navbar__item hide-on-mobile hide-on-tablet">
+                                <a href="Login" class="navbar__link"><i class="navbar__icon fa-solid fa-key"></i> Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <!-- Header -->
+        <header class="header">
+            <div class="grid wide">
+                <div class="header__content row">
+                    <div class="header__logo">
+                        <a href="Index" class="header__link col ">
+                            <img src="~/Content/assets/images/logo.png"
+                                 width="100%" alt="" class="header__img">
+                        </a>
+                    </div>
+                    <div class="header__box col ">
+                        <a href="#" class="header__link"><i class="header__icon fa-solid fa-truck"></i></a>
+                        <div class="header__box-text hide-on-tablet hide-on-mobile ">
+                            <a href="#" class="header__link">
+                                <h4 class="header__text">FREE DELIVERY WORLDWIDE</h4>
+                            </a>
+                            <p class="header__decription">On order over $100</p>
+
+                        </div>
+                    </div>
+                    <div class="header__box col ">
+                        <a href="#" class="header__link"><i class="header__icon fa-solid fa-cloud-arrow-up"></i></a>
+                        <div class="header__box-text hide-on-tablet hide-on-mobile ">
+                            <a href="#" class="header__link">
+                                <h4 class="header__text">UP TO 20% OFF COSY LAYERS</h4>
+                            </a>
+                            <p class="header__decription">Lorem ipsum dolor sit amet</p>
+
+                        </div>
+                    </div>
+                    <div class="header__box col ">
+                        <a href="#" class="header__link"><i class="header__icon fa-solid fa-gift"></i></a>
+                        <div class="header__box-text hide-on-tablet hide-on-mobile ">
+                            <a href="#" class="header__link">
+                                <h4 class="header__text">BUY 1 GET 1 FREE</h4>
+                            </a>
+                            <p class="header__decription">On order over $100</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+        <!-- Menu -->
+        <div class="grid wide">
+            <div class="menu">
+                <div class="menu__content row">
+                    <div class="menu__left col">
+                        <label for="menu-mobile-tablet-input" class="menu__link menu__link--icon-mobile-tablet hide"><i class="menu__icon fa-solid fa-bars"></i></label>
+                        <input type="checkbox" class="menu__input" id="menu-mobile-tablet-input">
+                        <label for="menu-mobile-tablet-input" class="menu__overlay"></label>
+                        <div class="menu__infomation--mobile-tablet hide">
+                            <ul class="menu__list">
+                                <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Home</a></li>
+                                <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Furniture</a></li>
+                                <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Coffee Table</a></li>
+                                <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Sofas</a></li>
+                                <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Bedroom furniture</a></li>
+                                <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Shop</a></li>
+                                <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Blog</a></li>
+                                <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Shortcodes</a></li>
+                                <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Contact us</a></li>
+                            </ul>
+                        </div>
+                        <ul class="menu__list hide-on-mobile hide-on-tablet">
+                            <li class="menu__item">
+                                <a href="" class="menu__link menu__link--chosen">HOME</a>
+                                <div class="submenu-home">
+                                    <ul class="subhome__list">
+                                        <li class="subhome__item">
+                                            <a href="" class="subhome__link subhome__link--chosen">Home Page 1</a>
+                                        </li>
+                                        <li class="subhome__item">
+                                            <a href="" class="subhome__link">Home Page 2</a>
+                                        </li>
+                                        <li class="subhome__item">
+                                            <a href="" class="subhome__link">Home Page 3</a>
+                                        </li>
+                                        <li class="subhome__item">
+                                            <a href="" class="subhome__link">Home Page 4</a>
+                                        </li>
+                                        <li class="subhome__item">
+                                            <a href="" class="subhome__link">Home Page 5</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu__item menu__item-furniture">
+                                <a href="Furniture" class="menu__link">FURNITURE</a> 
+                                <div class="submenu-furniture">
+                                    <div class="row surfur__content">
+                                        <div class="subfur__box col">
+                                            <h4 class="subfur__header">TABLE</h4>
+                                            <ul class="subfur__list">
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Kitchen & Dinning Room Table</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Folding Table</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Living Room Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Sofa Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">End Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Coffee Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Pedestal Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Home Office Desks</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="subfur__box col">
+                                            <h4 class="subfur__header">TABLE</h4>
+                                            <ul class="subfur__list">
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Living Room Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Sofa Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">End Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Coffee Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Pedestal Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Home Office Desks</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Kids Furniture</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Kitchen & Dinning Room Sets</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="subfur__box col">
+                                            <h4 class="subfur__header">TABLE</h4>
+                                            <ul class="subfur__list">
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Kitchen & Dinning Room Table</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Folding Table</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">End Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Coffee Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Pedestal Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Home Office Desks</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Kid's Furniture</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Kitchen & Dinning Room Sets</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="subfur__box col">
+                                            <h4 class="subfur__header">TABLE</h4>
+                                            <ul class="subfur__list">
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Dinning Room Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Folding Table</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Living Room Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Sofa Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">End Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Coffee Tables</a>
+                                                </li>
+                                                <li class="subfur__item">
+                                                    <a href="" class="subfur__link">Pedestal Tables</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="subfur__under row">
+                                        <a href="" class="subfur__link">
+                                            <img src="~/Content/assets/images/banner-mega-22.jpg"
+                                                 alt="" class="subfur__img">
+                                        </a>
+                                        <a href="" class="subfur__link">
+                                            <img src="~/Content/assets/images/banner-mega-32.jpg"
+                                                 alt="" class="subfur__img">
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">COFFEE TABLES</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">SOFAS</a>
+                            </li>
+                            <li class="menu__item menu__item-bedroom">
+                                <a href="" class="menu__link">BEDROOM FURNITURE</a>
+                                <div class="subbedroom">
+                                    <div class="subbedroom__content row">
+                                        <div class="subbedroom__box col">
+                                            <div class="subbedroom__box-img">
+                                                <a href="#" class="subbedroom__link">
+                                                    <img src="~/Content/assets/images/category-img-1-250x150.png"
+                                                         width="100%" height="100%" alt="" class="subbedroom__img">
+                                                </a>
+                                                <div class="overlay"></div>
+                                            </div>
+                                            <h5 class="subbedroom__header">SOFA</h5>
+                                            <p class="subbedroom__decription">
+                                                Lorem ipsum dolor sit amet, consectetur
+                                                adipiscing elit. Maecenas eu ornare urna. Suspendisse a lobortis ex, at
+                                                efficitur
+                                            </p>
+                                        </div>
+                                        <div class="subbedroom__box col">
+                                            <div class="subbedroom__box-img">
+                                                <a href="#" class="subbedroom__link">
+                                                    <img src="~/Content/assets/images/avant-garde-design-studios-furniture-250x150.jpg"
+                                                         width="100%" height="100%" alt="" class="subbedroom__img">
+                                                </a>
+                                                <div class="overlay"></div>
+                                            </div>
+                                            <h5 class="subbedroom__header">CHAIR</h5>
+                                            <p class="subbedroom__decription">
+                                                Lorem ipsum dolor sit amet, consectetur
+                                                adipiscing elit. Maecenas eu ornare urna. Suspendisse a lobortis ex, at
+                                                efficitur
+                                            </p>
+                                        </div>
+                                        <div class="subbedroom__box col">
+                                            <div class="subbedroom__box-img">
+                                                <a href="#" class="subbedroom__link">
+                                                    <img src="~/Content/assets/images/furniture-bad-250x150.jpg"
+                                                         width="100%" height="100%" alt="" class="subbedroom__img">
+                                                </a>
+                                                <div class="overlay"></div>
+                                            </div>
+                                            <h5 class="subbedroom__header">BAD</h5>
+                                            <p class="subbedroom__decription">
+                                                Lorem ipsum dolor sit amet, consectetur
+                                                adipiscing elit. Maecenas eu ornare urna. Suspendisse a lobortis ex, at
+                                                efficitur
+                                            </p>
+                                        </div>
+                                        <div class="subbedroom__box col">
+                                            <div class="subbedroom__box-img">
+                                                <a href="#" class="subbedroom__link">
+                                                    <img src="~/Content/assets/images/furniture-chest-250x150.jpg"
+                                                         width="100%" height="100%" alt="" class="subbedroom__img">
+                                                </a>
+                                                <div class="overlay"></div>
+                                            </div>
+                                            <h5 class="subbedroom__header">FURNITURE CHEST</h5>
+                                            <p class="subbedroom__decription">
+                                                Lorem ipsum dolor sit amet, consectetur
+                                                adipiscing elit. Maecenas eu ornare urna. Suspendisse a lobortis ex, at
+                                                efficitur
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu__item menu__item-shop">
+                                <a href="" class="menu__link">SHOP</a>
+                                <div class="submenu-shop">
+                                    <div class="row shop__content">
+                                        <div class="shop__box col">
+                                            <h4 class="shop__header">PRODUCT TYPES</h4>
+                                            <ul class="shop__list">
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">Simple Product</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">Grouped Product</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">Variable Product</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">Variable Product - Color</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">Variable Product - Image</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">External/Affiliate Product</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="shop__box col">
+                                            <h4 class="shop__header">SHOP PAGES</h4>
+                                            <ul class="shop__list">
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">Shopping Cart</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">Checkout</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">My Account</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">Wishlist</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">404</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">Product Tag</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="shop__box col">
+                                            <h4 class="shop__header">SHOP SHORTCODES</h4>
+                                            <ul class="shop__list">
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">SNS Featured Categories</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">SNS Product Tabs</a>
+                                                </li>
+                                                <li class="shop__item">
+                                                    <a href="" class="shop__link">SNS Products</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="menu__item menu__item-blog">
+                                <a href="" class="menu__link">BLOG</a>
+                                <div class="submenu-blog">
+                                    <ul class="subblog__list">
+                                        <li class="subblog__item">
+                                            <a href="" class="subblog__link">Blog FullWidth</a>
+                                        </li>
+                                        <li class="subblog__item">
+                                            <a href="" class="subblog__link">Blog FullWidth 2 Columns</a>
+                                        </li>
+                                        <li class="subblog__item">
+                                            <a href="" class="subblog__link">Blog FullWidth 3 Column</a>
+                                        </li>
+                                        <li class="subblog__item">
+                                            <a href="" class="subblog__link">Blog Masonry</a>
+                                        </li>
+                                        <li class="subblog__item">
+                                            <a href="" class="subblog__link">Blog Left Sidebar</a>
+                                        </li>
+                                        <li class="subblog__item">
+                                            <a href="" class="subblog__link">Blog Right Sidebar</a>
+                                        </li>
+                                        <li class="subblog__item subblog__item-have-sub">
+                                            <a href="" class="subblog__link">
+                                                Single Post <i class="subblog__icon fa-solid fa-arrow-right"></i>
+                                            </a>
+                                            <div class="post">
+                                                <ul class="post__list">
+                                                    <li class="post__item">
+                                                        <a href="#" class="post__link">Standard Post</a>
+                                                    </li>
+                                                    <li class="post__item">
+                                                        <a href="#" class="post__link">Post Format - Gallery</a>
+                                                    </li>
+                                                    <li class="post__item">
+                                                        <a href="#" class="post__link">Post Format - Quote</a>
+                                                    </li>
+                                                    <li class="post__item">
+                                                        <a href="#" class="post__link">Post Format - Video</a>
+                                                    </li>
+                                                    <li class="post__item">
+                                                        <a href="#" class="post__link">Post Format - Link</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu__item menu__item-shortcode">
+                                <a href="" class="menu__link">SHORTCODES</a>
+                                <div class="submenu-code">
+                                    <div class="row code__content">
+                                        <div class="code__box col">
+                                            <h4 class="code__header">SHORTCODES</h4>
+                                            <ul class="code__list">
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">Accordions</a>
+                                                </li>
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">Custom Heading</a>
+                                                </li>
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">Messages</a>
+                                                </li>
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">Progress Bar</a>
+                                                </li>
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">SNS Counter</a>
+                                                </li>
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">SNS Custom Box</a>
+                                                </li>
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">SNS Featured Categories</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="code__box col">
+                                            <h4 class="code__header">SHORTCODES</h4>
+                                            <ul class="code__list">
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">SNS Latest Posts</a>
+                                                </li>
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">SNS Member</a>
+                                                </li>
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">SNS Our Brand</a>
+                                                </li>
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">SNS Product Tabs</a>
+                                                </li>
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">SNS Products</a>
+                                                </li>
+                                                <li class="code__item">
+                                                    <a href="" class="code__link">SNS Testimonials</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="code__box col">
+                                            <a href="#" class="code__link">
+                                                <img src="~/Content/assets/images/vc-short.png"
+                                                     alt="" width="100%" height="100%" class="code-img">
+                                            </a>
+                                        </div>
+
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">CONTACT US</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu__right col">
+                        <i class="menu__icon fa-solid fa-magnifying-glass"></i>
+                        <div class="menu__cart">
+                            <i class="menu__icon menu__icon-shop fa-solid fa-cart-shopping"></i>
+                            <p class="menu__quantity"><span class="red">0</span> ( items )</p>
+                            <div class="subcart">
+                                <p class="subcart__content">
+                                    No products in the cart.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Menu -->
+        <!-- Slider -->
+        <div class="slider">
+            <div class="grid wide">
+                <div class="slider__container row">
+                    <div class="slider__left col l-6  m-6 c-12">
+                        <img src="~/Content/assets/images/2.png" alt=""
+                             class="slider__img">
+                        <div class="slider__transition slider__transition--chosen"></div>
+                        <div class="slider__transition"></div>
+                        <div class="slider__transition"></div>
+                        <div class="slider__transition"></div>
+                    </div>
+                    <div class="slider__right col l-6  m-6 c-12">
+                        <div class="slider__box">
+                            <a href="#" class="slider__link">
+                                <img src="~/Content/assets/images/5.png" width="570"
+                                     height="257" alt="" class="slider__img">
+                            </a>
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="slider__box-bottom row">
+                            <div class="slider__col col">
+                                <img src="~/Content/assets/images/banner1-300x286.jpg"
+                                     alt="" width="300" height="280" class="slider__img">
+                                <div class="overlay"></div>
+                            </div>
+                            <div class="slider__col col">
+                                <img src="~/Content/assets/images/banner2-300x286.jpg"
+                                     alt="" width="300" height="280" class="slider__img">
+                                <div class="overlay overlay__plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Slider -->
+        <!-- Signature -->
+        <div class="signature">
+            <div class="signature__container grid wide">
+                <ul class="signature__list hide-on-mobile hide-on-tablet">
+                    <li class="signature__item signature__item--chosen">
+                        <a href="" class="signature__link"><span class="signature__link--chosen">LATEST</span></a>
+                    </li>
+                    <li class="signature__item">
+                        <a href="" class="signature__link"><span class="signature__link--hover">BEST SELLER</span></a>
+                    </li>
+                    <li class="signature__item">
+                        <a href="" class="signature__link"><span class="signature__link--hover">FEATURED</span></a>
+                    </li>
+                </ul>
+                <div class="signature__product">
+                    <div class="singnature__containter row">
+                        <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
+                            <div class="box__img">
+                                <img src="~/Content/assets/images/17-215x260.jpg"
+                                     alt="" class="signature__product-img">
+                                <div class="signature__subbox">
+                                    <div class="signature__subbox-top">
+                                        <a href="#" class="signature__link signature__link-subbox">
+                                            <p class="signature__add">
+                                                <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="signature__subbox-bottom">
+                                        <a href="#" class="signature__link signature__link-bottom">
+                                            <i class="signature__icon fa-solid fa-heart"></i>
+                                        </a>
+                                        <a href="#" class="signature__link signature__link-bottom">
+                                            <i class="signature__icon fa-solid fa-code-compare"></i>
+                                        </a>
+                                        <a href="#" class="signature__link signature__link-bottom">
+                                            <i class="signature__icon fa-regular fa-eye"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <span class="inSale">SALE!</span>
+                            </div>
+                            <div class="signature__product-decription">
+                                <h4 class="signature__product-name">
+                                    <a href="#" class="signature__link-header">
+                                        Modular
+                                        Modern
+                                    </a>
+                                </h4>
+                                <p class="signature__product-price">
+                                    <span class="signature__product-old">$9.00</span>$7.00
+                                </p>
+                                <div class="signature__product-rate">
+                                    <i class="signature__product-icon fa-regular fa-star"></i>
+                                    <i class="signature__product-icon fa-regular fa-star"></i>
+                                    <i class="signature__product-icon fa-regular fa-star"></i>
+                                    <i class="signature__product-icon fa-regular fa-star"></i>
+                                    <i class="signature__product-icon fa-regular fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="signature__product-box col l-3 m-4 c-6">
+                            <div class="box__img">
+                                <img src="~/Content/assets/images/26-215x260.jpg"
+                                     alt="" class="signature__product-img">
+                                <div class="signature__subbox">
+                                    <div class="signature__subbox-top">
+                                        <a href="#" class="signature__link signature__link-subbox">
+                                            <p class="signature__add">
+                                                <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="signature__subbox-bottom">
+                                        <a href="#" class="signature__link signature__link-bottom">
+                                            <i class="signature__icon fa-solid fa-heart"></i>
+                                        </a>
+                                        <a href="#" class="signature__link signature__link-bottom">
+                                            <i class="signature__icon fa-solid fa-code-compare"></i>
+                                        </a>
+                                        <a href="#" class="signature__link signature__link-bottom">
+                                            <i class="signature__icon fa-regular fa-eye"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="signature__product-decription">
+                                <h4 class="signature__product-name">
+                                    <a href="#" class="signature__link-header">
+                                        Modular
+                                        Modern
+                                    </a>
+                                </h4>
+                                <p class="signature__product-price">$10.00</p>
+                                <div class="signature__product-rate">
+                                    <i class="signature__product-icon signature__product-icon--rated fa-regular fa-star"></i>
+                                    <i class="signature__product-icon signature__product-icon--rated fa-regular fa-star"></i>
+                                    <i class="signature__product-icon signature__product-icon--rated fa-regular fa-star"></i>
+                                    <i class="signature__product-icon signature__product-icon--rated fa-regular fa-star"></i>
+                                    <i class="signature__product-icon fa-regular fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="box-inner box-inner-signature">
+                        <button class="signature__btn">LOAD MORE ITEMS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Signature -->
+        <!-- New Products -->
+        <div class="new-products">
+            <div class="grid wide bg-eaeaea ">
+                <div class="row">
+                    <div class=" new-products__container">
+                        <div class="new-products__box-img col l-6 m-12 c-12">
+                            <img src="~/Content/assets/images/call-to-action.jpg"
+                                 width="425" height="361" alt="" class="new-products__img">
+                        </div>
+                        <div class="new-products__box-decription col l-6 m-12 c-12">
+                            <div class="new-products__padding">
+                                <h4 class="new-products__name">AXEL - STOOL</h4>
+                                <div class="new-products__type">NEW PRODUCTS</div>
+                                <div class="new-products__decription">
+                                    Lorem Ipsum has been the industry’s standard dummy
+                                    text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                                    it to make a type specimen book. It has survived not only five centuries,
+                                </div>
+                                <button class="new-products__btn">BUY NOW</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End New Products -->
+        <!-- Suggest -->
+        <div class="suggest">
+            <div class="grid wide">
+                <h3 class="suggest__header">SUGGEST COLLECTION</h3>
+                <div class="suggest__container row ">
+                    <ul class="suggest__box col hide-on-tablet hide-on-mobile">
+                        <li class="suggest__item suggest__item--chosen col">
+                            <img src="~/Content/assets/images/28-92x110.jpg"
+                                 width="100%" height="100%" alt="" class="suggest__img">
+                            <p class="suggest__product-name">Office chair</p>
+                        </li>
+                        <li class="suggest__item suggest__item--hover col">
+                            <img src="~/Content/assets/images/174801.jpg"
+                                 width="100%" height="100%" alt="" class="suggest__img">
+                            <p class="suggest__product-name">Sofas</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list__product row">
+                    <div class="suggest__product signature__product-box col l-3 m-4 c-6">
+                        <div class="box__img">
+                            <img src="~/Content/assets/images/17-215x260.jpg"
+                                 alt="" class="signature__product-img">
+                            <div class="signature__subbox">
+                                <div class="signature__subbox-top">
+                                    <a href="#" class="signature__link signature__link-subbox">
+                                        <p class="signature__add">
+                                            <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="signature__subbox-bottom">
+                                    <a href="#" class="signature__link signature__link-bottom">
+                                        <i class="signature__icon fa-solid fa-heart"></i>
+                                    </a>
+                                    <a href="#" class="signature__link signature__link-bottom">
+                                        <i class="signature__icon fa-solid fa-code-compare"></i>
+                                    </a>
+                                    <a href="#" class="signature__link signature__link-bottom">
+                                        <i class="signature__icon fa-regular fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="signature__product-decription">
+                            <h4 class="signature__product-name">
+                                <a href="#" class="signature__link-header">
+                                    Modular
+                                    Modern
+                                </a>
+                            </h4>
+                            <p class="signature__product-price">$600.00</p>
+                            <div class="signature__product-rate">
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suggest__product signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
+                        <div class="box__img">
+                            <img src="~/Content/assets/images/10-215x260.jpg"
+                                 alt="" class="signature__product-img">
+                            <div class="signature__subbox">
+                                <div class="signature__subbox-top">
+                                    <a href="#" class="signature__link signature__link-subbox">
+                                        <p class="signature__add">
+                                            <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="signature__subbox-bottom">
+                                    <a href="#" class="signature__link signature__link-bottom">
+                                        <i class="signature__icon fa-solid fa-heart"></i>
+                                    </a>
+                                    <a href="#" class="signature__link signature__link-bottom">
+                                        <i class="signature__icon fa-solid fa-code-compare"></i>
+                                    </a>
+                                    <a href="#" class="signature__link signature__link-bottom">
+                                        <i class="signature__icon fa-regular fa-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <span class="inSale">SALE!</span>
+                        </div>
+                        <div class="signature__product-decription">
+                            <h4 class="signature__product-name">
+                                <a href="#" class="signature__link-header">
+                                    Modular
+                                    Modern
+                                </a>
+                            </h4>
+                            <p class="signature__product-price">
+                                <span class="signature__product-old">$3.00</span>$2.00
+                            </p>
+                            <div class="signature__product-rate">
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Suggest -->
+        <!-- Posts -->
+        <div class="posts">
+            <div class="grid wide">
+                <div class="posts__container row">
+                    <div class="posts__box col l-6 m-12 c-12">
+                        <div class="posts__img-box">
+                            <a href="#" class="posts__link">
+                                <img src="~/Content/assets/images/baner-shipping.jpg"
+                                     alt="" height="300" class="posts__img">
+                            </a>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                    <div class="posts__box col l-3 m-12 c-12">
+                        <div class="posts__img-box">
+                            <a href="#" class="posts__link">
+                                <img src="~/Content/assets/images/banner3.jpg"
+                                     width="300" height="300" alt="" class="posts__img">
+                            </a>
+                            <div class="overlay overlay__plus">+</div>
+                        </div>
+                    </div>
+                    <div class="posts__box col l-3 m-12 c-12">
+                        <div class="posts__img-box">
+                            <a href="#" class="posts__link">
+                                <img src="~/Content/assets/images/banner4.jpg"
+                                     alt="" height="300" class="posts__img">
+                            </a>
+                            <div class="overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Posts -->
+        <!-- Most Viewed -->
+        <div class="most">
+            <div class="grid wide">
+                <div class="most__container">
+                    <h2 class="most__header">MOST VIEWED</h2>
+                    <div class="most__transition-container">
+                        <button class="most__transition"><i class="most__icon fa-solid fa-arrow-left"></i></button>
+                        <button class="most__transition"><i class="most__icon fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="most-products__more row">
+                    <div class="most__box-products col l-2 m-6 c-6">
+                        <a href="#" class="most-img__link">
+                            <img src="~/Content/assets/images/10-215x260.jpg" alt=""
+                                 width="100%" height="100%" class="most-products__img">
+                        </a>
+                        <div class="most-products__about">
+                            <a href="#" class="most-products__link">
+                                <h5 class="most-products__name">Modular Modern</h5>
+                            </a>
+                            <p class="most-products__price signature__product-price">
+                                <span class="signature__product-old">$3.00</span>$2.00
+                            </p>
+                            <div class="most-products__rate signature__product-rate">
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                            </div>
+                            <a href="#" class="most-products__link">
+                                <p class="most-products__cart">
+                                    <i class="most-products__icon fa-solid fa-cart-shopping"></i>ADD TO CARD
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="most__box-products col l-2 m-6 c-6">
+                        <a href="#" class="most-img__link">
+                            <img src="~/Content/assets/images/24-215x260.jpg" alt=""
+                                 width="100%" height="100%" class="most-products__img">
+                        </a>
+                        <div class="most-products__about">
+                            <a href="#" class="most-products__link">
+                                <h5 class="most-products__name">Variable Product</h5>
+                            </a>
+                            <p class="most-products__price signature__product-price">$7.00 - $9.00</p>
+                            <div class="most-products__rate signature__product-rate">
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                <i class="signature__product-icon fa-regular fa-star"></i>
+                            </div>
+                            <a href="#" class="most-products__link">
+                                <p class="most-products__cart">
+                                    <i class="most-products__icon fa-solid fa-cart-shopping"></i>ADD TO CARD
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- LATEST POSTS -->
+            @* Data *@
+        <div class="latest">
+            <div class="grid wide">
+                <div class="latest__container most__container">
+                    <h2 class="latest__header most__header">LATEST POSTS</h2>
+                    <div class="latest__transition-container most__transition-container">
+                        <button class="latest__transition most__transition">
+                            <i class="latest__icon most__icon fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button class="latest__transition most__transition">
+                            <i class="latest__icon most__icon fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="latest__div row">
+                    <div class="latest__posts col l-4 m-12 c-12">
+                        <div class="latest__box-img">
+                            <img src="~/Content/assets/images/110-370x190.jpg"
+                                 alt="" class="latest__img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="latest__about">
+                            <div class="latest__date">
+                                <p class="date">3</p>
+                                <p class="lastest__month">NOV</p>
+                            </div>
+                            <div class="latest__content">
+                                <p class="latest__user">Admin</p>
+                                <h6 class="latest__topic">Richard McClintock at Hampden-Sydney</h6>
+                                <p class="latest__decription">
+                                    Latin professor at Hampden-Sydney College in Virginia,
+                                    looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
+                                    passage, and going through the cites of the word in classical literature, discovered
+                                    the undoubtable source.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="latest__posts col l-4 m-12 c-12">
+                        <div class="latest__box-img">
+                            <img src="~/Content/assets/images/2-blog-370x190.jpg"
+                                 alt="" class="latest__img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="latest__about">
+                            <div class="latest__date">
+                                <p class="date">3</p>
+                                <p class="lastest__month">NOV</p>
+                            </div>
+                            <div class="latest__content">
+                                <p class="latest__user">Admin</p>
+                                <h6 class="latest__topic">Latin professor at Hampden-Sydney</h6>
+                                <p class="latest__decription">
+                                    Richard McClintock, a Latin professor at Hampden-Sydney
+                                    College in Virginia, looked up one of the more obscure Latin words, consectetur,
+                                    from a Lorem Ipsum passage, and going through the cites of the word in classical
+                                    literature.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="latest__posts col l-4 m-12 c-12">
+                        <div class="latest__box-img">
+                            <img src="~/Content/assets/images/richard-3-370x190.jpg"
+                                 alt="" class="latest__img">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="latest__about">
+                            <div class="latest__date">
+                                <p class="date">3</p>
+                                <p class="lastest__month">NOV</p>
+                            </div>
+                            <div class="latest__content">
+                                <p class="latest__user">Admin</p>
+                                <h6 class="latest__topic">Morbi semper eros sit amet mi molestie</h6>
+                                <p class="latest__decription">
+                                    Richard McClintock, a Latin professor at Hampden-Sydney
+                                    College in Virginia, looked up one of the more obscure Latin words, consectetur,
+                                    from a Lorem Ipsum passage, and going through the cites of the word in classical
+                                    literature.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End lastest -->
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar__container grid wide">
+                <div class="sidebar__box row">
+                    <div class="sidebar__box-img col l-4 m-4 c-6">
+                        <a href="http://snstheme.com/" class="sidebar__link">
+                            <img src="~/Content/assets/images/lamino.png"
+                                 width="100%" height="100%" alt="" class="sidebar__img">
+                        </a>
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="sidebar__box-img col l-4 m-4 c-6">
+                        <a href="http://snstheme.com/" class="sidebar__link">
+                            <img src="~/Content/assets/images/avio.png" width="100%"
+                                 height="100%" alt="" class="sidebar__img">
+                        </a>
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="sidebar__box-img col l-4 m-4 c-6">
+                        <a href="http://snstheme.com/" class="sidebar__link">
+                            <img src="~/Content/assets/images/nova.png" width="100%"
+                                 height="100%" alt="" class="sidebar__img">
+                        </a>
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="sidebar__box-img col l-4 m-4 c-6">
+                        <a href="http://snstheme.com/" class="sidebar__link">
+                            <img src="~/Content/assets/images/avan.png" width="100%"
+                                 height="100%" alt="" class="sidebar__img">
+                        </a>
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="sidebar__box-img col l-4 m-4 c-6">
+                        <a href="http://snstheme.com/" class="sidebar__link">
+                            <img src="~/Content/assets/images/nazic.png" width="100%"
+                                 height="100%" alt="" class="sidebar__img">
+                        </a>
+                        <div class="overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Sidebar -->
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="grid wide">
+                <div class="footer__container row">
+                    <div class="footer__box col l-4 m-6 c-6">
+                        <h4 class="footer__header">CONTACT US</h4>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <div class="footer__box-icon">
+                                    <i class="footer__icon fa-solid fa-house"></i>
+                                </div>
+                                <a href="" class="footer__link">8888 South Avenue Street, New York</a>
+                            </li>
+                            <li class="footer__item">
+                                <div class="footer__box-icon">
+                                    <i class="footer__icon fa-solid fa-phone"></i>
+                                </div>
+                                <div class="footer__about">
+                                    <a href="" class="footer__link">(12) 3 456 7896</a>
+                                    <a href="" class="footer__link">(12) 3 456 7895</a>
+                                </div>
+                            </li>
+                            <li class="footer__item">
+                                <div class="footer__box-icon">
+                                    <i class="footer__icon fa-regular fa-envelope"></i>
+                                </div>
+                                <div class="footer__about">
+                                    <a href="" class="footer__link">contact@simen.com</a>
+                                    <a href="" class="footer__link">info@simen.com</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__box col l-4 m-6 c-6">
+                        <h4 class="footer__header">SERVICE</h4>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Prices & Currencies</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Secure Payment</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Delivery Times & Costs</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Returns & Exchanges</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">FAQ's</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__box col l-4 m-6 c-6">
+                        <h4 class="footer__header">ACCOUNT</h4>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="" class="footer__link">My Account</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Wishlist</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Order History</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Specials</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Gift Vouchers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__box col l-4 m-6 c-6">
+                        <h4 class="footer__header">INFORMATION</h4>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="" class="footer__link">My Account</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Wishlist</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Order History</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Specials</a>
+                            </li>
+                            <li class="footer__item">
+                                <a href="" class="footer__link">Gift Vouchers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__box col l-4 m-6 c-6">
+                        <h4 class="footer__header">NEWSLETTER</h4>
+                        <p class="register">Register your email for news</p>
+                        <input class="footer__input" type="email" placeholder="Your email here">
+                        <button class="footer__btn">SUBCRIBE</button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+        <!-- Powered -->
+        <div class="powered">
+            <div class="grid wide">
+                <div class="powered__container row">
+                    <p class="powered__decription">© 2015 Ecommerce software by Wordpress™ Designed by SNSTheme.Com</p>
+                    <div class="powered__donate">
+                        <img src="~/Content/assets/images/payment.png" alt=""
+                             class="powered__img">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Powered -->
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+.content__header{
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+.login__header{
+    padding: 16px 0px;
+    font-size: 2.4rem;
+    font-weight: 400;
+}
+
+.login__container{
+    padding: 20px;
+    border: 1px solid #d3ced2;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    color: #666;
+}
+
+.login__input{
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px 0px;
+    border: 1px solid #d3ced2;
+}
+
+.login__btn{
+    padding:8px 10px;
+    color: #666;
+    background-color: white;
+    border: 1px solid #d3ced2;
+    cursor: pointer;
+}
+
+.login__btn:hover{
+    background-color: #e34444;
+    border: 1px solid #e34444;
+    color: white;
+    transition: 0.3s;
+}

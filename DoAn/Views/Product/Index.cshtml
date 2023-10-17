@@ -1,0 +1,493 @@
+﻿@model IEnumerable<DoAn.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="~/Content/assets/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="~/Content/assets/css/main.css">
+    <link rel="stylesheet" href="~/Content/assets/css/grid.css">
+    <link rel="stylesheet" href="~/Content/assets/css/responsive.css">
+    <link rel="stylesheet" href="~/Content/assets/css/login.css">
+    <link rel="stylesheet" href="~/Content/assets/css/details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>SNS Simen - Clone</title>
+</head>
+
+
+<!-- Menu -->
+<div class="grid wide">
+    <div class="menu">
+        <div class="menu__content row">
+            <div class="menu__left ">
+                <label for="menu-mobile-tablet-input" class="menu__link menu__link--icon-mobile-tablet hide"><i class="menu__icon fa-solid fa-bars"></i></label>
+                <input type="checkbox" class="menu__input" id="menu-mobile-tablet-input">
+                <label for="menu-mobile-tablet-input" class="menu__overlay"></label>
+                <div class="menu__infomation--mobile-tablet hide">
+                    <ul class="menu__list">
+                        <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Home</a></li>
+                        <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Furniture</a></li>
+                        <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Coffee Table</a></li>
+                        <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Sofas</a></li>
+                        <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Bedroom furniture</a></li>
+                        <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Shop</a></li>
+                        <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Blog</a></li>
+                        <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Shortcodes</a></li>
+                        <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Contact us</a></li>
+                    </ul>
+                </div>
+                <ul class="menu__list hide-on-mobile hide-on-tablet">
+                    <li class="menu__item">
+                        <a href="Index" class="menu__link">HOME</a>
+                        <div class="submenu-home">
+                            <ul class="subhome__list">
+                                <li class="subhome__item">
+                                    <a href="" class="subhome__link subhome__link--chosen">Home Page 1</a>
+                                </li>
+                                <li class="subhome__item">
+                                    <a href="" class="subhome__link">Home Page 2</a>
+                                </li>
+                                <li class="subhome__item">
+                                    <a href="" class="subhome__link">Home Page 3</a>
+                                </li>
+                                <li class="subhome__item">
+                                    <a href="" class="subhome__link">Home Page 4</a>
+                                </li>
+                                <li class="subhome__item">
+                                    <a href="" class="subhome__link">Home Page 5</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu__item menu__item-furniture">
+                        <a href="" class="menu__link menu__link--chosen">FURNITURE</a>
+                        <div class="submenu-furniture">
+                            <div class="row surfur__content">
+                                <div class="subfur__box col">
+                                    <h4 class="subfur__header">TABLE</h4>
+                                    <ul class="subfur__list">
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Kitchen & Dinning Room Table</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Folding Table</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Living Room Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Sofa Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">End Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Coffee Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Pedestal Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Home Office Desks</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="subfur__box col">
+                                    <h4 class="subfur__header">TABLE</h4>
+                                    <ul class="subfur__list">
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Living Room Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Sofa Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">End Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Coffee Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Pedestal Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Home Office Desks</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Kids Furniture</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Kitchen & Dinning Room Sets</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="subfur__box col">
+                                    <h4 class="subfur__header">TABLE</h4>
+                                    <ul class="subfur__list">
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Kitchen & Dinning Room Table</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Folding Table</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">End Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Coffee Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Pedestal Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Home Office Desks</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Kid's Furniture</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Kitchen & Dinning Room Sets</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="subfur__box col">
+                                    <h4 class="subfur__header">TABLE</h4>
+                                    <ul class="subfur__list">
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Dinning Room Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Folding Table</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Living Room Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Sofa Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">End Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Coffee Tables</a>
+                                        </li>
+                                        <li class="subfur__item">
+                                            <a href="" class="subfur__link">Pedestal Tables</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="subfur__under row">
+                                <a href="" class="subfur__link">
+                                    <img src="./assets/img/banner-mega-22.jpg"
+                                         alt="" class="subfur__img">
+                                </a>
+                                <a href="" class="subfur__link">
+                                    <img src="./assets/img/banner-mega-32.jpg"
+                                         alt="" class="subfur__img">
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu__item">
+                        <a href="" class="menu__link">COFFEE TABLES</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="" class="menu__link">SOFAS</a>
+                    </li>
+                    <li class="menu__item menu__item-bedroom">
+                        <a href="" class="menu__link">BEDROOM FURNITURE</a>
+                        <div class="subbedroom">
+                            <div class="subbedroom__content row">
+                                <div class="subbedroom__box col">
+                                    <div class="subbedroom__box-img">
+                                        <a href="#" class="subbedroom__link">
+                                            <img src="~/Content/assets/images/category-img-1-250x150.png"
+                                                 width="100%" height="100%" alt="" class="subbedroom__img">
+                                        </a>
+                                        <div class="overlay"></div>
+                                    </div>
+                                    <h5 class="subbedroom__header">SOFA</h5>
+                                    <p class="subbedroom__decription">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Maecenas eu ornare urna. Suspendisse a lobortis ex, at
+                                        efficitur
+                                    </p>
+                                </div>
+                                <div class="subbedroom__box col">
+                                    <div class="subbedroom__box-img">
+                                        <a href="#" class="subbedroom__link">
+                                            <img src="~/Content/assets/images/avant-garde-design-studios-furniture-250x150.jpg"
+                                                 width="100%" height="100%" alt="" class="subbedroom__img">
+                                        </a>
+                                        <div class="overlay"></div>
+                                    </div>
+                                    <h5 class="subbedroom__header">CHAIR</h5>
+                                    <p class="subbedroom__decription">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Maecenas eu ornare urna. Suspendisse a lobortis ex, at
+                                        efficitur
+                                    </p>
+                                </div>
+                                <div class="subbedroom__box col">
+                                    <div class="subbedroom__box-img">
+                                        <a href="#" class="subbedroom__link">
+                                            <img src="~/Content/assets/images/furniture-bad-250x150.jpg"
+                                                 width="100%" height="100%" alt="" class="subbedroom__img">
+                                        </a>
+                                        <div class="overlay"></div>
+                                    </div>
+                                    <h5 class="subbedroom__header">BAD</h5>
+                                    <p class="subbedroom__decription">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Maecenas eu ornare urna. Suspendisse a lobortis ex, at
+                                        efficitur
+                                    </p>
+                                </div>
+                                <div class="subbedroom__box col">
+                                    <div class="subbedroom__box-img">
+                                        <a href="#" class="subbedroom__link">
+                                            <img src="~/Content/assets/images/furniture-chest-250x150.jpg"
+                                                 width="100%" height="100%" alt="" class="subbedroom__img">
+                                        </a>
+                                        <div class="overlay"></div>
+                                    </div>
+                                    <h5 class="subbedroom__header">FURNITURE CHEST</h5>
+                                    <p class="subbedroom__decription">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Maecenas eu ornare urna. Suspendisse a lobortis ex, at
+                                        efficitur
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu__item menu__item-shop">
+                        <a href="" class="menu__link">SHOP</a>
+                        <div class="submenu-shop">
+                            <div class="row shop__content">
+                                <div class="shop__box col">
+                                    <h4 class="shop__header">PRODUCT TYPES</h4>
+                                    <ul class="shop__list">
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">Simple Product</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">Grouped Product</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">Variable Product</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">Variable Product - Color</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">Variable Product - Image</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">External/Affiliate Product</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop__box col">
+                                    <h4 class="shop__header">SHOP PAGES</h4>
+                                    <ul class="shop__list">
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">Shopping Cart</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">Checkout</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">My Account</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">Wishlist</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">404</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">Product Tag</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop__box col">
+                                    <h4 class="shop__header">SHOP SHORTCODES</h4>
+                                    <ul class="shop__list">
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">SNS Featured Categories</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">SNS Product Tabs</a>
+                                        </li>
+                                        <li class="shop__item">
+                                            <a href="" class="shop__link">SNS Products</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                    </li>
+                    <li class="menu__item">
+                        <a href="" class="menu__link">CONTACT US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Menu -->
+<!-- Location -->
+<div class="location">
+    <div class="grid wide">
+        <div class="location__container">
+            <a href="Index" class="location__link"><i class="location__icon fa-solid fa-house"></i></a>
+            <p class="location__text">/ Furniture</p>
+        </div>
+    </div>
+</div>
+<!-- End Location -->
+<!-- Content -->
+<div class="content">
+    <div class="grid wide">
+        <div class="content__container row">
+            <div class="content-left col l-3 m-0 c-0">
+                <div class="content-left__box">
+                    <h3 class="content-left__header">ALL CATEGORIES</h3>
+                    <div class="content-left__box content-left__box--under">
+                        <ul class="content-left__list">
+                            <li class="content-left__item"><a href="" class="content-left__link">Bad</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Bedroom furniture</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Chair</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Coffee chair</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Coffee Tables</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Computer Chair</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Furniture</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Furniture chest</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Good chair</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Ipsum Chair</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @* Data *@
+            <div class="content-right col l-9">
+                <div class="content__box-img">
+                    <img src="~/Content/assets/images/shop-featured.png" width="100%" height="80%" alt="" class="content-right__img">
+                </div>
+                <h3 class="content-right__header">Furniture</h3>
+                <hr>
+                <div class="content__product signature__product">
+                    <div class="singnature__containter row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
+                                <div class="box__img">
+                                    <img src="~/Content/assets/images/17-215x260.jpg"
+                                         alt="" class="signature__product-img">
+                                    <div class="signature__subbox">
+                                        <div class="signature__subbox-top">
+                                            <a href="#" class="signature__link signature__link-subbox">
+                                                <p class="signature__add">
+                                                    <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
+                                                </p>
+                                            </a>
+                                        </div>
+                                        <div class="signature__subbox-bottom">
+                                            <a href="#" class="signature__link signature__link-bottom">
+                                                <i class="signature__icon fa-solid fa-heart"></i>
+                                            </a>
+                                            <a href="#" class="signature__link signature__link-bottom">
+                                                <i class="signature__icon fa-solid fa-code-compare"></i>
+                                            </a>
+                                            <a href="#" class="signature__link signature__link-bottom">
+                                                <i class="signature__icon fa-regular fa-eye"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <span class="inSale">SALE!</span>
+                                </div>
+                                <div class="signature__product-decription">
+                                    <h4 class="signature__product-name">
+                                        -->
+                                        @*<a href="#" class="signature__link-header">
+                            Modular
+                            Modern
+                        </a>*@
+                                        <a href="#" class="signature__link-header">@Html.DisplayFor(model => item.Namepro)</a>
+                                    </h4>
+                                    <p class="signature__product-price">
+                                        @Html.DisplayFor(model => item.Price)
+                                    </p>
+                                    <div class="signature__product-rate">
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @* PRODUCT TRONG DAY *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+<!-- Slider bar -->
+<div class="sidebar">
+    <div class="sidebar__container grid wide">
+        <div class="sidebar__box row">
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/lamino.png"
+                         width="100%" height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/avio.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/nova.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/avan.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/nazic.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Sidebar -->
+
+
+
+

@@ -1028,6 +1028,7 @@ html{
     background-color: black;
     color: white;
     padding: 8px 12px;
+    text-align:center;
 }
 
 .signature__subbox-top:hover{
@@ -1038,7 +1039,9 @@ html{
 
 .signature__add{
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+    text-decoration:none;
+    color:white;
 }
 
 .signature__icon{

@@ -188,6 +188,7 @@
     <Content Include="Content\assets\css\LoadingCss.css" />
     <Content Include="Content\assets\css\login.css" />
     <Content Include="Content\assets\css\main.css" />
+    <Content Include="Content\assets\css\NoLogin.css" />
     <Content Include="Content\assets\css\responsive.css" />
     <Content Include="Content\assets\favicon\about.txt" />
     <Content Include="Content\assets\favicon\android-chrome-192x192.png" />
@@ -234,17 +235,28 @@
     <Content Include="Content\assets\images\download.jfif" />
     <Content Include="Content\assets\images\download.png" />
     <Content Include="Content\assets\images\Ergonomic-Office-Furniture-Design-of-Active-Surface-Table-in-Orange-by-Isis-Concepts-130x98.jpg" />
+    <Content Include="Content\assets\images\f536263bd90eb76600ad2e8516095de5.jpg" />
     <Content Include="Content\assets\images\fbdf4fffd2148e84ac0926a39b5bd112.jpg" />
     <Content Include="Content\assets\images\furniture-bad-250x150.jpg" />
     <Content Include="Content\assets\images\furniture-chest-250x150.jpg" />
     <Content Include="Content\assets\images\Furniture-Design-Chair-Yo5Rxnaa-130x98.jpg" />
+    <Content Include="Content\assets\images\HD MON FARMHOUSE.jfif" />
+    <Content Include="Content\assets\images\HD MON FARMHOUSE.jpg" />
     <Content Include="Content\assets\images\lamino.png" />
     <Content Include="Content\assets\images\linhitnh.jpg" />
+    <Content Include="Content\assets\images\livingrooomm.jpg" />
     <Content Include="Content\assets\images\logo.png" />
     <Content Include="Content\assets\images\LOKOnity on Twitter.jpg" />
     <Content Include="Content\assets\images\nazic.png" />
     <Content Include="Content\assets\images\nova.png" />
     <Content Include="Content\assets\images\payment.png" />
+    <Content Include="Content\assets\images\pexels-andrew-neel-2859169.jpg" />
+    <Content Include="Content\assets\images\pexels-dineth-siriwardana-6775662.jpg" />
+    <Content Include="Content\assets\images\pexels-min-an-1310182.jpg" />
+    <Content Include="Content\assets\images\pexels-pavel-danilyuk-7222023.jpg" />
+    <Content Include="Content\assets\images\pexels-pixabay-276528.jpg" />
+    <Content Include="Content\assets\images\pexels-vishva-patel-6216240.jpg" />
+    <Content Include="Content\assets\images\Premium Photo _ Modern home and decoration mock up furniture and interior design of living room and green wall texture background 3d rendering.jpg" />
     <Content Include="Content\assets\images\richard-3-370x190.jpg" />
     <Content Include="Content\assets\images\shop-featured.png" />
     <Content Include="Content\assets\images\Thế giới của tớ không có cậu.jpg" />
@@ -339,6 +351,7 @@
     <Content Include="Views\ShoppingCart\CheckOut_Success.cshtml" />
     <Content Include="Views\ShoppingCart\MoneyCart.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Home\NoLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

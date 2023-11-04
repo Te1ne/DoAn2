@@ -36,7 +36,7 @@ namespace DoAn.Controllers
                     filename = filename + extent;
                     pro.ImagePro = "~/Content/assets/images/" + filename;
                     pro.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/assets/images/"), filename));
-                    pro.Price *= 24000;
+                    pro.Price *= 24;
                 }
                 db.Products.Add(pro);
                 db.SaveChanges();

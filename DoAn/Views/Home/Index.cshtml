@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<DoAn.Models.Product>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,6 +7,10 @@
 
 <body>
     <div class="main">
+        @{var user = Session["Account"] as DoAn.Models.Account;}
+
+        @if(user != null)
+        {
         <!-- Slider -->
         <div class="slider">
             <div class="grid wide">
@@ -60,225 +64,57 @@
                 </ul>
                 <div class="signature__product">
                     <div class="singnature__containter row">
-                        <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
-                            <div class="box__img">
-                                <img src="~/Content/assets/images/17-215x260.jpg"
-                                     alt="" class="signature__product-img">
-                                <div class="signature__subbox">
-                                    <div class="signature__subbox-top">
-                                        <a href="#" class="signature__link signature__link-subbox">
-                                            <p class="signature__add">
-                                                <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                            </p>
-                                        </a>
+                        @foreach (var item in Model)
+                        {
+                            <a href="@Url.Action("Details", "Product",new { id = item.Id })">
+                                <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
+                                    <div class="box__img">
+                                        <img src="@Url.Content(item.ImagePro)" alt="" height="380" class="signature__product-img">
+                                        <div class="signature__subbox">
+                                            <div class="signature__subbox-top">
+                                                <a href="#" class="signature__link signature__link-subbox">
+                                                    <a href="/ShoppingCart/AddToCart/@item.Id" class="signature__add">
+                                                        <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
+                                                    </a>
+                                                </a>
+                                            </div>
+                                            <div class="signature__subbox-bottom">
+                                                <a href="#" class="signature__link signature__link-bottom">
+                                                    <i class="signature__icon fa-solid fa-heart"></i>
+                                                </a>
+                                                <a href="#" class="signature__link signature__link-bottom">
+                                                    <i class="signature__icon fa-solid fa-code-compare"></i>
+                                                </a>
+                                                <a href="#" class="signature__link signature__link-bottom">
+                                                    <i class="signature__icon fa-regular fa-eye"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <span class="inSale">SALE!</span>
                                     </div>
-                                    <div class="signature__subbox-bottom">
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-solid fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-solid fa-code-compare"></i>
-                                        </a>
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <span class="inSale">SALE!</span>
-                            </div>
-                            <div class="signature__product-decription">
-                                <h4 class="signature__product-name">
-                                    <a href="#" class="signature__link-header">
-                                        Modular
-                                        Modern
-                                    </a>
-                                </h4>
-                                <p class="signature__product-price">
-                                    <span class="signature__product-old">$9.00</span>$7.00
-                                </p>
-                                <div class="signature__product-rate">
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="signature__product-box col l-3 m-4 c-6">
-                            <div class="box__img">
-                                <img src="~/Content/assets/images/26-215x260.jpg"
-                                     alt="" class="signature__product-img">
-                                <div class="signature__subbox">
-                                    <div class="signature__subbox-top">
-                                        <a href="#" class="signature__link signature__link-subbox">
-                                            <p class="signature__add">
-                                                <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                            </p>
-                                        </a>
-                                    </div>
-                                    <div class="signature__subbox-bottom">
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-solid fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-solid fa-code-compare"></i>
-                                        </a>
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-regular fa-eye"></i>
-                                        </a>
+                                    <div class="signature__product-decription">
+                                        <h4 class="signature__product-name">
+                                            <a href="@Url.Action("Details", "Product",new { id = item.Id })" class="signature__link-header">
+                                                @Html.DisplayFor(model => item.NamePro)
+                                            </a>
+                                        </h4>
+                                        <p class="signature__product-price">
+                                            @Html.DisplayFor(model => item.Price)
+                                        </p>
+                                        <div class="signature__product-rate">
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="signature__product-decription">
-                                <h4 class="signature__product-name">
-                                    <a href="#" class="signature__link-header">
-                                        Modular
-                                        Modern
-                                    </a>
-                                </h4>
-                                <p class="signature__product-price">$10.00</p>
-                                <div class="signature__product-rate">
-                                    <i class="signature__product-icon signature__product-icon--rated fa-regular fa-star"></i>
-                                    <i class="signature__product-icon signature__product-icon--rated fa-regular fa-star"></i>
-                                    <i class="signature__product-icon signature__product-icon--rated fa-regular fa-star"></i>
-                                    <i class="signature__product-icon signature__product-icon--rated fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
-                            <div class="box__img">
-                                <img src="~/Content/assets/images/10-215x260.jpg"
-                                     alt="" class="signature__product-img">
-                                <div class="signature__subbox">
-                                    <div class="signature__subbox-top">
-                                        <a href="#" class="signature__link signature__link-subbox">
-                                            <p class="signature__add">
-                                                <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                            </p>
-                                        </a>
-                                    </div>
-                                    <div class="signature__subbox-bottom">
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-solid fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-solid fa-code-compare"></i>
-                                        </a>
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <span class="inSale">SALE!</span>
-                            </div>
-                            <div class="signature__product-decription">
-                                <h4 class="signature__product-name">
-                                    <a href="#" class="signature__link-header">
-                                        Modular
-                                        Modern
-                                    </a>
-                                </h4>
-                                <p class="signature__product-price">
-                                    <span class="signature__product-old">$3.00</span>$2.00
-                                </p>
-                                <div class="signature__product-rate">
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="signature__product-box col l-3 m-4 c-6">
-                            <div class="box__img">
-                                <img src="~/Content/assets/images/24-215x260.jpg"
-                                     alt="" class="signature__product-img">
-                                <div class="signature__subbox">
-                                    <div class="signature__subbox-top">
-                                        <a href="#" class="signature__link signature__link-subbox">
-                                            <p class="signature__add">
-                                                <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                            </p>
-                                        </a>
-                                    </div>
-                                    <div class="signature__subbox-bottom">
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-solid fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-solid fa-code-compare"></i>
-                                        </a>
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="signature__product-decription">
-                                <h4 class="signature__product-name">
-                                    <a href="#" class="signature__link-header">
-                                        Modular
-                                        Modern
-                                    </a>
-                                </h4>
-                                <p class="signature__product-price">$13.00</p>
-                                <div class="signature__product-rate">
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="signature__product-box col l-3 m-4 c-6">
-                            <div class="box__img">
-                                <img src="~/Content/assets/images/3-215x260.jpg"
-                                     alt="" class="signature__product-img">
-                                <div class="signature__subbox">
-                                    <div class="signature__subbox-top">
-                                        <a href="#" class="signature__link signature__link-subbox">
-                                            <p class="signature__add">
-                                                <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                            </p>
-                                        </a>
-                                    </div>
-                                    <div class="signature__subbox-bottom">
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-solid fa-heart"></i>
-                                        </a>
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-solid fa-code-compare"></i>
-                                        </a>
-                                        <a href="#" class="signature__link signature__link-bottom">
-                                            <i class="signature__icon fa-regular fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="signature__product-decription">
-                                <h4 class="signature__product-name">
-                                    <a href="#" class="signature__link-header">
-                                        Modular
-                                        Modern
-                                    </a>
-                                </h4>
-                                <p class="signature__product-price">$14.00</p>
-                                <div class="signature__product-rate">
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                    <i class="signature__product-icon fa-regular fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
+                            </a>
+                        }
                     </div>
                     <div class="box-inner box-inner-signature">
-                        <button class="signature__btn">LOAD MORE ITEMS</button>
+                        <a style="text-decoration:none" href="@Url.Action("Index","Product")" class="signature__btn">LOAD MORE ITEMS</a>
                     </div>
                 </div>
             </div>
@@ -302,7 +138,7 @@
                                     text ever since the 1500s, when an unknown printer took a galley of type and scrambled
                                     it to make a type specimen book. It has survived not only five centuries,
                                 </div>
-                                <button class="new-products__btn">BUY NOW</button>
+                                <a href="@Url.Action("Index","Product")" style="text-decoration:none" class="new-products__btn">BUY NOW</a>
                             </div>
                         </div>
                     </div>
@@ -314,7 +150,7 @@
         <div class="suggest">
             <div class="grid wide">
                 <h3 class="suggest__header">SUGGEST COLLECTION</h3>
-                <div class="suggest__container row ">
+                @*<div class="suggest__container row ">
                     <ul class="suggest__box col hide-on-tablet hide-on-mobile">
                         <li class="suggest__item suggest__item--chosen col">
                             <img src="~/Content/assets/images/28-92x110.jpg"
@@ -362,224 +198,55 @@
                             <p class="suggest__product-name">Living Room</p>
                         </li>
                     </ul>
-                </div>
+                </div>*@
                 <div class="list__product row">
-                    <div class="suggest__product signature__product-box col l-3 m-4 c-6">
-                        <div class="box__img">
-                            <img src="~/Content/assets/images/17-215x260.jpg"
-                                 alt="" class="signature__product-img">
-                            <div class="signature__subbox">
-                                <div class="signature__subbox-top">
-                                    <a href="#" class="signature__link signature__link-subbox">
-                                        <p class="signature__add">
-                                            <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                        </p>
-                                    </a>
+                    @foreach (var item in Model)
+                    {
+                        <a href="@Url.Action("Details", "Product",new { id = item.Id })">
+                            <div class="suggest__product signature__product-box col l-3 m-4 c-6">
+                                <div class="box__img">
+                                    <img src="@Url.Content(item.ImagePro)" alt="" height="380" class="signature__product-img">
+                                    <div class="signature__subbox">
+                                        <div class="signature__subbox-top">
+                                            <a href="#" class="signature__link signature__link-subbox">
+                                                <a href="/ShoppingCart/AddToCart/@item.Id" class="signature__link signature__link-subbox">
+                                                    <p class="signature__add">
+                                                        <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
+                                                    </p>
+                                                </a>
+                                            </a>
+                                        </div>
+                                        <div class="signature__subbox-bottom">
+                                            <a href="#" class="signature__link signature__link-bottom">
+                                                <i class="signature__icon fa-solid fa-heart"></i>
+                                            </a>
+                                            <a href="#" class="signature__link signature__link-bottom">
+                                                <i class="signature__icon fa-solid fa-code-compare"></i>
+                                            </a>
+                                            <a href="#" class="signature__link signature__link-bottom">
+                                                <i class="signature__icon fa-regular fa-eye"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="signature__subbox-bottom">
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-solid fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-solid fa-code-compare"></i>
-                                    </a>
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-regular fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="signature__product-decription">
-                            <h4 class="signature__product-name">
-                                <a href="#" class="signature__link-header">
-                                    Modular
-                                    Modern
-                                </a>
-                            </h4>
-                            <p class="signature__product-price">$600.00</p>
-                            <div class="signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="suggest__product signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
-                        <div class="box__img">
-                            <img src="~/Content/assets/images/10-215x260.jpg"
-                                 alt="" class="signature__product-img">
-                            <div class="signature__subbox">
-                                <div class="signature__subbox-top">
-                                    <a href="#" class="signature__link signature__link-subbox">
-                                        <p class="signature__add">
-                                            <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="signature__subbox-bottom">
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-solid fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-solid fa-code-compare"></i>
-                                    </a>
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-regular fa-eye"></i>
-                                    </a>
+                                <div class="signature__product-decription">
+                                    <h4 class="signature__product-name">
+                                        <a href="@Url.Action("Details", "Product",new { id = item.Id })" class="signature__link-header">
+                                            @Html.DisplayFor(model => item.NamePro)
+                                        </a>
+                                    </h4>
+                                    <p class="signature__product-price">@Html.DisplayFor(model => item.Price)</p>
+                                    <div class="signature__product-rate">
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <span class="inSale">SALE!</span>
-                        </div>
-                        <div class="signature__product-decription">
-                            <h4 class="signature__product-name">
-                                <a href="#" class="signature__link-header">
-                                    Modular
-                                    Modern
-                                </a>
-                            </h4>
-                            <p class="signature__product-price">
-                                <span class="signature__product-old">$3.00</span>$2.00
-                            </p>
-                            <div class="signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="suggest__product signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
-                        <div class="box__img">
-                            <img src="~/Content/assets/images/26-215x260.jpg"
-                                 alt="" class="signature__product-img">
-                            <div class="signature__subbox">
-                                <div class="signature__subbox-top">
-                                    <a href="#" class="signature__link signature__link-subbox">
-                                        <p class="signature__add">
-                                            <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="signature__subbox-bottom">
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-solid fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-solid fa-code-compare"></i>
-                                    </a>
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-regular fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <span class="inSale">SALE!</span>
-                        </div>
-                        <div class="signature__product-decription">
-                            <h4 class="signature__product-name">
-                                <a href="#" class="signature__link-header">
-                                    Modular
-                                    Modern
-                                </a>
-                            </h4>
-                            <p class="signature__product-price">
-                                <span class="signature__product-old">$9.00</span>$8.00
-                            </p>
-                            <div class="signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="suggest__product signature__product-box col l-3 m-4 c-6">
-                        <div class="box__img">
-                            <img src="~/Content/assets/images/24-215x260.jpg"
-                                 alt="" class="signature__product-img">
-                            <div class="signature__subbox">
-                                <div class="signature__subbox-top">
-                                    <a href="#" class="signature__link signature__link-subbox">
-                                        <p class="signature__add">
-                                            <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="signature__subbox-bottom">
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-solid fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-solid fa-code-compare"></i>
-                                    </a>
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-regular fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="signature__product-decription">
-                            <h4 class="signature__product-name">
-                                <a href="#" class="signature__link-header">
-                                    Modular
-                                    Modern
-                                </a>
-                            </h4>
-                            <p class="signature__product-price">$7.00 - $9.00</p>
-                            <div class="signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="suggest__product signature__product-box col l-3 m-4 c-6">
-                        <div class="box__img">
-                            <img src="~/Content/assets/images/3-215x260.jpg" alt=""
-                                 class="signature__product-img">
-                            <div class="signature__subbox">
-                                <div class="signature__subbox-top">
-                                    <a href="#" class="signature__link signature__link-subbox">
-                                        <p class="signature__add">
-                                            <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="signature__subbox-bottom">
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-solid fa-heart"></i>
-                                    </a>
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-solid fa-code-compare"></i>
-                                    </a>
-                                    <a href="#" class="signature__link signature__link-bottom">
-                                        <i class="signature__icon fa-regular fa-eye"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="signature__product-decription">
-                            <h4 class="signature__product-name">
-                                <a href="#" class="signature__link-header">
-                                    Modular
-                                    Modern
-                                </a>
-                            </h4>
-                            <p class="signature__product-price">$9.00</p>
-                            <div class="signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
+                        </a>
+                    }
                 </div>
             </div>
         </div>
@@ -630,202 +297,54 @@
                     </div>
                 </div>
                 <div class="most-products__more row">
-                    <div class="most__box-products col l-2 m-6 c-6">
-                        <a href="#" class="most-img__link">
-                            <img src="~/Content/assets/images/10-215x260.jpg" alt=""
-                                 width="100%" height="100%" class="most-products__img">
-                        </a>
-                        <div class="most-products__about">
-                            <a href="#" class="most-products__link">
-                                <h5 class="most-products__name">Modular Modern</h5>
-                            </a>
-                            <p class="most-products__price signature__product-price">
-                                <span class="signature__product-old">$3.00</span>$2.00
-                            </p>
-                            <div class="most-products__rate signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <div class="most__box-products col l-2 m-6 c-12">
+                                <a href="@Url.Action("Details", "Product",new { id = item.Id })" class="most-img__link">
+                                    <img src="@Url.Content(item.ImagePro)" alt=""
+                                         width="100%" height="250" class="most-products__img">
+                                </a>
+                                <div class="most-products__about">
+                                    <a href="@Url.Action("Details", "Product",new { id = item.Id })" class="most-products__link">
+                                        @Html.DisplayFor(model => item.NamePro)
+                                    </a>
+                                    <p class="most-products__price signature__product-price">
+                                        @Html.DisplayFor(model => item.Price)
+                                    </p>
+                                    <div class="most-products__rate signature__product-rate">
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                        <i class="signature__product-icon fa-regular fa-star"></i>
+                                    </div>
+                                    <a href="/ShoppingCart/AddToCart/@item.Id" class="most-products__link">
+                                        <p class="most-products__cart">
+                                            <i class="most-products__icon fa-solid fa-cart-shopping"></i>ADD TO CARD
+                                        </p>
+                                    </a>
+                                </div>
                             </div>
-                            <a href="#" class="most-products__link">
-                                <p class="most-products__cart">
-                                    <i class="most-products__icon fa-solid fa-cart-shopping"></i>ADD TO CARD
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="most__box-products col l-2 m-6 c-6">
-                        <a href="#" class="most-img__link">
-                            <img src="~/Content/assets/images/24-215x260.jpg" alt=""
-                                 width="100%" height="100%" class="most-products__img">
-                        </a>
-                        <div class="most-products__about">
-                            <a href="#" class="most-products__link">
-                                <h5 class="most-products__name">Variable Product</h5>
-                            </a>
-                            <p class="most-products__price signature__product-price">$7.00 - $9.00</p>
-                            <div class="most-products__rate signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
+                        }
+                    }
+                    else
+                    {
+                        <h3>No product... Please add more</h3>
+                        @* Add Product *@
+                        <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
+                            <div class="content-box__img content-box__img--add-product">
+                                @Html.ActionLink("+", "Create", "Product", null, new { @class = "a--no-decor" })
+                                <div class="signature__product-decription">
+                                    <h4 class="signature__product-name">
+                                        @Html.ActionLink("Add Product", "Create", "Product", null, new { @class = "signature__link-header" })
+                                    </h4>
+                                </div>
                             </div>
-                            <a href="#" class="most-products__link">
-                                <p class="most-products__cart">
-                                    <i class="most-products__icon fa-solid fa-cart-shopping"></i>ADD TO CARD
-                                </p>
-                            </a>
                         </div>
-                    </div>
-                    <div class="most__box-products col l-2 m-6 c-6">
-                        <a href="#" class="most-img__link">
-                            <img src="~/Content/assets/images/19-215x260.jpg" alt=""
-                                 width="100%" height="100%" class="most-products__img">
-                        </a>
-                        <div class="most-products__about">
-                            <a href="#" class="most-products__link">
-                                <h5 class="most-products__name">Modular Modern</h5>
-                            </a>
-                            <p class="most-products__price signature__product-price">$9.00</p>
-                            <div class="most-products__rate signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                            </div>
-                            <a href="#" class="most-products__link">
-                                <p class="most-products__cart">
-                                    <i class="most-products__icon fa-solid fa-cart-shopping"></i>ADD TO CARD
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="most__box-products col l-2 m-6 c-6">
-                        <a href="#" class="most-img__link">
-                            <img src="~/Content/assets/images/15-215x260.jpg" alt=""
-                                 width="100%" height="100%" class="most-products__img">
-                        </a>
-                        <div class="most-products__about">
-                            <a href="#" class="most-products__link">
-                                <h5 class="most-products__name">Donec cursos</h5>
-                            </a>
-                            <p class="most-products__price signature__product-price">$15.00</p>
-                            <div class="most-products__rate signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                            </div>
-                            <a href="#" class="most-products__link">
-                                <p class="most-products__cart">
-                                    <i class="most-products__icon fa-solid fa-cart-shopping"></i>ADD TO CARD
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="most__box-products col l-2 m-6 c-6">
-                        <a href="#" class="most-img__link">
-                            <img src="~/Content/assets/images/26-215x260.jpg" alt=""
-                                 width="100%" height="100%" class="most-products__img">
-                        </a>
-                        <div class="most-products__about">
-                            <a href="#" class="most-products__link">
-                                <h5 class="most-products__name">External/Affiliate Product</h5>
-                            </a>
-                            <p class="most-products__price signature__product-price">
-                                <span class="signature__product-old">$9.00</span>$8.00
-                            </p>
-                            <div class="most-products__rate signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                            </div>
-                            <a href="#" class="most-products__link">
-                                <p class="most-products__cart">
-                                    <i class="most-products__icon fa-solid fa-cart-shopping"></i>ADD TO CARD
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="most__box-products col l-2 m-6 c-6">
-                        <a href="#" class="most-img__link">
-                            <img src="~/Content/assets/images/3-215x260.jpg" alt=""
-                                 width="100%" height="100%" class="most-products__img">
-                        </a>
-                        <div class="most-products__about">
-                            <a href="#" class="most-products__link">
-                                <h5 class="most-products__name">Modular Modern</h5>
-                            </a>
-                            <p class="most-products__price signature__product-price">$9.00</p>
-                            <div class="most-products__rate signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                            </div>
-                            <a href="#" class="most-products__link">
-                                <p class="most-products__cart">
-                                    <i class="most-products__icon fa-solid fa-cart-shopping"></i>ADD TO CARD
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="most__box-products col l-2 m-6 c-6">
-                        <a href="#" class="most-img__link">
-                            <img src="~/Content/assets/images/28-215x260.jpg" alt=""
-                                 width="100%" height="100%" class="most-products__img">
-                        </a>
-                        <div class="most-products__about">
-                            <a href="#" class="most-products__link">
-                                <h5 class="most-products__name">Modular Modern</h5>
-                            </a>
-                            <p class="most-products__price signature__product-price">$9.00</p>
-                            <div class="most-products__rate signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                            </div>
-                            <a href="#" class="most-products__link">
-                                <p class="most-products__cart">
-                                    <i class="most-products__icon fa-solid fa-cart-shopping"></i>ADD TO CARD
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="most__box-products col l-2 m-6 c-6">
-                        <a href="#" class="most-img__link">
-                            <img src="~/Content/assets/images/11-215x260.jpg" alt=""
-                                 width="100%" height="100%" class="most-products__img">
-                        </a>
-                        <div class="most-products__about">
-                            <a href="#" class="most-products__link">
-                                <h5 class="most-products__name">Modular Modern</h5>
-                            </a>
-                            <p class="most-products__price signature__product-price">$9.00 - $15.00</p>
-                            <div class="most-products__rate signature__product-rate">
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                <i class="signature__product-icon fa-regular fa-star"></i>
-                            </div>
-                            <a href="#" class="most-products__link">
-                                <p class="most-products__cart">
-                                    <i class="most-products__icon fa-solid fa-cart-shopping"></i>ADD TO CARD
-                                </p>
-                            </a>
-                        </div>
-                    </div>
+                        @* End Add Product *@
+                    }
                 </div>
             </div>
         </div>
@@ -960,5 +479,10 @@
             </div>
         </div>
         <!-- End Sidebar -->
+        }
+        else
+        {
+            @Html.Partial("NoLogin")
+        }
     </div>
 </body>

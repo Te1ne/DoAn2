@@ -28,6 +28,7 @@ namespace DoAn.Controllers
             }
             else
             {
+                Session["Account"] = check;
                 db.Configuration.ValidateOnSaveEnabled = false;
                 Session["Email"] = _user.Email;
                 Session["Password_User"] = _user.Password_User;

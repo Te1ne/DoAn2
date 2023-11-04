@@ -38,14 +38,15 @@ namespace DoAn.Controllers
             }
             return cart;
         }
-        public ActionResult AddToCart(int id, Account _user)
+        public ActionResult AddToCart(int id)
         {
             var _pro = db.Products.SingleOrDefault(s => s.Id == id);
-            if (_pro != null) 
+            if (_pro != null && Session["Email"] != null) 
             {
                 GetCart().Add_Product_Cart(_pro);
+                return RedirectToAction("ShowCart", "ShoppingCart");
             }
-            return RedirectToAction("ShowCart", "ShoppingCart");
+            return RedirectToAction("Login", "Login");
         }
         public ActionResult Update_Cart_Quantity(FormCollection form)
         {

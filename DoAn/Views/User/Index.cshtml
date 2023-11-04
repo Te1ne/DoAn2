@@ -1,0 +1,85 @@
+﻿
+@model DoAn.Models.Account
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!-- Location -->
+<div class="location">
+    <div class="grid wide">
+        <div class="location__container">
+            <a href="@Url.Action("Index","Home")" class="location__link"><i class="location__icon fa-solid fa-house"></i></a>
+            <p class="location__text">/ My Account</p>
+        </div>
+    </div>
+</div>
+<!-- End Location -->
+<!-- Content -->
+<div class="content">
+    <div class="grid wide">
+            <h2 class="user__header" style="font-size:3rem">My Account</h2>
+        <div class="content__container row">
+            <div class="content-left col l-4 m-0 c-0">
+                <div class="content-left__box" style="padding:0">
+                    <img src="~/Content/assets/images/user.jpg" width="100%" height="100%"/>
+                </div>
+            </div>
+            <div class="content-right col l-8">
+                @{var user = Session["Account"] as DoAn.Models.Account;}
+                <h3 class="product__name">Id Account: @user.IdAccount</h3>
+                <h3 class="product__name">Email: @user.Email</h3>
+                <h3 class="product__name">Name Account: @user.NameAccount</h3>
+                <h3 class="product__name">City : @user.City</h3>
+                <h3 class="product__name">Phone Number: @user.PhoneNumber</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+<!-- Slider bar -->
+<div class="sidebar">
+    <div class="sidebar__container grid wide">
+        <div class="sidebar__box row">
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/lamino.png"
+                         width="100%" height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/avio.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/nova.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/avan.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/nazic.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Sidebar -->

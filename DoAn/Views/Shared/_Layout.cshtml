@@ -77,13 +77,14 @@
                             </div>
                         </li>
                         <li class="navbar__item hide-on-mobile hide-on-tablet">
-                            @if (Session["Email"] == null)
+                            @{var user = Session["Account"] as DoAn.Models.Account;}
+                            @if (user == null)
                             {
                                 @Html.ActionLink("Login", "Login", "Login", null, new { @class = "navbar__link" })
                             }
                             else
                             {
-                                <span><text>Hello </text>@Session["Email"]</span>
+                                <a href="@Url.Action("Index", "User", new { id = user.IdAccount })" class="navbar__link"><span><text>Hello </text>@user.NameAccount</span></a>
                                 <a href="@Url.Action("LogOut","Login")" class="navbar__link"> Logout</a>
                             }
                         </li>
@@ -92,9 +93,6 @@
                         </li>
                         <li class="navbar__item hide-on-mobile hide-on-tablet">
                             <a href="" class="navbar__link"><i class="navbar__icon fa-regular fa-square-check"></i> Checkout</a>
-                        </li>
-                        <li class="navbar__item hide-on-mobile hide-on-tablet">
-
                         </li>
                     </ul>
                 </div>

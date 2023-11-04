@@ -10,7 +10,7 @@
             <div class="location">
                 <div class="grid wide">
                     <div class="location__container">
-                        <a href="#" class="location__link"><i class="location__icon fa-solid fa-house"></i></a>
+                        <a href="@Url.Action("Index","Home")" class="location__link"><i class="location__icon fa-solid fa-house"></i></a>
                         <p class="location__text">/ Details</p>
                     </div>
                 </div>
@@ -30,7 +30,9 @@
                                 <h3 class="product__name">@Html.DisplayFor(model => model.NamePro)</h3>
                                 <p class="product__price">@Html.DisplayFor(model => model.Price)</p>
                                 <p class="product__decription">@Html.DisplayFor(model => model.Description_Pro)</p>
-                                <a href="/ShoppingCart/AddToCart/@Model.Id" style="display:block; width:100%;text-align:center" class ="signature__link product__btn signature__link-subbox">ADD TO CART</a>
+                                <p class="product__decription">@Html.DisplayFor(model => model.Size)</p>
+                                <p class="product__decription">@Html.DisplayFor(model => model.Color)</p>
+                                <a href="/ShoppingCart/AddToCart/@Model.Id" style="display:block; width:100%;text-align:center" class="signature__link product__btn signature__link-subbox">ADD TO CART</a>
                             </div>
                             @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new {@class = "menu__link edit__link" }) 
                             @Html.ActionLink("Back to List", "Index", null, new { @class = "menu__link" })

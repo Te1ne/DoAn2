@@ -1,0 +1,98 @@
+﻿@model DoAn.Models.Account
+
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
+
+
+<div class="main">
+    <!-- Location -->
+    <div class="location">
+        <div class="grid wide">
+            <div class="location__container">
+                <a href="@Url.Action("Index","Home")" class="location__link"><i class="location__icon fa-solid fa-house"></i></a>
+                <p class="location__text">/ Login</p>
+            </div>
+        </div>
+    </div>
+    <!-- End Location -->
+    <!-- Content -->
+    <div class="content">
+        <div class="grid wide">
+            @using (Html.BeginForm("LoginAccount", "Login"))
+            {
+                @Html.AntiForgeryToken()
+                <h3 class="content__header">My Account</h3>
+                <h4 class="login__header">Login</h4>
+                <div class="login__container">
+                    <p class="login__name">@Html.LabelFor(model => model.Email) <span class="red">*</span></p>
+                    <input class="login__input" id="Email" name="Email" type="email" value="" placeholder="Your Email">
+                    <p>  @Html.ValidationMessageFor(model => model.Email)</p>
+                    <p class="login__name">@Html.LabelFor(model => model.Password_User) <span class="red">*</span></p>
+                    <input class="login__input" id="Password_User" name="Password_User" type="password" value="" placeholder="Your Password">
+                    <p>   @Html.ValidationMessageFor(model => model.Password_User)</p>
+
+                    @if (ViewBag.ErrorInfo == null)
+                    {
+                        <p>@ViewBag.ErrorInfo</p>
+                    }
+                    <input type="submit" value="Login" class="login__btn" />
+                    <a href="Register" class="register">Register</a>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- End Content -->
+    <!-- Slider bar -->
+    <div class="sidebar">
+        <div class="sidebar__container grid wide">
+            <div class="sidebar__box row">
+                <div class="sidebar__box-img col l-4 m-4 c-6">
+                    <a href="http://snstheme.com/" class="sidebar__link">
+                        <img src="~/Content/assets/images/lamino.png"
+                             width="100%" height="100%" alt="" class="sidebar__img">
+                    </a>
+                    <div class="overlay"></div>
+                </div>
+                <div class="sidebar__box-img col l-4 m-4 c-6">
+                    <a href="http://snstheme.com/" class="sidebar__link">
+                        <img src="~/Content/assets/images/avio.png" width="100%"
+                             height="100%" alt="" class="sidebar__img">
+                    </a>
+                    <div class="overlay"></div>
+                </div>
+                <div class="sidebar__box-img col l-4 m-4 c-6">
+                    <a href="http://snstheme.com/" class="sidebar__link">
+                        <img src="~/Content/assets/images/nova.png" width="100%"
+                             height="100%" alt="" class="sidebar__img">
+                    </a>
+                    <div class="overlay"></div>
+                </div>
+                <div class="sidebar__box-img col l-4 m-4 c-6">
+                    <a href="http://snstheme.com/" class="sidebar__link">
+                        <img src="~/Content/assets/images/avan.png" width="100%"
+                             height="100%" alt="" class="sidebar__img">
+                    </a>
+                    <div class="overlay"></div>
+                </div>
+                <div class="sidebar__box-img col l-4 m-4 c-6">
+                    <a href="http://snstheme.com/" class="sidebar__link">
+                        <img src="~/Content/assets/images/nazic.png" width="100%"
+                             height="100%" alt="" class="sidebar__img">
+                    </a>
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sidebar -->
+</div>

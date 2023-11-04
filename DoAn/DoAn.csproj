@@ -129,50 +129,62 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\AfterLoginController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs">
-      <DependentUpon>SimenDB.tt</DependentUpon>
+      <DependentUpon>Simen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminUser.cs">
+      <DependentUpon>Simen.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs">
-      <DependentUpon>SimenDB.tt</DependentUpon>
+      <DependentUpon>Simen.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
-      <DependentUpon>SimenDB.tt</DependentUpon>
+      <DependentUpon>Simen.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Orderdetail.cs">
-      <DependentUpon>SimenDB.tt</DependentUpon>
+    <Compile Include="Models\OrderDetail.cs">
+      <DependentUpon>Simen.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderProduct.cs">
-      <DependentUpon>SimenDB.tt</DependentUpon>
+      <DependentUpon>Simen.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs">
-      <DependentUpon>SimenDB.tt</DependentUpon>
+      <DependentUpon>Simen.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SimenDB.Context.cs">
+    <Compile Include="Models\Simen.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SimenDB.Context.tt</DependentUpon>
+      <DependentUpon>Simen.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SimenDB.cs">
+    <Compile Include="Models\Simen.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SimenDB.tt</DependentUpon>
+      <DependentUpon>Simen.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SimenDB.Designer.cs">
+    <Compile Include="Models\Simen.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SimenDB.edmx</DependentUpon>
+      <DependentUpon>Simen.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Store.cs">
+      <DependentUpon>Simen.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\css\details.css" />
     <Content Include="Content\assets\css\grid.css" />
+    <Content Include="Content\assets\css\LoadingCss.css" />
     <Content Include="Content\assets\css\login.css" />
     <Content Include="Content\assets\css\main.css" />
     <Content Include="Content\assets\css\responsive.css" />
@@ -186,6 +198,7 @@
     <Content Include="Content\assets\images\10-215x260.jpg" />
     <Content Include="Content\assets\images\11-215x260.jpg" />
     <Content Include="Content\assets\images\110-370x190.jpg" />
+    <Content Include="Content\assets\images\11739727427ba9c88ee34aad6c3b57f6.jpg" />
     <Content Include="Content\assets\images\15-215x260.jpg" />
     <Content Include="Content\assets\images\17-215x260.jpg" />
     <Content Include="Content\assets\images\174801.jpg" />
@@ -201,6 +214,7 @@
     <Content Include="Content\assets\images\28-92x110.jpg" />
     <Content Include="Content\assets\images\3-215x260.jpg" />
     <Content Include="Content\assets\images\30-92x110.jpg" />
+    <Content Include="Content\assets\images\41930e6fc0b10cfc111c3122f1ef64b3.jpg" />
     <Content Include="Content\assets\images\5-92x110.jpg" />
     <Content Include="Content\assets\images\5.png" />
     <Content Include="Content\assets\images\avan.png" />
@@ -213,19 +227,26 @@
     <Content Include="Content\assets\images\banner2-300x286.jpg" />
     <Content Include="Content\assets\images\banner3.jpg" />
     <Content Include="Content\assets\images\banner4.jpg" />
+    <Content Include="Content\assets\images\Black and white.jfif" />
     <Content Include="Content\assets\images\call-to-action.jpg" />
     <Content Include="Content\assets\images\category-img-1-250x150.png" />
+    <Content Include="Content\assets\images\download.jfif" />
+    <Content Include="Content\assets\images\download.png" />
     <Content Include="Content\assets\images\Ergonomic-Office-Furniture-Design-of-Active-Surface-Table-in-Orange-by-Isis-Concepts-130x98.jpg" />
+    <Content Include="Content\assets\images\fbdf4fffd2148e84ac0926a39b5bd112.jpg" />
     <Content Include="Content\assets\images\furniture-bad-250x150.jpg" />
     <Content Include="Content\assets\images\furniture-chest-250x150.jpg" />
     <Content Include="Content\assets\images\Furniture-Design-Chair-Yo5Rxnaa-130x98.jpg" />
     <Content Include="Content\assets\images\lamino.png" />
+    <Content Include="Content\assets\images\linhitnh.jpg" />
     <Content Include="Content\assets\images\logo.png" />
+    <Content Include="Content\assets\images\LOKOnity on Twitter.jpg" />
     <Content Include="Content\assets\images\nazic.png" />
     <Content Include="Content\assets\images\nova.png" />
     <Content Include="Content\assets\images\payment.png" />
     <Content Include="Content\assets\images\richard-3-370x190.jpg" />
     <Content Include="Content\assets\images\shop-featured.png" />
+    <Content Include="Content\assets\images\Thế giới của tớ không có cậu.jpg" />
     <Content Include="Content\assets\images\vc-short.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -246,15 +267,15 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\SimenDB.Context.tt">
+    <Content Include="Models\Simen.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SimenDB.edmx</DependentUpon>
-      <LastGenOutput>SimenDB.Context.cs</LastGenOutput>
+      <DependentUpon>Simen.edmx</DependentUpon>
+      <LastGenOutput>Simen.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\SimenDB.tt">
+    <Content Include="Models\Simen.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SimenDB.edmx</DependentUpon>
-      <LastGenOutput>SimenDB.cs</LastGenOutput>
+      <DependentUpon>Simen.edmx</DependentUpon>
+      <LastGenOutput>Simen.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -263,12 +284,12 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\assets\favicon\site.webmanifest" />
-    <EntityDeploy Include="Models\SimenDB.edmx">
+    <EntityDeploy Include="Models\Simen.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SimenDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>Simen.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SimenDB.edmx.diagram">
-      <DependentUpon>SimenDB.edmx</DependentUpon>
+    <Content Include="Models\Simen.edmx.diagram">
+      <DependentUpon>Simen.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -280,7 +301,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Loading.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -292,16 +315,28 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Furniture.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\AfterLogin\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\ShowCart.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\BagCart.cshtml" />
+    <Content Include="Views\ShoppingCart\EmptyCart.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\Product\SelectCate.cshtml" />
+    <Content Include="Views\Product\SearchOption.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOut_Success.cshtml" />
+    <Content Include="Views\ShoppingCart\MoneyCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

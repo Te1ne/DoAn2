@@ -115,16 +115,31 @@
                     <a href="#" class="header__link"><i class="header-search__icon fa-solid fa-magnifying-glass"></i></a>
                 </div>
                 <div class="header__shopping-cart col col l-3 m-0 c-0">
-                    <a style="text-decoration:none; color:black;" href="@Url.Action("ShowCart","ShoppingCart")">
-                        <div class="menu__cart">
-                            <i class="menu__icon menu__icon-shop fa-solid fa-cart-shopping"></i>
-                            <div class="menu__cart-box">
-                                <h3 class="menu__cart-header">Shopping Cart</h3>
-                                <p class="menu__quantity"> @Html.Action("BagCart", "ShoppingCart") ( items ) - @Html.Action("MoneyCart", "ShoppingCart")</p>
+                    @if (user == null)
+                     {
+                        <a style="text-decoration:none; color:black;" href="@Url.Action("Login","Login")">
+                            <div class="menu__cart">
+                                <i class="menu__icon menu__icon-shop fa-solid fa-cart-shopping"></i>
+                                <div class="menu__cart-box">
+                                    <h3 class="menu__cart-header">Shopping Cart</h3>
+                                    <p class="menu__quantity"> @Html.Action("BagCart", "ShoppingCart") ( items ) - @Html.Action("MoneyCart", "ShoppingCart")</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                     }
+                    else
+                    {
+                            <a style="text-decoration:none; color:black;" href="@Url.Action("ShowCart","ShoppingCart")">
+                                <div class="menu__cart">
+                                    <i class="menu__icon menu__icon-shop fa-solid fa-cart-shopping"></i>
+                                    <div class="menu__cart-box">
+                                        <h3 class="menu__cart-header">Shopping Cart</h3>
+                                        <p class="menu__quantity"> @Html.Action("BagCart", "ShoppingCart") ( items ) - @Html.Action("MoneyCart", "ShoppingCart")</p>
+                                    </div>
+                                </div>
+                            </a>
+                    }
+                    </div>
             </div>
         </div>
     </header>

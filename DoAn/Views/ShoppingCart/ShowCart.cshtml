@@ -66,6 +66,44 @@
                                 <a class="menu__link" href="/ShoppingCart/RemoveCart/@item._product.Id">Xóa</a>
                             </td>
                         </tr>
+                        @*<tr>
+                            <td colspan="12">
+                                @using (Html.BeginForm("CheckOut", "ShoppingCart"))
+                                {<h3 style="font-size:2rem">Xác nhận thông tin mua hàng</h3>
+                                    <div class="confirm__block" style="padding:10px 0px">
+                                        <span style="font-size:1.6rem">Code Customer:</span>
+                                        <input type="number" name="CodeCustomer" required style="padding: 8px 10px;width:100%" placeholder="Vui lòng xem ID trong MyAccount và xác nhận" />
+                                    </div>
+                                    <div class="confirm__block">
+                                        <span style="font-size:1.6rem">AddressDelivery:</span>
+                                        <input type="text" name="AddressDeliver" required style="padding: 8px 10px; width: 100%" placeholder="Nhập địa chỉ giao hàng" />
+                                    </div>
+                                }
+                            </td>
+                        </tr>*@
+                        <tr>
+                            <td colspan="12">
+                                @using (Html.BeginForm("CheckOut", "ShoppingCart"))
+                                {
+                                    <table style="width:100%;border-spacing:5px;">
+                                        <tr>
+                                            <td>Code Customer:</td>
+                                            <td><input style="padding: 8px 10px;width:100%" placeholder="Vui lòng xem ID trong MyAccount và xác nhận" type="number" name="CodeCustomer" required /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>AddressDelivery:</td>
+                                            <td><input style="padding: 8px 10px;width:100%" placeholder="Nhập địa chỉ" type="text" name="AddressDelivery" required /></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <input type="submit" value="CheckOut" class="btn btn-success login__btn" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                }
+                            </td>
+                        </tr>
                     }
                 </tbody>
                 <tfoot>
@@ -79,8 +117,8 @@
                     </tr>
                 </tfoot>
             </table>
-            <hr style="margin:20px 0px"/>
-            <input style="float:right; text-decoration:none; font-size:1.6rem" type="submit" value="CheckOut"  class="login__btn"/>
+            <hr style="margin:20px 0px" />
+            <a href="/ShoppingCart/CheckOut" style="float:right; text-decoration:none; font-size:1.6rem" class="login__btn">Buy</a>
         }
         else
         {

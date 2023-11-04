@@ -106,7 +106,6 @@ namespace DoAn.Controllers
                     _order_detail.Quantity = item._quantity;
                     db.OrderDetails.Add(_order_detail);
                 }
-                db.SaveChanges();
                 cart.ClearCart(); 
                 return RedirectToAction("CheckOut_Success", "ShoppingCart");
             }

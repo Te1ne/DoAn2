@@ -1,0 +1,69 @@
+﻿
+@model DoAn.Models.Cart
+
+@{
+    ViewBag.Title = "ShowCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="grid wide">
+        <h2 style="font-size:2.6rem">Giỏ Hàng</h2>
+
+        <a class="navbar__link" style="text-decoration:none; font-size:1.6rem;" href="@Url.Action("Index","Product")">Tiếp tục mua hàng</a>
+
+        @if (Model != null)
+        {
+            <table style="width: 100%; margin-top: 20px;" class="table">
+                <thead style="font-size:1.6rem">
+                    <tr>
+                        <th>
+                            Tên sản phẩm
+                        </th>
+                        <th>
+                            Hình sản phẩm
+                        </th>
+                        <th>
+                            Giá tiền
+                        </th>
+                        <th>
+                            Số lượng
+                        </th>
+                        <th>
+                            Thành tiền
+                        </th>
+                        <th>
+
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td clspan="6">
+                            Chưa có sản phẩm nào cả....
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" style="text-align:right; font-size:1.6rem">
+                            Tổng tiền: @Model.Total_money()
+                        </td>
+                        <td colspan="6" style="text-align: right; font-size: 1.6rem">
+                            Tổng sản phẩm: @Model.Total_quantity()
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <hr style="margin:20px 0px" />
+            <input style="float:right; text-decoration:none; font-size:1.6rem" type="submit" value="Thanh Toán" class="login__btn" />
+        }
+
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,93 @@
+﻿
+@model DoAn.Models.Cart
+
+@{
+    ViewBag.Title = "ShowCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="grid wide">
+        <h2 style="font-size:2.6rem">Giỏ Hàng</h2>
+
+        <a class="navbar__link" style="text-decoration:none; font-size:1.6rem;" href="@Url.Action("Index","Product")">Tiếp tục mua hàng</a>
+
+        @if (Model != null)
+        {
+            <table style="width: 100%; margin-top: 20px;" class="table">
+                <thead style="font-size:1.6rem">
+                    <tr>
+                        <th>
+                            Tên sản phẩm
+                        </th>
+                        <th>
+                            Hình sản phẩm
+                        </th>
+                        <th>
+                            Giá tiền
+                        </th>
+                        <th>
+                            Số lượng
+                        </th>
+                        <th>
+                            Thành tiền
+                        </th>
+                        <th>
+
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        decimal total = item._quantity * (decimal)item._product.Price.Value;
+                        <tr style="font-size:1.6rem;">
+                            <td style="text-align: center;">
+                                @Html.DisplayFor(model => item._product.NamePro)
+                            </td>
+                            <td style="text-align: center;">
+                                <img src="@Url.Content(item._product.ImagePro)" height="150px" width="120px" />
+                            </td>
+                            <td style="text-align: center;">
+                                @Html.DisplayFor(model => item._product.Price) <span>Vnđ</span>
+                            </td>
+                            <td style="text-align: center;">
+                                @using (Html.BeginForm("Update_Cart_Quantity", "ShoppingCart"))
+                                {
+                                    <input type="hidden" value="@item._product.Id" name="idPro" />
+                                    <input type="number" value="@item._quantity" name="cartQuantity" />
+                                    <input type="submit" value="Update" />
+                                }
+
+                            </td>
+                            <td style="text-align: center;">@total <span>Vnđ</span></td>
+                            <td style="text-align: center;">
+                                <a class="menu__link" href="/ShoppingCart/RemoveCart/@item._product.Id">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" style="text-align:right; font-size:1.6rem">
+                            Tổng tiền: @Model.Total_money() <span>Vnđ</span>
+                        </td>
+                        <td colspan="6" style="text-align: right; font-size: 1.6rem">
+                            Tổng sản phẩm: @Model.Total_quantity()
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <hr style="margin:20px 0px"/>
+            <input style="float:right; text-decoration:none; font-size:1.6rem" type="submit" value="CheckOut"  class="login__btn"/>
+        }
+        else
+        {
+            @Html.Partial("EmptyCart")
+        }
+    </div>
+</div>
+
+
+

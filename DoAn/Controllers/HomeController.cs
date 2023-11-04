@@ -12,7 +12,7 @@ namespace DoAn.Controllers
         {
             return View();
         }
-
+            
         public ActionResult Furniture()
         {
             return View();

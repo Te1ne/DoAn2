@@ -1,0 +1,49 @@
+﻿svg {
+    display: block;
+    width: 258px;
+    height: 258px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index:1000;
+    transform: translate(-50%,-50%);
+}
+
+.loading__container{
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position:fixed;
+    z-index:1000000;
+    background-color:white;
+}
+
+.none{
+    display:none;
+}
+
+.tree {
+    fill: #E73E0D;
+}
+
+.circle-mask {
+    transform-origin: 50% 90%;
+    animation: scale 1s infinite ease-out;
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: scale(0.0);
+    }
+
+    7%, 90% {
+        transform: scale(0.4);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+}

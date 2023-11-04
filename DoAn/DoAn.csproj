@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -45,10 +46,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,15 +129,62 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\AfterLoginController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>Simen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AdminUser.cs">
+      <DependentUpon>Simen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cart.cs">
+      <DependentUpon>Simen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>Simen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetail.cs">
+      <DependentUpon>Simen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderProduct.cs">
+      <DependentUpon>Simen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>Simen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Simen.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Simen.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Simen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Simen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Simen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Simen.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Store.cs">
+      <DependentUpon>Simen.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\css\details.css" />
     <Content Include="Content\assets\css\grid.css" />
+    <Content Include="Content\assets\css\LoadingCss.css" />
     <Content Include="Content\assets\css\login.css" />
     <Content Include="Content\assets\css\main.css" />
     <Content Include="Content\assets\css\responsive.css" />
@@ -142,6 +198,7 @@
     <Content Include="Content\assets\images\10-215x260.jpg" />
     <Content Include="Content\assets\images\11-215x260.jpg" />
     <Content Include="Content\assets\images\110-370x190.jpg" />
+    <Content Include="Content\assets\images\11739727427ba9c88ee34aad6c3b57f6.jpg" />
     <Content Include="Content\assets\images\15-215x260.jpg" />
     <Content Include="Content\assets\images\17-215x260.jpg" />
     <Content Include="Content\assets\images\174801.jpg" />
@@ -157,6 +214,7 @@
     <Content Include="Content\assets\images\28-92x110.jpg" />
     <Content Include="Content\assets\images\3-215x260.jpg" />
     <Content Include="Content\assets\images\30-92x110.jpg" />
+    <Content Include="Content\assets\images\41930e6fc0b10cfc111c3122f1ef64b3.jpg" />
     <Content Include="Content\assets\images\5-92x110.jpg" />
     <Content Include="Content\assets\images\5.png" />
     <Content Include="Content\assets\images\avan.png" />
@@ -169,19 +227,26 @@
     <Content Include="Content\assets\images\banner2-300x286.jpg" />
     <Content Include="Content\assets\images\banner3.jpg" />
     <Content Include="Content\assets\images\banner4.jpg" />
+    <Content Include="Content\assets\images\Black and white.jfif" />
     <Content Include="Content\assets\images\call-to-action.jpg" />
     <Content Include="Content\assets\images\category-img-1-250x150.png" />
+    <Content Include="Content\assets\images\download.jfif" />
+    <Content Include="Content\assets\images\download.png" />
     <Content Include="Content\assets\images\Ergonomic-Office-Furniture-Design-of-Active-Surface-Table-in-Orange-by-Isis-Concepts-130x98.jpg" />
+    <Content Include="Content\assets\images\fbdf4fffd2148e84ac0926a39b5bd112.jpg" />
     <Content Include="Content\assets\images\furniture-bad-250x150.jpg" />
     <Content Include="Content\assets\images\furniture-chest-250x150.jpg" />
     <Content Include="Content\assets\images\Furniture-Design-Chair-Yo5Rxnaa-130x98.jpg" />
     <Content Include="Content\assets\images\lamino.png" />
+    <Content Include="Content\assets\images\linhitnh.jpg" />
     <Content Include="Content\assets\images\logo.png" />
+    <Content Include="Content\assets\images\LOKOnity on Twitter.jpg" />
     <Content Include="Content\assets\images\nazic.png" />
     <Content Include="Content\assets\images\nova.png" />
     <Content Include="Content\assets\images\payment.png" />
     <Content Include="Content\assets\images\richard-3-370x190.jpg" />
     <Content Include="Content\assets\images\shop-featured.png" />
+    <Content Include="Content\assets\images\Thế giới của tớ không có cậu.jpg" />
     <Content Include="Content\assets\images\vc-short.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -202,6 +267,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Simen.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Simen.edmx</DependentUpon>
+      <LastGenOutput>Simen.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Simen.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Simen.edmx</DependentUpon>
+      <LastGenOutput>Simen.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -209,6 +284,13 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\assets\favicon\site.webmanifest" />
+    <EntityDeploy Include="Models\Simen.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Simen.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Simen.edmx.diagram">
+      <DependentUpon>Simen.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -219,7 +301,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Loading.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -231,15 +315,31 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Furniture.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Details.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\AfterLogin\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\ShowCart.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\BagCart.cshtml" />
+    <Content Include="Views\ShoppingCart\EmptyCart.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\Product\SelectCate.cshtml" />
+    <Content Include="Views\Product\SearchOption.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckOut_Success.cshtml" />
+    <Content Include="Views\ShoppingCart\MoneyCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -267,6 +367,9 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -301,7 +404,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

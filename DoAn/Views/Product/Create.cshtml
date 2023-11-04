@@ -1,0 +1,55 @@
+﻿@model DoAn.Models.Product
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <!-- Content -->
+<div class="content">
+    <div class="grid wide">
+        <div class="content__container row">
+            <div class="content-left l-5 m-5 c-12">
+                <img src="@Url.Content(Model.ImagePro)" height="100%" width="100%" id="previewImg" />
+                <input type="file" name="UploadImage" onchange="ChangeImage(this, document.getElementById('previewImg'))" />
+
+
+            </div>
+            <div class="content-right l-7 m-7 c-12">
+                <div class="login__container upload__container">
+                    @Html.LabelFor(model => model.NamePro, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.NamePro, new { htmlAttributes = new { @class = "login__input" } })
+                    @Html.ValidationMessageFor(model => model.NamePro, "", new { @class = "text-danger" })
+                    @*@Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "login__input" } })
+        @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })*@
+                    @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "login__input" } })
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.Description_Pro, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Description_Pro, new { htmlAttributes = new { @class = "login__input" } })
+                    @Html.ValidationMessageFor(model => model.Description_Pro, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @class = "login__input" } })
+                    @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "login__input" } })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+                    <input type="submit" value="Upload" class="login__btn">
+                </div>
+                <div>
+                    @Html.ActionLink("Back to List", "Index",null,null,new {@class = "navbar__link" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+}
+
+

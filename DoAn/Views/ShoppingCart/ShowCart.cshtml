@@ -12,7 +12,11 @@
 
         <a class="navbar__link" style="text-decoration:none; font-size:1.6rem;" href="@Url.Action("Index","Product")">Tiếp tục mua hàng</a>
 
-        @if (Model != null)
+        @if (Model == null || Model.Total_quantity() == 0 || Model.Total_money() == 0)
+        {
+            @Html.Partial("EmptyCart")
+        }
+        else
         {
             <table style="width: 100%; margin-top: 20px;" class="table">
                 <thead style="font-size:1.6rem">
@@ -54,7 +58,7 @@
                                 {
                                     <input type="hidden" value="@item._product.Id" name="idPro" />
                                     <input type="number" value="@item._quantity" name="cartQuantity" />
-                                    <input type="submit" value="Update" class="login__btn"/>
+                                    <input type="submit" value="Update" class="login__btn" />
                                 }
 
                             </td>
@@ -65,28 +69,28 @@
                         </tr>
                     }
                 </tbody>
-                    <tr>
-                        <td colspan="12">
-                            @using (Html.BeginForm("CheckOut", "ShoppingCart"))
-                            {
-                                <table style="width:100%;border-spacing:5px; font-size:1.6rem">
-                                    <tr>
-                                        <td>Code Customer:</td>
-                                        <td><input style="padding: 8px 10px;width:100%" placeholder="Vui lòng xem ID trong MyAccount và xác nhận" type="number" name="CodeCustomer" required /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>AddressDelivery:</td>
-                                        <td><input style="padding: 8px 10px;width:100%" placeholder="Nhập địa chỉ" type="text" name="AddressDelivery" required /></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="12">
-                                            <input type="submit" value="CheckOut" style="float:right" class="login_ btn btn-success login__btn" />
-                                        </td>
-                                    </tr>
-                                </table>
-                            }
-                        </td>
-                    </tr>
+                <tr>
+                    <td colspan="12">
+                        @using (Html.BeginForm("CheckOut", "ShoppingCart"))
+                        {
+                            <table style="width:100%;border-spacing:5px; font-size:1.6rem">
+                                <tr>
+                                    <td>Code Customer:</td>
+                                    <td><input style="padding: 8px 10px;width:100%" placeholder="Vui lòng xem ID trong MyAccount và xác nhận" type="number" name="CodeCustomer" required /></td>
+                                </tr>
+                                <tr>
+                                    <td>AddressDelivery:</td>
+                                    <td><input style="padding: 8px 10px;width:100%" placeholder="Nhập địa chỉ" type="text" name="AddressDelivery" required /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="12">
+                                        <input type="submit" value="CheckOut" style="float:right" class="login_ btn btn-success login__btn" />
+                                    </td>
+                                </tr>
+                            </table>
+                        }
+                    </td>
+                </tr>
                 <tfoot>
                     <tr style="display: flex; align-items: center;">
                         <td style="text-align:right; font-size:1.6rem; margin-right:10px">
@@ -99,10 +103,6 @@
                 </tfoot>
             </table>
             <hr style="margin:20px 0px" />
-        }
-        else
-        {
-            @Html.Partial("EmptyCart")
         }
     </div>
 </div>

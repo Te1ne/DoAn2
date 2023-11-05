@@ -22,6 +22,7 @@
 
 <body>
     <!-- Navbar -->
+    @{var user = Session["Account"] as DoAn.Models.Account;}
     <nav class="navbar">
         <div class="grid wide">
             <div class="navbar__box">
@@ -69,15 +70,29 @@
                             <a href="#" class="navbar__link"><i class="navbar__icon fa-solid fa-bars"></i></a>
                             <div class="subnav subnav--mobile-tablet">
                                 <ul class="subnav__list">
-                                    <li class="subnav__item"><a href="" class="navbar__link"><i class="navbar__icon fa-solid fa-user"></i> My Account</a></li>
+                                    @if (user == null)
+                                    {
+                                        <li class="subnav__item"><a href="@Url.Action("Login", "Login")" class="navbar__link"><i class="navbar__icon fa-solid fa-user"></i> My Account</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="subnav__item"><a href="@Url.Action("Index", "User",new { id = user.IdAccount })" class="navbar__link"><i class="navbar__icon fa-solid fa-user"></i> Hello @user.NameAccount</a></li>
+                                    }
                                     <li class="subnav__item"><a href="" class="navbar__link"><i class="navbar__icon fa-regular fa-heart"></i> Wishlist</a></li>
                                     <li class="subnav__item"><a href="" class="navbar__link"><i class="navbar__icon fa-regular fa-square-check"></i> Checkout</a></li>
-                                    <li class="subnav__item"><a href="" class="navbar__link"><i class="navbar__icon fa-solid fa-key"></i> Login</a></li>
+                                    @if (user == null)
+                                    {
+                                        <span></span>
+                                    }
+                                    else
+                                    {
+                                        <li class="subnav__item"><a href="@Url.Action("LogOut","Login")" class="navbar__link"><i class="navbar__icon fa-solid fa-key"></i> LogOut</a></li>
+                                    }
                                 </ul>
                             </div>
                         </li>
                         <li class="navbar__item hide-on-mobile hide-on-tablet">
-                            @{var user = Session["Account"] as DoAn.Models.Account;}
+
                             @if (user == null)
                             {
                                 @Html.ActionLink("Login", "Login", "Login", null, new { @class = "navbar__link" })
@@ -114,7 +129,7 @@
                     <input type="text" placeholder="Search entire store here" class="header__input">
                     <a href="#" class="header__link"><i class="header-search__icon fa-solid fa-magnifying-glass"></i></a>
                 </div>
-                <div class="header__shopping-cart col col l-3 m-0 c-0">
+                <div class="header__shopping-cart col col l-3 m-0 c-6">
                     @if (user == null)
                     {
                         <a style="text-decoration:none; color:black;" href="@Url.Action("Login","Login")">
@@ -154,15 +169,10 @@
                     <label for="menu-mobile-tablet-input" class="menu__overlay"></label>
                     <div class="menu__infomation--mobile-tablet hide">
                         <ul class="menu__list">
-                            <li class="menu__item menu__item--mobile-tablet">@Html.ActionLink("Home", "Home", "Index")</li>
-                            <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Furniture</a></li>
-                            <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Coffee Table</a></li>
-                            <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Sofas</a></li>
-                            <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Bedroom furniture</a></li>
-                            <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Shop</a></li>
-                            <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Blog</a></li>
-                            <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Shortcodes</a></li>
-                            <li class="menu__item menu__item--mobile-tablet"><a href="" class="menu__link menu__link--mobile-tablet">Contact us</a></li>
+                            <li class="menu__item menu__item--mobile-tablet"><a href="@Url.Action("Index","Home")" class="menu__link menu__link--mobile-tablet">Home</a></li>
+                            <li class="menu__item menu__item--mobile-tablet"><a href="@Url.Action("Index","Product")" class="menu__link menu__link--mobile-tablet">Product</a></li>
+                            <li class="menu__item menu__item--mobile-tablet"><a href="@Url.Action("Index","Contact")" class="menu__link menu__link--mobile-tablet">Contact us</a></li>
+                            <li class="menu__item menu__item--mobile-tablet"><a href="@Url.Action("Index","AboutUs")" class="menu__link menu__link--mobile-tablet">About us</a></li>
                         </ul>
                     </div>
                     <ul class="menu__list hide-on-mobile hide-on-tablet">

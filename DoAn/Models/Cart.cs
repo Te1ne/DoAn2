@@ -48,10 +48,16 @@ namespace DoAn.Models
         public decimal Total_money()
         {
             var total = items.Sum(s => s._quantity * s._product.Price);
-            return (decimal)total;
+            if (total >= 0)
+            {
+                return (decimal)total;
+            }
+            else { return 0; }
         }
         public void Update_quantity(int id, int _new_quan)
         {
+            if (_new_quan < 0)
+                return;
             var item = items.Find(s => s._product.Id == id);
             if (item != null)
                 item._quantity = _new_quan;

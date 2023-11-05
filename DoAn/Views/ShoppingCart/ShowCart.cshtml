@@ -64,6 +64,7 @@
                             </td>
                         </tr>
                     }
+                </tbody>
                     <tr>
                         <td colspan="12">
                             @using (Html.BeginForm("CheckOut", "ShoppingCart"))
@@ -78,8 +79,7 @@
                                         <td><input style="padding: 8px 10px;width:100%" placeholder="Nhập địa chỉ" type="text" name="AddressDelivery" required /></td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td>
+                                        <td colspan="12">
                                             <input type="submit" value="CheckOut" style="float:right" class="login_ btn btn-success login__btn" />
                                         </td>
                                     </tr>
@@ -87,13 +87,12 @@
                             }
                         </td>
                     </tr>
-                </tbody>
                 <tfoot>
-                    <tr>
-                        <td colspan="6" style="text-align:right; font-size:1.6rem">
+                    <tr style="display: flex; align-items: center;">
+                        <td style="text-align:right; font-size:1.6rem; margin-right:10px">
                             Tổng tiền: @Model.Total_money() <span>Vnđ</span>
                         </td>
-                        <td colspan="6" style="text-align: right; font-size: 1.6rem">
+                        <td style="text-align: right; font-size: 1.6rem">
                             Tổng sản phẩm: @Model.Total_quantity()
                         </td>
                     </tr>

@@ -37,6 +37,10 @@
     flex-direction: column-reverse;
 }
 
+    .login__btn--tablet{
+        font-size:6rem !important;
+    }
+
 }
 
 /* Mobile */
@@ -68,5 +72,9 @@
 .powered__container{
     flex-direction: column-reverse;
 }
+
+    .login__btn--mobile{
+        font-size:3rem !important;
+    }
 
 }

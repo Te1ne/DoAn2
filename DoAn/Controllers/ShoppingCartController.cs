@@ -93,13 +93,17 @@ namespace DoAn.Controllers
             {
                 Cart cart = Session["Cart"] as Cart;
                 OrderProduct _order = new OrderProduct();
+                Random r= new Random();
                 _order.DateTime = DateTime.Now;
                 _order.Address = form["AddressDelivery"];
+                _order.Id_OderPro = r.Next(1,10000);
                 _order.ID_Account = int.Parse(form["CodeCustomer"]);
                 db.OrderProducts.Add(_order);
                 foreach (var item in cart.Items)
                 {
+
                     OrderDetail _order_detail = new OrderDetail();
+                    _order_detail.Id_Orderdt = r.Next(1, 10000);
                     _order_detail.IdOrder = _order.Id_OderPro;
                     _order_detail.Id_Product = item._product.Id;
                     _order_detail.UnitPrice = item._product.Price;

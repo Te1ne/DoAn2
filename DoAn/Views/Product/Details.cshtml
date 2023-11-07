@@ -34,7 +34,6 @@
                                 <p class="product__decription">Color: @Html.DisplayFor(model => model.Color)</p>
                                 <a href="/ShoppingCart/AddToCart/@Model.Id" style="display:block; width:100%;text-align:center" class="signature__link product__btn signature__link-subbox">ADD TO CART</a>
                             </div>
-                            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new {@class = "menu__link edit__link" }) 
                             @Html.ActionLink("Back to List", "Index", null, new { @class = "menu__link" })
                         </div>
                     </div>

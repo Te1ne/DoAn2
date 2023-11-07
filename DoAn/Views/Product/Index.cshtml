@@ -42,82 +42,95 @@
             </div>
             @* Data *@
             @{var user = Session["Account"] as DoAn.Models.Account;}
-            <div class="content-right col l-9">
-                <div class="content__box-img">
-                    <img src="~/Content/assets/images/shop-featured.png" width="100%" height="80%" alt="" class="content-right__img">
-                </div>
-                <h3 class="content-right__header">PRODUCT</h3>
-                @if(user != null)
-                 {
-                <a href="/Product/SearchOption" class="menu__link product__btn">Search theo giá</a>
-                 }
-                else
+        <div class="content-right col l-9">
+            <div class="content__box-img">
+                <img src="~/Content/assets/images/shop-featured.png" width="100%" height="80%" alt="" class="content-right__img">
+            </div>
+            <h3 class="content-right__header">PRODUCT</h3>
+            @if (user != null)
+            {
+
+
+                <a href="/Product/SearchOption" class="menu__link product__btn">Search</a>
+                if (user.Email == "admin@gmail.com")
                 {
-                    <span></span>
+                    <a href="@Url.Action("Create","Product")" class="menu__link product__btn">Add Product</a>
                 }
-                <div class="content__product signature__product">
-                    <div class="singnature__containter row">
-                        @if (user != null)
+
+            }
+            else
+            {
+                <span></span>
+            }
+            <div class="content__product signature__product">
+                <div class="singnature__containter row">
+                    @if (user != null)
+                    {
+                        foreach (var item in Model)
                         {
-                            foreach (var item in Model)
-                            {
-                                <a href="@Url.Action("Details", "Product",new { id = item.Id })">
-                                    <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
-                                        <div class="box__img">
-                                            <img src="@Url.Content(item.ImagePro)" width="100%" height="280" />
-                                            <div class="signature__subbox">
-                                                <div class="signature__subbox-top">
-                                                    <a href="/ShoppingCart/AddToCart/@item.Id" class="signature__link signature__link-subbox">
-                                                        <p class="signature__add">
-                                                            <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                                        </p>
-                                                    </a>
-                                                </div>
+                            <a href="@Url.Action("Details", "Product",new { id = item.Id })">
+                                <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
+                                    <div class="box__img">
+                                        <img src="@Url.Content(item.ImagePro)" width="100%" height="300" />
+                                        <div class="signature__subbox">
+                                            <div class="signature__subbox-top">
+                                                <a href="/ShoppingCart/AddToCart/@item.Id" class="signature__link signature__link-subbox">
+                                                    <p class="signature__add">
+                                                        <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
+                                                    </p>
+                                                </a>
+                                            </div>
+                                            @if (user.Email == "admin@gmail.com")
+                                            {
                                                 <div class="signature__subbox-bottom">
                                                     @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
                                                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="signature__product-decription">
-                                            <h4 class="signature__product-name">
-                                                <a href="@Url.Action("Details", "Product",new { id = item.Id })" class="signature__link-header">@Html.DisplayFor(model => item.NamePro)</a>
-                                            </h4>
-                                            <p class="signature__product-price">
-                                                @Html.DisplayFor(model => item.Price) <span>Vnđ</span>
-                                            </p>
-                                            <div class="signature__product-rate">
-                                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                                <i class="signature__product-icon fa-regular fa-star"></i>
-                                            </div>
+                                            }
                                         </div>
                                     </div>
-                                </a>
-                                @* End Product *@
-                            }
-                                @* Add Product *@
-                                <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
-                                    <div class="content-box__img content-box__img--add-product">
-                                        @Html.ActionLink("+", "Create", "Product", null, new { @class = "a--no-decor" })
-                                        <div class="signature__product-decription">
-                                            <h4 class="signature__product-name">
-                                                @Html.ActionLink("Add Product", "Create", "Product", null, new { @class = "signature__link-header" })
-                                            </h4>
+                                    <div class="signature__product-decription">
+                                        <h4 class="signature__product-name">
+                                            <a href="@Url.Action("Details", "Product",new { id = item.Id })" class="signature__link-header">@Html.DisplayFor(model => item.NamePro)</a>
+                                        </h4>
+                                        <p class="signature__product-price">
+                                            @Html.DisplayFor(model => item.Price) <span>Vnđ</span>
+                                        </p>
+                                        <div class="signature__product-rate">
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
-                                @* End Add Product *@
+                            </a>
+                            @* End Product *@
                         }
-                        else
+                        if (user.Email == "admin@gmail.com")
                         {
-                            <h4 style="text-align:center;font-size:4rem">Please <a class="navbar__link" style="color:red" href="@Url.Action("Login","Login")">login</a> or <a class="navbar__link" style="color:red" href="@Url.Action("Register","Login")">register</a> to see more product...</h4>
+                            @* Add Product *@
+                            <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
+                                <div class="content-box__img content-box__img--add-product">
+                                    @Html.ActionLink("+", "Create", "Product", null, new { @class = "a--no-decor" })
+                                    <div class="signature__product-decription">
+                                        <h4 class="signature__product-name">
+                                            @Html.ActionLink("Add Product", "Create", "Product", null, new { @class = "signature__link-header" })
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            @* End Add Product *@
                         }
-                    </div>
+                    }
+                    else
+                    {
+                        <h4 style="text-align:center;font-size:4rem">Please <a class="navbar__link" style="color:red" href="@Url.Action("Login","Login")">login</a> or <a class="navbar__link" style="color:red" href="@Url.Action("Register","Login")">register</a> to see more product...</h4>
+                    }
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </div>

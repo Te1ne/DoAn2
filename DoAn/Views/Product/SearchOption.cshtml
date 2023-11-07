@@ -45,8 +45,8 @@
                 <img src="~/Content/assets/images/shop-featured.png" width="100%" height="80%" alt="" class="content-right__img">
             </div>
             <h3 class="content-right__header">PRODUCT</h3>
-            <text style="font-size:1.4rem">Từ</text> <input type="number" name="min" />
-            <text style="font-size:1.4rem">Đến</text> <input type="number" name="max" />
+            <text style="font-size:1.4rem">To</text> <input type="number" name="min" />
+            <text style="font-size:1.4rem">From</text> <input type="number" name="max" />
             <input type="submit" value="Search" class="login__btn"/>
             <div class="content__product signature__product">
                 <div class="singnature__containter row">
@@ -89,18 +89,6 @@
                         </a>
                     }
                     @* End Product *@
-                    @* Add Product *@
-                    <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
-                        <div class="content-box__img content-box__img--add-product">
-                            @Html.ActionLink("+", "Create", "Product", null, new { @class = "a--no-decor" })
-                            <div class="signature__product-decription">
-                                <h4 class="signature__product-name">
-                                    @Html.ActionLink("Add Product", "Create", "Product", null, new { @class = "signature__link-header" })
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                    @* End Add Product *@
                 </div>
             </div>
         </div>

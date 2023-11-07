@@ -20,9 +20,9 @@
     <title>SNS Simen - Clone</title>
 </head>
 
+    @{var user = Session["Account"] as DoAn.Models.Account;}
 <body>
     <!-- Navbar -->
-    @{var user = Session["Account"] as DoAn.Models.Account;}
     <nav class="navbar">
         <div class="grid wide">
             <div class="navbar__box">
@@ -418,7 +418,7 @@
                     <h4 class="footer__header">INFORMATION</h4>
                     <ul class="footer__list">
                         <li class="footer__item">
-                            <a href="" class="footer__link">My Account</a>
+                            <a href="#" class="footer__link">My Account</a>
                         </li>
                         <li class="footer__item">
                             <a href="" class="footer__link">Wishlist</a>

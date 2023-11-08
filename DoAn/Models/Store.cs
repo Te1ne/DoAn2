@@ -11,7 +11,8 @@ namespace DoAn.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Store
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,7 @@ namespace DoAn.Models
         {
             this.OrderProducts = new HashSet<OrderProduct>();
         }
-    
+        [Key]
         public int IdStore { get; set; }
         public string Store_Name { get; set; }
         public string Phone { get; set; }

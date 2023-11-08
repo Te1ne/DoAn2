@@ -11,13 +11,18 @@ namespace DoAn.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class OrderDetail
     {
+        [Key]
         public int Id_Orderdt { get; set; }
+        [ForeignKey("Id_Product")]
         public Nullable<int> Id_Product { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
         public Nullable<int> Quantity { get; set; }
+        [ForeignKey("IdOrder")]
         public Nullable<int> IdOrder { get; set; }
     
         public virtual OrderProduct OrderProduct { get; set; }

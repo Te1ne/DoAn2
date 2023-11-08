@@ -11,7 +11,9 @@ namespace DoAn.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class OrderProduct
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,9 +21,10 @@ namespace DoAn.Models
         {
             this.OrderDetails = new HashSet<OrderDetail>();
         }
-    
+        [Key]
         public int Id_OderPro { get; set; }
         public Nullable<System.DateTime> DateTime { get; set; }
+        [ForeignKey("ID_Account")]
         public Nullable<int> ID_Account { get; set; }
         public Nullable<System.DateTime> TimeArrival { get; set; }
         public string Discount_Code { get; set; }
@@ -29,6 +32,7 @@ namespace DoAn.Models
         public string Address {  get; set; }
 
         public Nullable<int> TotalQuantity { get; set; }
+        [ForeignKey("Id_Store")]
         public Nullable<int> Id_Store { get; set; }
     
         public virtual Account Account { get; set; }

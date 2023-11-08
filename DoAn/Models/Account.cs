@@ -21,7 +21,7 @@ namespace DoAn.Models
             this.Carts = new HashSet<Cart>();
             this.OrderProducts = new HashSet<OrderProduct>();
         }
-
+        [Key]
         public int IdAccount { get; set; }
 
         [EmailAddress(ErrorMessage = "Please enter a valid email")]

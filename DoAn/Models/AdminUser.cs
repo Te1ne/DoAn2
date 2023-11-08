@@ -11,9 +11,11 @@ namespace DoAn.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class AdminUser
     {
+        [Key]
         public int Id { get; set; }
         public string Name_User { get; set; }
         public string Password_User { get; set; }

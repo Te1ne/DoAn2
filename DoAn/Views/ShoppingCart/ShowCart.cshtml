@@ -6,6 +6,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .cart__item{
+        margin:10px 0px;
+    }
+</style>
+
 <div class="content">
     <div class="grid wide">
         <h2 style="font-size:2.6rem">Giỏ Hàng</h2>
@@ -18,91 +24,85 @@
         }
         else
         {
-            <table style="width: 100%; margin-top: 20px;" class="table">
-                <thead style="font-size:1.6rem">
-                    <tr>
-                        <th>
-                            Tên sản phẩm
-                        </th>
-                        <th>
-                            Hình sản phẩm
-                        </th>
-                        <th>
-                            Giá tiền
-                        </th>
-                        <th>
-                            Số lượng
-                        </th>
-                        <th>
-                            Thành tiền
-                        </th>
+            foreach (var item in Model.Items)
+            {
+                decimal total = item._quantity * (decimal)item._product.Price.Value;
+            <div style="width: 100%; margin-top: 20px; border:1px solid #DDDDDD; padding:16px" class="table">
+                <div class="row" style="font-size:1.6rem;">
+                        <div class="col l-2 m-3 c-6 cart__item">
+                            <h3>Tên sản phẩm</h3>
+                            <div style="display:flex; align-items:center; height:100%">
+                                <p style="font-size:2rem; font-weight:600">@Html.DisplayFor(model => item._product.NamePro)</p>
+                            </div>
+                        </div>
+                        <div class="col l-2 m-3 c-6 cart__item">
+                            <h3>Hình sản phẩm</h3>
+                            <img src="@Url.Content(item._product.ImagePro)" height="150px" width="120px" />
+                        </div>
+                        <div class="col l-2 m-3 c-6 cart__item">
+                            <h3>Giá tiền</h3>
+                            <div style="display:flex; align-items:center; height:100%">
+                                <p>@Html.DisplayFor(model => item._product.Price) <span>Vnđ</span></p>
+                            </div>
+                        </div>
+                        <div class="col l-2 m-3 c-6 cart__item">
+                            <h3>Số lượng</h3>
+                            <div style="display:flex; align-items:center; height:100%">
+                                <form action="/ShoppingCart/Update_Cart_Quantity" method="post" style="display:flex">
+                                    <input type="hidden" value="78669601" name="idPro">
+                                    <input type="number" value="1" name="cartQuantity" style="width:100%">
+                                    <input type="submit" value="Update" class="login__btn" style="display:inline-block">
+                                </form>
+                            </div>
+                            </div>
+                        <div class="col l-2 m-3 c-6 cart__item">
+                            <h3>Thành tiền</h3>
+                            <div style="display:flex; align-items:center; height:100%">
+                                <p style="text-align: center;">@total <span>Vnđ</span></p>
+                            </div>
+                            </div>
+                        <div class="col l-2 m-3 c-6 cart__item">
+                            <h3>Xóa</h3>
+                            <div style="display:flex; align-items:center; height:100%">
+                                <a class="menu__link" href="/ShoppingCart/RemoveCart/@item._product.Id" style="font-size:2rem">Xóa</a>
+                            </div>
+                         </div>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.Items)
-                    {
-                        decimal total = item._quantity * (decimal)item._product.Price.Value;
-                        <tr style="font-size:1.6rem;">
-                            <td style="text-align: center;">
-                                @Html.DisplayFor(model => item._product.NamePro)
-                            </td>
-                            <td style="text-align: center;">
-                                <img src="@Url.Content(item._product.ImagePro)" height="150px" width="120px" />
-                            </td>
-                            <td style="text-align: center;">
-                                @Html.DisplayFor(model => item._product.Price) <span>Vnđ</span>
-                            </td>
-                            <td style="text-align: center;">
-                                @using (Html.BeginForm("Update_Cart_Quantity", "ShoppingCart"))
-                                {
-                                    <input type="hidden" value="@item._product.Id" name="idPro" />
-                                    <input type="number" value="@item._quantity" name="cartQuantity" />
-                                    <input type="submit" value="Update" class="login__btn" />
-                                }
-
-                            </td>
-                            <td style="text-align: center;">@total <span>Vnđ</span></td>
-                            <td style="text-align: center;">
-                                <a class="menu__link" href="/ShoppingCart/RemoveCart/@item._product.Id">Xóa</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-                <tr>
-                    <td colspan="12">
+                        </div>
+                <div>
+                </div>
+            </div>
+            <hr style="margin:20px 0px" />
+            }
+                    <div>
                         @using (Html.BeginForm("CheckOut", "ShoppingCart"))
                         {
-                            <table style="width:100%;border-spacing:5px; font-size:1.6rem">
-                                <tr>
-                                    <td>Code Customer:</td>
-                                    <td><input style="padding: 8px 10px;width:100%" placeholder="Vui lòng xem ID trong MyAccount và xác nhận" type="number" name="CodeCustomer" required /></td>
-                                </tr>
-                                <tr>
-                                    <td>AddressDelivery:</td>
-                                    <td><input style="padding: 8px 10px;width:100%" placeholder="Nhập địa chỉ" type="text" name="AddressDelivery" required /></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="12">
-                                        <input type="submit" value="CheckOut" style="float:right" class="login_ btn btn-success login__btn" />
-                                    </td>
-                                </tr>
-                            </table>
+                            <div class="row" style="width:100%;border-spacing:5px; font-size:1.6rem;margin-top:20px">
+                                <div class="col l-4 m-6 c-12">
+                                    <div>Code Customer:</div>
+                                    <div><input style="padding: 8px 10px;width:100%" placeholder="Vui lòng xem ID trong MyAccount và xác nhận" type="number" name="CodeCustomer" required /></div>
+                                </div>
+                                <div class="col l-4 m-6 c-12">
+                                    <div>AddressDelivery:</div>
+                                    <div><input style="padding: 8px 10px;width:100%" placeholder="Nhập địa chỉ" type="text" name="AddressDelivery" required /></div>
+                                </div>
+                                <div class="col l-4 m-6 c-12" style="display:flex; flex-direction:column; justify-content:center">
+                                    <div>CheckOut:</div>
+                                    <input type="submit" value="CheckOut" style="float:right" class="login_ btn btn-success login__btn" />
+                                </div>
+                            </div>
                         }
-                    </td>
-                </tr>
-                <tfoot>
-                    <tr style="display: flex; align-items: center;">
-                        <td style="text-align:right; font-size:1.6rem; margin-right:10px">
+                    </div>
+                <div>
+                    <div style="display: flex; align-items: center; margin-top:20px">
+                        <div style="text-align:right; font-size:1.6rem; margin-right:10px">
                             Tổng tiền: @Model.Total_money() <span>Vnđ</span>
-                        </td>
-                        <td style="text-align: right; font-size: 1.6rem">
+                        </div>
+                        <div style="text-align: right; font-size: 1.6rem">
                             Tổng sản phẩm: @Model.Total_quantity()
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-            <hr style="margin:20px 0px" />
+                        </div>
+                    </div>
+                </div>
         }
     </div>
 </div>

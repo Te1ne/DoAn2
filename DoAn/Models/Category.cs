@@ -11,10 +11,14 @@ namespace DoAn.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Category
     {
+        [Key]
         public int IdCate { get; set; }
+        [ForeignKey("IdPro")]
         public Nullable<int> IdPro { get; set; }
         public string NameCate { get; set; }
     

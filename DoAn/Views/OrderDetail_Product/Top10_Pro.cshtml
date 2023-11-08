@@ -1,0 +1,140 @@
+﻿@model IEnumerable<DoAn.Models.Top_ViewModel>
+
+@{
+    ViewBag.Title = "Top10_Pro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Location -->
+<div class="location">
+    <div class="grid wide">
+        <div class="location__container">
+            <a href="@Url.Action("Index","Home")" class="location__link"><i class="location__icon fa-solid fa-house"></i></a>
+            <p class="location__text">/ Product</p>
+        </div>
+    </div>
+</div>
+<!-- End Location -->
+<!-- Content -->
+<div class="content">
+    <div class="grid wide">
+        <div class="content__container row">
+            <div class="content-left col l-3 m-0 c-0">
+                <div class="content-left__box">
+                    <h3 class="content-left__header">ALL CATEGORIES</h3>
+                    <div class="content-left__box content-left__box--under">
+                        <ul class="content-left__list">
+                            <li class="content-left__item"><a href="" class="content-left__link">Bad</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Bedroom furniture</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Chair</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Coffee chair</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Coffee Tables</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Computer Chair</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Furniture</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Furniture chest</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Good chair</a></li>
+                            <li class="content-left__item"><a href="" class="content-left__link">Ipsum Chair</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @* Data *@
+            <div class="content-right col l-9">
+                <div class="content__box-img">
+                    <img src="~/Content/assets/images/shop-featured.png" width="100%" height="80%" alt="" class="content-right__img">
+                </div>
+                <h3 class="content-right__header">POPULAR PRODUCTS</h3>
+                <a href="/Product/SearchOption" class="menu__link product__btn">Search theo giá</a>
+                <div class="content__product signature__product">
+                    <div class="singnature__containter row">
+                        @foreach (var item in Model)
+                        {
+                            <a href="@Url.Action("Details", "Product",new { id=item.Id})">
+                                <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
+                                    <div class="box__img">
+                                        <img src="@Url.Content(item.imagePro)" width="100%" height="280" />
+                                        <div class="signature__subbox">
+                                            <div class="signature__subbox-top">
+                                                <a href="/ShoppingCart/AddToCart/@item.Id" class="signature__link signature__link-subbox">
+                                                    <p class="signature__add">
+                                                        <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
+                                                    </p>
+                                                </a>
+                                            </div>
+                                            <div class="signature__subbox-bottom">
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="signature__product-decription">
+                                        <h4 class="signature__product-name">
+                                            <a href="#" class="signature__link-header">@Html.DisplayFor(model => item.namePro)</a>
+                                        </h4>
+                                        <p class="signature__product-price">
+                                            @Html.DisplayFor(model => item.price) <span>Vnđ</span>
+                                        </p>
+                                        <div class="signature__product-rate">
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                        @* End Product *@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content -->
+<!-- Slider bar -->
+<div class="sidebar">
+    <div class="sidebar__container grid wide">
+        <div class="sidebar__box row">
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/lamino.png"
+                         width="100%" height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/avio.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/nova.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/avan.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+            <div class="sidebar__box-img col l-4 m-4 c-6">
+                <a href="http://snstheme.com/" class="sidebar__link">
+                    <img src="~/Content/assets/images/nazic.png" width="100%"
+                         height="100%" alt="" class="sidebar__img">
+                </a>
+                <div class="overlay"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Sidebar -->

@@ -11,15 +11,20 @@ namespace DoAn.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
     public partial class Cart
     {
         List<CartItem> items = new List<CartItem>();
 
+        [Key]
         public int IdCart { get; set; }
+        [ForeignKey("Id_Account")]
         public Nullable<int> Id_Account { get; set; }
         public string Name_Pro { get; set; }
+        [ForeignKey("Id_Pro")]
         public Nullable<int> Id_Pro { get; set; }
         public Nullable<decimal> Tax { get; set; }
         public Nullable<decimal> Total { get; set; }

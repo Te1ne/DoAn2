@@ -242,6 +242,7 @@
     <Content Include="Content\assets\images\Furniture-Design-Chair-Yo5Rxnaa-130x98.jpg" />
     <Content Include="Content\assets\images\HD MON FARMHOUSE.jfif" />
     <Content Include="Content\assets\images\HD MON FARMHOUSE.jpg" />
+    <Content Include="Content\assets\images\IMG_8849.PNG" />
     <Content Include="Content\assets\images\lamino.png" />
     <Content Include="Content\assets\images\linhitnh.jpg" />
     <Content Include="Content\assets\images\livingrooomm.jpg" />
@@ -261,7 +262,12 @@
     <Content Include="Content\assets\images\shop-featured.png" />
     <Content Include="Content\assets\images\Thế giới của tớ không có cậu.jpg" />
     <Content Include="Content\assets\images\tien-nghich-so-ky-300x450.jpg" />
+    <Content Include="Content\assets\images\user.jpg" />
     <Content Include="Content\assets\images\vc-short.png" />
+    <Content Include="Content\assets\images\wp10856172-space-technology-wallpapers.jpg" />
+    <Content Include="Content\assets\images\wp10864093-futuristic-technology-wallpapers.jpg" />
+    <Content Include="Content\assets\images\wp3147504-computer-technology-wallpapers.jpg" />
+    <Content Include="Content\assets\images\wp4006784-technical-wallpapers.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />

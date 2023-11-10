@@ -49,8 +49,8 @@
                             <h3>Số lượng</h3>
                             <div style="display:flex; align-items:center; height:100%">
                                 <form action="/ShoppingCart/Update_Cart_Quantity" method="post" style="display:flex">
-                                    <input type="hidden" value="78669601" name="idPro">
-                                    <input type="number" value="1" name="cartQuantity" style="width:100%">
+                                    <input type="hidden" value="@item._product.Id" name="idPro">
+                                    <input type="number" value="@item._quantity" name="cartQuantity" style="width:100%">
                                     <input type="submit" value="Update" class="login__btn" style="display:inline-block">
                                 </form>
                             </div>

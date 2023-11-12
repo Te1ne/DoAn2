@@ -97,5 +97,21 @@ namespace DoAn.Controllers
             var list = db.Products.Where(p=>(double)p.Price>=min &&  (double)p.Price<=max).ToList();
             return View(list);
         }
+        public ActionResult MintoMax()
+        {
+            var products = from p in db.Products
+                           orderby p.Price ascending
+                           select p;
+            return View(products);
+        }
+
+        public ActionResult MaxtoMin()
+        {
+            var products = from p in db.Products
+                           orderby p.Price descending
+                           select p;
+            return View(products);
+        }
+
     }
 }

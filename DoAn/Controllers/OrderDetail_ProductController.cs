@@ -39,5 +39,6 @@ namespace DoAn.Controllers
                         };
             return View(check.Take(10).ToList());
         }
+
     }
 }

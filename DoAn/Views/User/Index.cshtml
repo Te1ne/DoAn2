@@ -35,6 +35,7 @@
                 <h3 class="product__name">Name Account: @user.NameAccount</h3>
                 <h3 class="product__name">City : @user.City</h3>
                 <h3 class="product__name">Phone Number: @user.PhoneNumber</h3>
+                @Html.ActionLink("Edit", "Edit", new { id = user.IdAccount }, new { @class = "signature__link signature__link-bottom" })
             </div>
         </div>
     </div>

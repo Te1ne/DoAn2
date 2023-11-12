@@ -1,0 +1,44 @@
+﻿@model DoAn.Models.Account
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Content -->
+    <div class="content">
+        <div class="grid wide">
+            <div class="content__container row">
+                <div class="content-left l-5 m-5 c-12">
+                    <h2>Edit</h2>
+                </div>
+                <div class="content-right l-7 m-7 c-12">
+                    <div class="login__container upload__container">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.LabelFor(model => model.NameAccount, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.NameAccount, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.LabelFor(model => model.IdAccount, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.IdAccount, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.LabelFor(model => model.Password_User, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.Password_User, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.LabelFor(model => model.ConfirmPass, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.ConfirmPass, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "login__input" } })
+                        <input type="submit" value="Save" class="login__btn">
+                    </div>
+                    <div>
+                        @Html.ActionLink("Back to List", "Index", null, null, new { @class = "navbar__link" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

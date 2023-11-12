@@ -353,13 +353,15 @@
     <Content Include="Views\ShoppingCart\BagCart.cshtml" />
     <Content Include="Views\ShoppingCart\EmptyCart.cshtml" />
     <Content Include="Views\AboutUs\Index.cshtml" />
-    <Content Include="Views\Product\SelectCate.cshtml" />
     <Content Include="Views\Product\SearchOption.cshtml" />
     <Content Include="Views\ShoppingCart\CheckOut_Success.cshtml" />
     <Content Include="Views\ShoppingCart\MoneyCart.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Home\NoLogin.cshtml" />
     <Content Include="Views\OrderDetail_Product\Top10_Pro.cshtml" />
+    <Content Include="Views\Product\MintoMax.cshtml" />
+    <Content Include="Views\Product\MaxtoMin.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

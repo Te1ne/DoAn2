@@ -112,6 +112,23 @@ namespace DoAn.Controllers
                            select p;
             return View(products);
         }
+        public ActionResult AtLeast()
+        {
+            var products = from p in db.Products
+                           orderby p.Price ascending
+                           select p;
+            return View(products.Take(1).ToList());
+
+        }
+        public ActionResult AtMax()
+        {
+            var products = from p in db.Products
+                           orderby p.Price descending
+                           select p;
+            return View(products.Take(1).ToList()); 
+        }
+
+
 
     }
 }

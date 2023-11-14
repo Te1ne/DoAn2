@@ -362,6 +362,8 @@
     <Content Include="Views\Product\MintoMax.cshtml" />
     <Content Include="Views\Product\MaxtoMin.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Product\AtLeast.cshtml" />
+    <Content Include="Views\Product\AtMax.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

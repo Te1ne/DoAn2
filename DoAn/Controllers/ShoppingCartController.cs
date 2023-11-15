@@ -101,7 +101,6 @@ namespace DoAn.Controllers
                 db.OrderProducts.Add(_order);
                 foreach (var item in cart.Items)
                 {
-
                     OrderDetail _order_detail = new OrderDetail();
                     _order_detail.Id_Orderdt = r.Next(1, 10000);
                     _order_detail.IdOrder = _order.Id_OderPro;

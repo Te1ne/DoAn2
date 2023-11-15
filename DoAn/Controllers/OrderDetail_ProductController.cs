@@ -24,7 +24,7 @@ namespace DoAn.Controllers
                         group od by new
                         {
                             IdPro = od.Id_Product,
-                            NamePro = od.Product.NamePro,
+                            NamePro =od.Product.NamePro,
                             ImagePro = od.Product.ImagePro,
                             Price = od.Product.Price
                         } into x

@@ -56,7 +56,8 @@ namespace DoAn.Controllers
                 Random r = new Random();
                 _user.IdAccount = r.Next(1, 100000);
                 var check_ID = db.Accounts.Where(s => s.IdAccount == _user.IdAccount).FirstOrDefault();
-                if (check_ID == null)
+                var check_email = db.Accounts.Where(s=>s.Email== _user.Email).FirstOrDefault(); 
+                if (check_ID == null && check_email==null)
                 {
                     db.Configuration.ValidateOnSaveEnabled = false;
                     db.Accounts.Add(_user);

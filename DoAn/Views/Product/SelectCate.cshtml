@@ -1,0 +1,14 @@
+﻿@model DoAn.Models.Category
+<style>
+    .list-cate{
+        width:100%;
+        padding:10px;
+        text-align:center;
+        background-color:white;
+        color:black;
+        font-size:1.6rem;
+        margin:10px 0px;
+    }
+</style>
+
+@Html.DropDownListFor(model => model.NameCate, new SelectList(Model.ListCate.OrderBy(model => model.NameCate), "NameCate", "NameCate"), "--Select Cate--", new {@class = "list-cate"})

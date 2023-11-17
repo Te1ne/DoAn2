@@ -166,7 +166,7 @@
                             <div class="submenu-furniture">
                                 <div class="row surfur__content">
                                     <div class="subfur__box col">
-                                            <h4 class="subfur__header">PRODUCT</h4>
+                                        <h4 class="subfur__header">PRODUCT</h4>
                                         <ul class="subfur__list">
                                             <li class="subfur__item">
                                                 <a style="text-decoration:none" href="@Url.Action("Top10_Pro","OrderDetail_Product")" class="subfur__link">POPULAR PRODUCTS</a>
@@ -200,6 +200,17 @@
                         </li>
                     </ul>
                 </div>
+                @if (user == null)
+                {
+                    <span></span>
+                }
+                else
+                {
+                    if (user.Email == "admin@gmail.com")
+                    {
+                        <a style="text-decoration:none" href="@Url.Action("Create","Category")" class="product__btn">+ Add Category</a>
+                    }
+                }
             </div>
         </div>
     </div>

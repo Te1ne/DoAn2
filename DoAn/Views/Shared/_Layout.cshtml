@@ -37,15 +37,6 @@
                                     <li class="subnav__item">
                                         <p class="subnav__text"><i class="fa-solid fa-flag-usa"></i> ENGLISH</p>
                                     </li>
-                                    <li class="subnav__item">
-                                        <p class="subnav__text"><i class="fa-solid fa-font-awesome"></i> RUSSIA</p>
-                                    </li>
-                                    <li class="subnav__item">
-                                        <p class="subnav__text"><i class="fa-solid fa-font-awesome"></i> BRAZIL</p>
-                                    </li>
-                                    <li class="subnav__item">
-                                        <p class="subnav__text"><i class="fa-solid fa-font-awesome"></i> FRANCE</p>
-                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -55,9 +46,6 @@
                                 <ul class="subnav__list">
                                     <li class="subnav__item">
                                         <p class="subnav__text">USD</p>
-                                    </li>
-                                    <li class="subnav__item">
-                                        <p class="subnav__text">EUR</p>
                                     </li>
                                 </ul>
                             </div>
@@ -102,12 +90,6 @@
                                 <a href="@Url.Action("Index", "User", new { id = user.IdAccount })" class="navbar__link"><span><text>Hello </text>@user.NameAccount</span></a>
                                 <a href="@Url.Action("LogOut","Login")" class="navbar__link"> Logout</a>
                             }
-                        </li>
-                        <li class="navbar__item hide-on-mobile hide-on-tablet">
-                            <a href="" class="navbar__link"><i class="navbar__icon fa-regular fa-heart"></i> Wishlist</a>
-                        </li>
-                        <li class="navbar__item hide-on-mobile hide-on-tablet">
-                            <a href="" class="navbar__link"><i class="navbar__icon fa-regular fa-square-check"></i> Checkout</a>
                         </li>
                     </ul>
                 </div>
@@ -169,8 +151,8 @@
                     <label for="menu-mobile-tablet-input" class="menu__overlay"></label>
                     <div class="menu__infomation--mobile-tablet hide">
                         <ul class="menu__list">
-                            <li class="menu__item menu__item--mobile-tablet"><a href="@Url.Action("Index","Home")" class="menu__link menu__link--mobile-tablet">Home</a></li>
-                            <li class="menu__item menu__item--mobile-tablet"><a href="@Url.Action("Index","Product")" class="menu__link menu__link--mobile-tablet">Product</a></li>
+                            <li class="menu__item menu__item--mobile-tablet"><a href="@Url.Action("Index","Home")" class="menu__link menu__link--mobile-tablet"> Home</a></li>
+                            <li class="menu__item menu__item--mobile-tablet"><a href="@Url.Action("Index","Product")" class="menu__link menu__link--mobile-tablet"> Product</a></li>
                             <li class="menu__item menu__item--mobile-tablet"><a href="@Url.Action("Index","Contact")" class="menu__link menu__link--mobile-tablet">Contact us</a></li>
                             <li class="menu__item menu__item--mobile-tablet"><a href="@Url.Action("Index","AboutUs")" class="menu__link menu__link--mobile-tablet">About us</a></li>
                         </ul>
@@ -178,25 +160,6 @@
                     <ul class="menu__list hide-on-mobile hide-on-tablet">
                         <li class="menu__item">
                             @Html.ActionLink("HOME", "Index", "Home", null, new { @class = "menu__link" })
-                            <div class="submenu-home">
-                                <ul class="subhome__list">
-                                    <li class="subhome__item">
-                                        <a href="" class="subhome__link subhome__link--chosen">Home Page 1</a>
-                                    </li>
-                                    <li class="subhome__item">
-                                        <a href="" class="subhome__link">Home Page 2</a>
-                                    </li>
-                                    <li class="subhome__item">
-                                        <a href="" class="subhome__link">Home Page 3</a>
-                                    </li>
-                                    <li class="subhome__item">
-                                        <a href="" class="subhome__link">Home Page 4</a>
-                                    </li>
-                                    <li class="subhome__item">
-                                        <a href="" class="subhome__link">Home Page 5</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                         <li class="menu__item menu__item-furniture">
                             @Html.ActionLink("PRODUCT", "Index", "Product", null, new { @class = "menu__link" })
@@ -213,105 +176,6 @@
                                             </li>
                                             <li class="subfur__item">
                                                 <a style="text-decoration:none" href="@Url.Action("MaxtoMin","Product")" class="subfur__link">MAX TO MIN PRODUCT'S PRICE</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Sofa Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">End Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Coffee Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Pedestal Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Home Office Desks</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="subfur__box col">
-                                        <h4 class="subfur__header">TABLE</h4>
-                                        <ul class="subfur__list">
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Living Room Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Sofa Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">End Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Coffee Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Pedestal Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Home Office Desks</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Kids Furniture</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Kitchen & Dinning Room Sets</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="subfur__box col">
-                                        <h4 class="subfur__header">TABLE</h4>
-                                        <ul class="subfur__list">
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Kitchen & Dinning Room Table</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Folding Table</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">End Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Coffee Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Pedestal Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Home Office Desks</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Kid's Furniture</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Kitchen & Dinning Room Sets</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="subfur__box col">
-                                        <h4 class="subfur__header">TABLE</h4>
-                                        <ul class="subfur__list">
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Dinning Room Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Folding Table</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Living Room Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Sofa Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">End Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Coffee Tables</a>
-                                            </li>
-                                            <li class="subfur__item">
-                                                <a href="" class="subfur__link">Pedestal Tables</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -352,15 +216,15 @@
                             <div class="footer__box-icon">
                                 <i class="footer__icon fa-solid fa-house"></i>
                             </div>
-                            <a href="" class="footer__link">8888 South Avenue Street, New York</a>
+                            <a href="" class="footer__link">828 Đ. Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh, Việt Nam</a>
                         </li>
                         <li class="footer__item">
                             <div class="footer__box-icon">
                                 <i class="footer__icon fa-solid fa-phone"></i>
                             </div>
                             <div class="footer__about">
-                                <a href="" class="footer__link">(12) 3 456 7896</a>
-                                <a href="" class="footer__link">(12) 3 456 7895</a>
+                                <a href="" class="footer__link">0792509301</a>
+                                <a href="" class="footer__link">0339228631</a>
                             </div>
                         </li>
                         <li class="footer__item">
@@ -368,69 +232,26 @@
                                 <i class="footer__icon fa-regular fa-envelope"></i>
                             </div>
                             <div class="footer__about">
-                                <a href="" class="footer__link">contact@simen.com</a>
-                                <a href="" class="footer__link">info@simen.com</a>
+                                <a href="" class="footer__link">thaigiabao122@gmail.com</a>
+                                <a href="" class="footer__link">tranhoangphuc880@gmail.com</a>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div class="footer__box col l-4 m-6 c-6">
-                    <h4 class="footer__header">SERVICE</h4>
-                    <ul class="footer__list">
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Prices & Currencies</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Secure Payment</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Delivery Times & Costs</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Returns & Exchanges</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">FAQ's</a>
-                        </li>
-                    </ul>
-                </div>
+
                 <div class="footer__box col l-4 m-6 c-6">
                     <h4 class="footer__header">ACCOUNT</h4>
                     <ul class="footer__list">
+                        @if (user == null)
+                        {
+                            <li class="footer__item"><a href="@Url.Action("Login", "Login")" class="footer__link"> My Account</a></li>
+                        }
+                        else
+                        {
+                            <li class="footer__item"><a href="@Url.Action("Index", "User",new { id = user.IdAccount })" class="footer__link"> My Account</a></li>
+                        }
                         <li class="footer__item">
-                            <a href="" class="footer__link">My Account</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Wishlist</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Order History</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Specials</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Gift Vouchers</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__box col l-4 m-6 c-6">
-                    <h4 class="footer__header">INFORMATION</h4>
-                    <ul class="footer__list">
-                        <li class="footer__item">
-                            <a href="#" class="footer__link">My Account</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Wishlist</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Order History</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Specials</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Gift Vouchers</a>
+                            <a href="@Url.Action("ShowCart","ShoppingCart")" class="footer__link"> Cart</a>
                         </li>
                     </ul>
                 </div>

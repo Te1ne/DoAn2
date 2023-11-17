@@ -27,6 +27,9 @@
                     @*@Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
         @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "login__input" } })
         @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })*@
+                    <p class="control-label col-md-2">Select Cate</p>
+                    @{ Html.RenderAction("SelectCate", "Product");}
+                    <br />
                     @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
                     @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "login__input" } })
                     @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })

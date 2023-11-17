@@ -21,7 +21,10 @@ namespace DoAn.Models
         [ForeignKey("IdPro")]
         public Nullable<int> IdPro { get; set; }
         public string NameCate { get; set; }
-    
+
+        [NotMapped]
+        public List<Category> ListCate { get; set; }
+
         public virtual Product Product { get; set; }
     }
 }

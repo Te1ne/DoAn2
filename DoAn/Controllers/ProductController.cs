@@ -128,7 +128,12 @@ namespace DoAn.Controllers
             return View(products.Take(1).ToList()); 
         }
 
-
+        public ActionResult SelectCate()
+        {
+            Category se_cate = new Category();
+            se_cate.ListCate = db.Categories.ToList<Category>();
+            return PartialView(se_cate);
+        }
 
     }
 }

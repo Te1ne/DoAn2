@@ -58,17 +58,28 @@ namespace DoAn.Controllers
             return View(db.Products.Where(s => s.Id == id).FirstOrDefault());
         }
 
-
         [HttpPost]
-
-        public ActionResult Edit(int id, Product pro)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,NamePro,Price,Size,Description_Pro,ImagePro,Color")] Product product, HttpPostedFileBase ImagePro)
         {
-            db.Entry(pro).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
+                var pro = db.Products.FirstOrDefault(s => s.Id == product.Id);
+                if(pro != null)
+                {
+                    pro.Id = product.Id;
+                    pro.NamePro = product.NamePro;
+                    pro.Price = product.Price;
+                    pro.Size = product.Size;
+                    pro.Color = product.Color;
+                        var filename = Path.GetFileName(ImagePro.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/assets/images"), filename);
+                        pro.ImagePro = "~/Content/assets/images/" + filename;
+                        ImagePro.SaveAs(path);
+                    
+                    pro.Categories = product.Categories;
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index");
         }
-
-
 
         public ActionResult Delete(int id)
         {

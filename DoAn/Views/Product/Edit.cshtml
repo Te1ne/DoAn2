@@ -1,12 +1,12 @@
-﻿@model DoAn.Models.Product
+﻿
+   @model DoAn.Models.Product
 
-@{
-    ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    @{
+        ViewBag.Title = "Edit";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit","Product", FormMethod.Post, new {@enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     <!-- Content -->
@@ -15,8 +15,8 @@
             <div class="content__container row">
                 <div class="content-left l-5 m-5 c-12">
                     <h2>Edit</h2>
+                    <input type="file" name="ImagePro" onchange="ChangeImage(this, document.getElementById('previewImg'))" />
                     <img src="@Url.Content(Model.ImagePro)" height="100%" width="100%" id="previewImg" />
-                    <input type="file" name="UploadImage" onchange="ChangeImage(this, document.getElementById('previewImg'))" />
                 </div>
                 <div class="content-right l-7 m-7 c-12">
                     <div class="login__container upload__container">
@@ -42,3 +42,4 @@
         </div>
     </div>
 }
+

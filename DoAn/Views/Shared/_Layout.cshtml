@@ -106,12 +106,12 @@
                         <img src="~/Content/assets/images/logo.png" width="100%" alt="" class="header__img">
                     </a>
                 </div>
-                <div class="header__search col l-7 m-10 c-0">
+                <div class="header__search col l-7 m-0 c-0">
                     <a href="#" class="header__link header-search__link">All Categories</a>
                     <input type="text" placeholder="Search entire store here" class="header__input">
                     <a href="#" class="header__link"><i class="header-search__icon fa-solid fa-magnifying-glass"></i></a>
                 </div>
-                <div class="header__shopping-cart col col l-3 m-0 c-6">
+                <div class="header__shopping-cart col col l-3 m-10 c-6">
                     @if (user == null)
                     {
                         <a style="text-decoration:none; color:black;" href="@Url.Action("Login","Login")">

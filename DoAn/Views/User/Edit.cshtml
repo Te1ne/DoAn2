@@ -6,7 +6,7 @@
 }
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit","User",FormMethod.Post, new {@enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <!-- Content -->

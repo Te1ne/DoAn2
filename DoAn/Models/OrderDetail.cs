@@ -24,7 +24,7 @@ namespace DoAn.Models
         public Nullable<int> Quantity { get; set; }
         [ForeignKey("IdOrder")]
         public Nullable<int> IdOrder { get; set; }
-    
+
         public virtual OrderProduct OrderProduct { get; set; }
         public virtual Product Product { get; set; }
     }

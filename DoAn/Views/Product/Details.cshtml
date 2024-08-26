@@ -28,7 +28,9 @@
                         <div class="content-right l-7 m-7 c-12" style="text-align:center">
                             <div class="content__product">
                                 <h3 class="product__name">Name: @Html.DisplayFor(model => model.NamePro)</h3>
-                                <p class="product__price">Price: @Html.DisplayFor(model => model.Price)</p>
+                                <p class="product__price">
+                                    Price: @String.Format("{0:N0} đ", Model.Price)
+                                </p>
                                 <p class="product__decription">Description: @Html.DisplayFor(model => model.Description_Pro)</p>
                                 <p class="product__decription">Size: @Html.DisplayFor(model => model.Size)</p>
                                 <p class="product__decription">Color: @Html.DisplayFor(model => model.Color)</p>

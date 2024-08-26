@@ -11,7 +11,7 @@ namespace DoAn.Controllers
 {
     public class UserController : Controller
     {
-        new_simenEntities1 db = new new_simenEntities1();
+        SimenEntities db = new SimenEntities();
         // GET: User
         public ActionResult Index(int id)
         {

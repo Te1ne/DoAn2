@@ -10,7 +10,7 @@ namespace DoAn.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        new_simenEntities1 db = new new_simenEntities1();
+        SimenEntities db = new SimenEntities();
 
         // GET: ShoppingCart
         public ActionResult Index()
@@ -41,7 +41,7 @@ namespace DoAn.Controllers
         public ActionResult AddToCart(int id)
         {
             var _pro = db.Products.SingleOrDefault(s => s.Id == id);
-            if (_pro != null && Session["Email"] != null) 
+            if (_pro != null && Session["Email"] != null)
             {
                 GetCart().Add_Product_Cart(_pro);
                 return RedirectToAction("ShowCart", "ShoppingCart");
@@ -93,10 +93,10 @@ namespace DoAn.Controllers
             {
                 Cart cart = Session["Cart"] as Cart;
                 OrderProduct _order = new OrderProduct();
-                Random r= new Random();
+                Random r = new Random();
                 _order.DateTime = DateTime.Now;
                 _order.Address = form["AddressDelivery"];
-                _order.Id_OderPro = r.Next(1,10000);
+                _order.Id_OderPro = r.Next(1, 10000);
                 _order.ID_Account = int.Parse(form["CodeCustomer"]);
                 db.OrderProducts.Add(_order);
                 foreach (var item in cart.Items)
@@ -110,7 +110,7 @@ namespace DoAn.Controllers
                     db.OrderDetails.Add(_order_detail);
                 }
                 db.SaveChanges();
-                cart.ClearCart(); 
+                cart.ClearCart();
                 return RedirectToAction("CheckOut_Success", "ShoppingCart");
             }
             catch

@@ -10,7 +10,7 @@ namespace DoAn.Controllers
 {
     public class HomeController : Controller
     {
-        new_simenEntities1 db = new new_simenEntities1();
+        SimenEntities db = new SimenEntities();
         public ActionResult Index()
         {
             return View(db.Products.ToList());

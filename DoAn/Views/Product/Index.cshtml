@@ -88,9 +88,14 @@
                                         <h4 class="signature__product-name">
                                             <a href="@Url.Action("Details", "Product",new { id = item.Id })" class="signature__link-header">@Html.DisplayFor(model => item.NamePro)</a>
                                         </h4>
+                                        @{
+                                            var formattedPrice = String.Format("{0:N0} đ", item.Price);
+                                        }
+
                                         <p class="signature__product-price">
-                                            @Html.DisplayFor(model => item.Price) <span>Vnđ</span>
+                                            @formattedPrice
                                         </p>
+
                                         <div class="signature__product-rate">
                                             <i class="signature__product-icon fa-regular fa-star"></i>
                                             <i class="signature__product-icon fa-regular fa-star"></i>

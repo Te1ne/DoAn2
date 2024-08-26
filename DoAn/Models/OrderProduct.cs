@@ -29,12 +29,12 @@ namespace DoAn.Models
         public Nullable<System.DateTime> TimeArrival { get; set; }
         public string Discount_Code { get; set; }
 
-        public string Address {  get; set; }
+        public string Address { get; set; }
 
         public Nullable<int> TotalQuantity { get; set; }
         [ForeignKey("Id_Store")]
         public Nullable<int> Id_Store { get; set; }
-    
+
         public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

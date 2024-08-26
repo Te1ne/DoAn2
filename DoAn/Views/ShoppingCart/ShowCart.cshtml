@@ -42,7 +42,7 @@
                         <div class="col l-2 m-3 c-6 cart__item">
                             <h3>Giá tiền</h3>
                             <div style="display:flex; align-items:center; height:100%">
-                                <p>@Html.DisplayFor(model => item._product.Price) <span>Vnđ</span></p>
+                                <p>@String.Format("{0:N0} đ", item._product.Price)</p>
                             </div>
                         </div>
                         <div class="col l-2 m-3 c-6 cart__item">
@@ -58,7 +58,10 @@
                         <div class="col l-2 m-3 c-6 cart__item">
                             <h3>Thành tiền</h3>
                             <div style="display:flex; align-items:center; height:100%">
-                                <p style="text-align: center;">@total <span>Vnđ</span></p>
+                                <p style="text-align: center;">
+                                    @String.Format("{0:N0} đ", total)
+                                </p>
+
                             </div>
                             </div>
                         <div class="col l-2 m-3 c-6 cart__item">
@@ -96,7 +99,7 @@
                 <div>
                     <div style="display: flex; align-items: center; margin-top:20px">
                         <div style="text-align:right; font-size:1.6rem; margin-right:10px">
-                            Tổng tiền: @Model.Total_money() <span>Vnđ</span>
+                            Tổng tiền: @String.Format("{0:N0} đ", Model.Total_money()) <span>Vnđ</span>
                         </div>
                         <div style="text-align: right; font-size: 1.6rem">
                             Tổng sản phẩm: @Model.Total_quantity()

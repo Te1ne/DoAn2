@@ -10,7 +10,7 @@ namespace DoAn.Controllers
 {
     public class ProductController : Controller
     {
-        new_simenEntities1 db = new new_simenEntities1();
+        SimenEntities db = new SimenEntities();
         // GET: Product
         public ActionResult Index(Category cate)
         {
@@ -28,7 +28,7 @@ namespace DoAn.Controllers
             {
                 Random r = new Random();
 
-                if(pro.UploadImage != null)
+                if (pro.UploadImage != null)
                 {
                     pro.Id = r.Next(1, 1000000000);
                     string filename = Path.GetFileNameWithoutExtension(pro.UploadImage.FileName);
@@ -36,7 +36,6 @@ namespace DoAn.Controllers
                     filename = filename + extent;
                     pro.ImagePro = "~/Content/assets/images/" + filename;
                     pro.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/assets/images/"), filename));
-                    pro.Price *= 24000;
                 }
                 db.Products.Add(pro);
                 db.SaveChanges();
@@ -44,7 +43,7 @@ namespace DoAn.Controllers
             }
             catch
             {
-              return Content ("sai roi bro");
+                return Content("sai roi bro");
             }
         }
 
@@ -62,23 +61,23 @@ namespace DoAn.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,NamePro,Price,Size,Description_Pro,ImagePro,Color")] Product product, HttpPostedFileBase ImagePro)
         {
-                var pro = db.Products.FirstOrDefault(s => s.Id == product.Id);
-                if(pro != null)
-                {
-                    pro.Id = product.Id;
-                    pro.NamePro = product.NamePro;
-                    pro.Price = product.Price;
-                    pro.Size = product.Size;
-                    pro.Color = product.Color;
-                        var filename = Path.GetFileName(ImagePro.FileName);
-                        var path = Path.Combine(Server.MapPath("~/Content/assets/images"), filename);
-                        pro.ImagePro = "~/Content/assets/images/" + filename;
-                        ImagePro.SaveAs(path);
-                    
-                    pro.Categories = product.Categories;
-                }
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            var pro = db.Products.FirstOrDefault(s => s.Id == product.Id);
+            if (pro != null)
+            {
+                pro.Id = product.Id;
+                pro.NamePro = product.NamePro;
+                pro.Price = product.Price;
+                pro.Size = product.Size;
+                pro.Color = product.Color;
+                var filename = Path.GetFileName(ImagePro.FileName);
+                var path = Path.Combine(Server.MapPath("~/Content/assets/images"), filename);
+                pro.ImagePro = "~/Content/assets/images/" + filename;
+                ImagePro.SaveAs(path);
+
+                pro.Categories = product.Categories;
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
@@ -103,9 +102,9 @@ namespace DoAn.Controllers
                 return Content("This data using in other table, Error Delete");
             }
         }
-        public ActionResult SearchOption(double min=double.MinValue,double max= double.MaxValue)
+        public ActionResult SearchOption(double min = double.MinValue, double max = double.MaxValue)
         {
-            var list = db.Products.Where(p=>(double)p.Price>=min &&  (double)p.Price<=max).ToList();
+            var list = db.Products.Where(p => (double)p.Price >= min && (double)p.Price <= max).ToList();
             return View(list);
         }
         public ActionResult MintoMax()
@@ -136,7 +135,7 @@ namespace DoAn.Controllers
             var products = from p in db.Products
                            orderby p.Price descending
                            select p;
-            return View(products.Take(1).ToList()); 
+            return View(products.Take(1).ToList());
         }
 
         public ActionResult SelectCate()

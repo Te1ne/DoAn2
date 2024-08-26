@@ -10,7 +10,7 @@ namespace DoAn.Controllers
     public class OrderDetail_ProductController : Controller
     {
         // GET: OrderDetail_Product
-        new_simenEntities1 db = new new_simenEntities1();
+        SimenEntities db = new SimenEntities();
         public ActionResult Index()
         {
             return View();
@@ -24,7 +24,7 @@ namespace DoAn.Controllers
                         group od by new
                         {
                             IdPro = od.Id_Product,
-                            NamePro =od.Product.NamePro,
+                            NamePro = od.Product.NamePro,
                             ImagePro = od.Product.ImagePro,
                             Price = od.Product.Price
                         } into x

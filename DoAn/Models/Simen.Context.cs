@@ -13,10 +13,10 @@ namespace DoAn.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class new_simenEntities1 : DbContext
+    public partial class SimenEntities : DbContext
     {
-        public new_simenEntities1()
-            : base("name=new_simenEntities1")
+        public SimenEntities()
+            : base("name=SimenEntities")
         {
         }
     

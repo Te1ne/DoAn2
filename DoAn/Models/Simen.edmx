@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="new_simenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SimenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="IdAccount" />
@@ -172,7 +172,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="new_simenModelStoreContainer">
+        <EntityContainer Name="SimenModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AdminUser" EntityType="Self.AdminUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
@@ -214,7 +214,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="new_simenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SimenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="IdAccount" />
@@ -396,7 +396,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="new_simenEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SimenEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="AdminUsers" EntityType="Self.AdminUser" />
           <EntitySet Name="Carts" EntityType="Self.Cart" />
@@ -439,9 +439,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="new_simenModelStoreContainer" CdmEntityContainer="new_simenEntities1">
+        <EntityContainerMapping StorageEntityContainer="SimenModelStoreContainer" CdmEntityContainer="SimenEntities">
           <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="new_simenModel.Account">
+            <EntityTypeMapping TypeName="SimenModel.Account">
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="IdAccount" ColumnName="IdAccount" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -454,7 +454,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AdminUsers">
-            <EntityTypeMapping TypeName="new_simenModel.AdminUser">
+            <EntityTypeMapping TypeName="SimenModel.AdminUser">
               <MappingFragment StoreEntitySet="AdminUser">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name_User" ColumnName="Name_User" />
@@ -464,7 +464,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Carts">
-            <EntityTypeMapping TypeName="new_simenModel.Cart">
+            <EntityTypeMapping TypeName="SimenModel.Cart">
               <MappingFragment StoreEntitySet="Cart">
                 <ScalarProperty Name="IdCart" ColumnName="IdCart" />
                 <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
@@ -476,7 +476,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="new_simenModel.Category">
+            <EntityTypeMapping TypeName="SimenModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="IdCate" ColumnName="IdCate" />
                 <ScalarProperty Name="IdPro" ColumnName="IdPro" />
@@ -485,7 +485,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderDetails">
-            <EntityTypeMapping TypeName="new_simenModel.OrderDetail">
+            <EntityTypeMapping TypeName="SimenModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetails">
                 <ScalarProperty Name="Id_Orderdt" ColumnName="Id_Orderdt" />
                 <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
@@ -496,7 +496,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderProducts">
-            <EntityTypeMapping TypeName="new_simenModel.OrderProduct">
+            <EntityTypeMapping TypeName="SimenModel.OrderProduct">
               <MappingFragment StoreEntitySet="OrderProduct">
                 <ScalarProperty Name="Id_OderPro" ColumnName="Id_OderPro" />
                 <ScalarProperty Name="DateTime" ColumnName="DateTime" />
@@ -509,7 +509,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="new_simenModel.Product">
+            <EntityTypeMapping TypeName="SimenModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="NamePro" ColumnName="NamePro" />
@@ -522,7 +522,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Stores">
-            <EntityTypeMapping TypeName="new_simenModel.Store">
+            <EntityTypeMapping TypeName="SimenModel.Store">
               <MappingFragment StoreEntitySet="Store">
                 <ScalarProperty Name="IdStore" ColumnName="IdStore" />
                 <ScalarProperty Name="Store_Name" ColumnName="Store_Name" />

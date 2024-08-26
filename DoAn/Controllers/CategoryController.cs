@@ -10,7 +10,7 @@ namespace DoAn.Controllers
     public class CategoryController : Controller
     {
         // GET: Category
-        new_simenEntities1 db = new new_simenEntities1();
+        SimenEntities db = new SimenEntities();
         public ActionResult Index()
         {
             return View(db.Categories.ToList());

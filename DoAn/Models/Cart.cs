@@ -83,4 +83,3 @@ namespace DoAn.Models
         public int _quantity { get; set; }
     }
 }
-

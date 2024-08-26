@@ -98,9 +98,7 @@
                                                 @Html.DisplayFor(model => item.NamePro)
                                             </a>
                                         </h4>
-                                        <p class="signature__product-price">
-                                            @Html.DisplayFor(model => item.Price)
-                                        </p>
+                                        <p class="signature__product-price">@String.Format("{0:N0} đ", item.Price)</p>
                                         <div class="signature__product-rate">
                                             <i class="signature__product-icon fa-regular fa-star"></i>
                                             <i class="signature__product-icon fa-regular fa-star"></i>
@@ -150,55 +148,6 @@
         <div class="suggest">
             <div class="grid wide">
                 <h3 class="suggest__header">SUGGEST COLLECTION</h3>
-                @*<div class="suggest__container row ">
-                    <ul class="suggest__box col hide-on-tablet hide-on-mobile">
-                        <li class="suggest__item suggest__item--chosen col">
-                            <img src="~/Content/assets/images/28-92x110.jpg"
-                                 width="100%" height="100%" alt="" class="suggest__img">
-                            <p class="suggest__product-name">Office chair</p>
-                        </li>
-                        <li class="suggest__item suggest__item--hover col">
-                            <img src="~/Content/assets/images/174801.jpg"
-                                 width="100%" height="100%" alt="" class="suggest__img">
-                            <p class="suggest__product-name">Sofas</p>
-                        </li>
-                        <li class="suggest__item suggest__item--hover col">
-                            <img src="~/Content/assets/images/5-92x110.jpg"
-                                 width="100%" height="100%" alt="" class="suggest__img">
-                            <p class="suggest__product-name">Good chair</p>
-                        </li>
-                        <li class="suggest__item suggest__item--hover col">
-                            <img src="~/Content/assets/images/Furniture-Design-Chair-Yo5Rxnaa-130x98.jpg"
-                                 width="100%" height="100%" alt="" class="suggest__img">
-                            <p class="suggest__product-name">Coffee chair</p>
-                        </li>
-                        <li class="suggest__item suggest__item--hover col">
-                            <img src="~/Content/assets/images/Ergonomic-Office-Furniture-Design-of-Active-Surface-Table-in-Orange-by-Isis-Concepts-130x98.jpg"
-                                 alt="" class="suggest__img">
-                            <p class="suggest__product-name">Outdoor table</p>
-                        </li>
-                        <li class="suggest__item suggest__item--hover col">
-                            <img src="~/Content/assets/images/26-92x110.jpg"
-                                 width="100%" height="100%" alt="" class="suggest__img">
-                            <p class="suggest__product-name">Ipsum Chair</p>
-                        </li>
-                        <li class="suggest__item suggest__item--hover col">
-                            <img src="~/Content/assets/images/30-92x110.jpg"
-                                 width="100%" height="100%" alt="" class="suggest__img">
-                            <p class="suggest__product-name">Wood Chair</p>
-                        </li>
-                        <li class="suggest__item suggest__item--hover col">
-                            <img src="~/Content/assets/images/23-92x110.jpg"
-                                 width="100%" height="100%" alt="" class="suggest__img">
-                            <p class="suggest__product-name">Coffee Tables</p>
-                        </li>
-                        <li class="suggest__item suggest__item--hover col">
-                            <img src="~/Content/assets/images/21-92x110.jpg"
-                                 width="100%" height="100%" alt="" class="suggest__img">
-                            <p class="suggest__product-name">Living Room</p>
-                        </li>
-                    </ul>
-                </div>*@
                 <div class="list__product row">
                     @foreach (var item in Model)
                     {
@@ -235,7 +184,7 @@
                                             @Html.DisplayFor(model => item.NamePro)
                                         </a>
                                     </h4>
-                                    <p class="signature__product-price">@Html.DisplayFor(model => item.Price)</p>
+                                    <p class="signature__product-price">@String.Format("{0:N0} đ", item.Price)</p>
                                     <div class="signature__product-rate">
                                         <i class="signature__product-icon fa-regular fa-star"></i>
                                         <i class="signature__product-icon fa-regular fa-star"></i>
@@ -311,7 +260,7 @@
                                         @Html.DisplayFor(model => item.NamePro)
                                     </a>
                                     <p class="most-products__price signature__product-price">
-                                        @Html.DisplayFor(model => item.Price)
+                                        @String.Format("{0:N0} đ", item.Price)
                                     </p>
                                     <div class="most-products__rate signature__product-rate">
                                         <i class="signature__product-icon fa-regular fa-star"></i>

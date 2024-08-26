@@ -33,7 +33,7 @@ namespace DoAn.Controllers
                 Session["Email"] = _user.Email;
                 Session["Password_User"] = _user.Password_User;
                 Session["NameAccount"] = _user.NameAccount;
-                return RedirectToAction("Index", "Product");
+                return RedirectToAction("Index", "Home");
             }
         }
 

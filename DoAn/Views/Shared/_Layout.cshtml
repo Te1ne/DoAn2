@@ -84,6 +84,7 @@
                             @if (user == null)
                             {
                                 @Html.ActionLink("Login", "Login", "Login", null, new { @class = "navbar__link" })
+                                <a href="/Admin/HomeAdmin/LoginAdmin" class="navbar__link" style="margin-left: 10px" >Admin</a>
                             }
                             else
                             {

@@ -16,17 +16,12 @@
             <div class="content-left l-5 m-5 c-12">
                 <img src="@Url.Content(Model.ImagePro)" height="100%" width="100%" id="previewImg" />
                 <input type="file" name="UploadImage" onchange="ChangeImage(this, document.getElementById('previewImg'))" />
-
-
             </div>
             <div class="content-right l-7 m-7 c-12">
                 <div class="login__container upload__container">
                     @Html.LabelFor(model => model.NamePro, htmlAttributes: new { @class = "control-label col-md-2" })
                     @Html.EditorFor(model => model.NamePro, new { htmlAttributes = new { @class = "login__input" } })
                     @Html.ValidationMessageFor(model => model.NamePro, "", new { @class = "text-danger" })
-                    @*@Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "login__input" } })
-        @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })*@
                     <p class="control-label col-md-2">Select Cate</p>
                     @{ Html.RenderAction("SelectCate", "Product");}
                     <br />

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DoAn.Models;
+using System.Data.Entity;
 
 namespace DoAn.Areas.Admin.Controllers
 {
@@ -134,6 +135,12 @@ namespace DoAn.Areas.Admin.Controllers
             {
                 return Content("This data using in other table, Error Delete");
             }
+        }
+
+        public ActionResult LichSuMuaHang()
+        {
+            var orderDetails = db.OrderDetails.Include(s => s.Product).ToList();
+            return View(orderDetails);
         }
     }
 }

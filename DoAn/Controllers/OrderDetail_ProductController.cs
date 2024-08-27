@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace DoAn.Controllers
 {
@@ -11,9 +12,10 @@ namespace DoAn.Controllers
     {
         // GET: OrderDetail_Product
         SimenEntities db = new SimenEntities();
-        public ActionResult Index()
+        public ActionResult LichSuMuaHang()
         {
-            return View();
+            var orderDetails = db.OrderDetails.Include(s => s.Product).ToList();
+            return View(orderDetails);
         }
         public ActionResult Top10_Pro()
         {

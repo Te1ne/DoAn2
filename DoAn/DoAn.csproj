@@ -492,6 +492,7 @@
     <Content Include="Areas\Admin\Views\HomeAdmin\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\LoginAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\LichSuMuaHang.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -546,6 +547,7 @@
     <Content Include="Views\Product\AtLeast.cshtml" />
     <Content Include="Views\Product\AtMax.cshtml" />
     <Content Include="Views\Product\SelectCate.cshtml" />
+    <Content Include="Views\OrderDetail_Product\LichSuMuaHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

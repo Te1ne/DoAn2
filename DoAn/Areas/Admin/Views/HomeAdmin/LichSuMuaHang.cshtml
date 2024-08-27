@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DoAn.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "LichSuMuaHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="font-size: 40px; margin: 20px 0px">Order History</h2>
+<table class="table">
+    <tr>
+        <th style="margin: 10px">
+            <p style="font-size:20px">Image Product</p>
+        </th>
+        <th>
+            <p style="font-size:20px; margin:0px 20px">Name Product</p>
+        </th>
+        <th>
+            <p style="font-size: 20px; margin: 0px 20px">Price</p>
+        </th>
+        <th>
+            <p style="font-size: 20px; margin: 0px 20px">Quantity</p>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@Url.Content(item.Product.ImagePro)" width="150" height="150" />
+            </td>
+            <td>
+                <p style="font-size: 12px; margin: 0px 20px">@item.Product.NamePro</p>
+            </td>
+            <td>
+                <p style="font-size: 12px; margin: 0px 20px">@String.Format("{0:N0} VND", item.UnitPrice)</p>
+            </td>
+            <td>
+                <p style="font-size: 12px; margin: 0px 20px">@item.Quantity</p>
+            </td>
+            <td>
+                @Html.ActionLink("Cập nhật trạng thái đơn hàng", "Edit", new { id = item.IdOrder })
+            </td>
+        </tr>
+    }
+
+</table>

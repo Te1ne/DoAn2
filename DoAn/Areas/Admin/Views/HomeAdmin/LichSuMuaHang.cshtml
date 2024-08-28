@@ -12,6 +12,9 @@
             <p style="font-size:20px">Image Product</p>
         </th>
         <th>
+            <p style="font-size: 20px; margin: 0px 20px">Id</p>
+        </th>
+        <th>
             <p style="font-size:20px; margin:0px 20px">Name Product</p>
         </th>
         <th>
@@ -19,6 +22,9 @@
         </th>
         <th>
             <p style="font-size: 20px; margin: 0px 20px">Quantity</p>
+        </th>
+        <th>
+            <p style="font-size: 20px; margin: 0px 20px">State Delivery</p>
         </th>
         <th></th>
     </tr>
@@ -29,6 +35,9 @@
             <td>
                 <img src="@Url.Content(item.Product.ImagePro)" width="150" height="150" />
             </td>
+            <th>
+                <p style="font-size: 20px; margin: 0px 20px">@item.IdOrder</p>
+            </th>
             <td>
                 <p style="font-size: 12px; margin: 0px 20px">@item.Product.NamePro</p>
             </td>
@@ -39,7 +48,10 @@
                 <p style="font-size: 12px; margin: 0px 20px">@item.Quantity</p>
             </td>
             <td>
-                @Html.ActionLink("Cập nhật trạng thái đơn hàng", "Edit", new { id = item.IdOrder })
+                <p style="font-size: 12px; margin: 0px 20px">@item.StateDelivery</p>
+            </td>
+            <td>
+                @Html.ActionLink("Cập nhật trạng thái đơn hàng", "CapNhatTrangThaiDonHang", new { id = item.IdOrder })
             </td>
         </tr>
     }

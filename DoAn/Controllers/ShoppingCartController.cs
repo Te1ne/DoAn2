@@ -107,6 +107,7 @@ namespace DoAn.Controllers
                     _order_detail.Id_Product = item._product.Id;
                     _order_detail.UnitPrice = item._product.Price;
                     _order_detail.Quantity = item._quantity;
+                    _order_detail.StateDelivery = "Đã đặt hàng";
                     db.OrderDetails.Add(_order_detail);
                 }
                 db.SaveChanges();

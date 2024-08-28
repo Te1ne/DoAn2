@@ -142,5 +142,21 @@ namespace DoAn.Areas.Admin.Controllers
             var orderDetails = db.OrderDetails.Include(s => s.Product).ToList();
             return View(orderDetails);
         }
+        public ActionResult CapNhatTrangThaiDonHang(int id)
+        {
+            return View(db.OrderDetails.Where(s => s.IdOrder == id).FirstOrDefault());
+        }
+
+        [HttpPost]
+        public ActionResult CapNhatTrangThaiDonHang(OrderDetail orderDetail)
+        {
+            var orderDetailInDb = db.OrderDetails.FirstOrDefault(s => s.IdOrder == orderDetail.IdOrder);
+            orderDetailInDb.StateDelivery = orderDetail.StateDelivery;
+
+            db.SaveChanges();
+
+            return RedirectToAction("LichSuMuaHang");
+        }
+
     }
 }

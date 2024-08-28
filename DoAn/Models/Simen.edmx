@@ -54,6 +54,8 @@
           <Property Name="UnitPrice" Type="money" />
           <Property Name="Quantity" Type="int" />
           <Property Name="IdOrder" Type="int" />
+          <Property Name="StateDelivery" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatePayment" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="OrderProduct">
           <Key>
@@ -269,6 +271,8 @@
           <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="IdOrder" Type="Int32" />
+          <Property Name="StateDelivery" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatePayment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderDetails_OrderProduct" FromRole="OrderDetails" ToRole="OrderProduct" />
           <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetails_Product" FromRole="OrderDetails" ToRole="Product" />
         </EntityType>
@@ -492,6 +496,8 @@
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
+                <ScalarProperty Name="StateDelivery" ColumnName="StateDelivery" />
+                <ScalarProperty Name="StatePayment" ColumnName="StatePayment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

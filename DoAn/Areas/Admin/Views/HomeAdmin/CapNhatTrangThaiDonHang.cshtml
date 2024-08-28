@@ -1,0 +1,47 @@
+﻿@model DoAn.Models.OrderDetail
+
+@{
+    ViewBag.Title = "CapNhatTrangThaiDonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>CapNhatTrangThaiDonHang</h2>
+
+@using (Html.BeginForm("CapNhatTrangThaiDonHang", "HomeAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>OrderDetail</h4>
+    <form asp-action="CapNhatTrangThaiDonHang" method="post" enctype="multipart/form-data" class="forms-sample">
+        <input type="hidden" asp-for="Id_Orderdt" />
+        <input type="hidden" asp-for="Id_Product" />
+        <input type="hidden" asp-for="UnitPrice" />
+        <input type="hidden" asp-for="Quantity" />
+        <input type="hidden" asp-for="IdOrder" />
+        <input type="hidden" asp-for="StatePayment" />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StateDelivery, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(
+                    model => model.StateDelivery,
+                    new SelectList(new List<string> { "Đã đặt hàng", "Đã xác nhận", "Đang vận chuyển", "Đã giao" }),
+                    new { @class = "form-control" }
+                )
+                @Html.ValidationMessageFor(model => model.StateDelivery, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </form>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

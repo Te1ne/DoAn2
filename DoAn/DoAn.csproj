@@ -303,6 +303,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Simen.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Simen.edmx</DependentUpon>
+      <LastGenOutput>Simen.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Simen.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Simen.edmx</DependentUpon>
+      <LastGenOutput>Simen.cs</LastGenOutput>
+    </Content>
     <Content Include="_LayoutAdmin\.gitignore" />
     <Content Include="_LayoutAdmin\assets\css\style.css" />
     <Content Include="_LayoutAdmin\assets\images\dashboard\circle.png" />
@@ -386,16 +396,6 @@
     <Content Include="_LayoutAdmin\partials\_navbar.html" />
     <Content Include="_LayoutAdmin\partials\_sidebar.html" />
     <Content Include="_LayoutAdmin\screenshot.jpg" />
-    <Content Include="Models\Simen.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Simen.edmx</DependentUpon>
-      <LastGenOutput>Simen.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Simen.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Simen.edmx</DependentUpon>
-      <LastGenOutput>Simen.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -403,13 +403,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\assets\favicon\site.webmanifest" />
-    <EntityDeploy Include="Models\Simen.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Simen.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Simen.edmx.diagram">
-      <DependentUpon>Simen.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\net40\Web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
@@ -493,6 +486,14 @@
     <Content Include="Areas\Admin\Views\HomeAdmin\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\LoginAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\LichSuMuaHang.cshtml" />
+    <EntityDeploy Include="Models\Simen.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Simen.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Simen.edmx.diagram">
+      <DependentUpon>Simen.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\HomeAdmin\CapNhatTrangThaiDonHang.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

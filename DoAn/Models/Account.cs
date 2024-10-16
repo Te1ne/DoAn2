@@ -36,13 +36,16 @@ namespace DoAn.Models
 
         [Required(ErrorMessage = "Name not empty")]
         [StringLength(16, MinimumLength = 4, ErrorMessage = "Name must be between 4 and 16 characters.")]
+        [RegularExpression(@"^[a-zA-Z0-9]*$", ErrorMessage = "Name cannot contain special characters.")]
         public string NameAccount { get; set; }
+
         public string City { get; set; }
         public string Zip_Code { get; set; }
 
         [Required(ErrorMessage = "Password is required.")]
-        [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,}$", ErrorMessage = "Password must have at least one uppercase letter, one lowercase letter, and number.")]
+        [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*]).{6,}$", ErrorMessage = "Password must have at least one uppercase letter, one lowercase letter, one number, one special character (!@#$%^&*), and be longer than 6 characters.")]
         public string Password_User { get; set; }
+
         [Compare(otherProperty: "Password_User", ErrorMessage = " Confirm password does not match")]
         public string ConfirmPass { get; set; }
 

@@ -20,22 +20,31 @@ namespace DoAn.Controllers
 
         public ActionResult LoginAccount(Account _user)
         {
-            var check = db.Accounts.Where(s => s.Email == _user.Email && s.Password_User == _user.Password_User).FirstOrDefault();
-            if (check == null)
+            var check_email = db.Accounts.Where(s => s.Email == _user.Email).FirstOrDefault();
+
+            if (check_email == null)
             {
-                ViewBag.ErrorInfo = "Sai info";
+                ViewBag.ErrorInfo = "Email không tồn tại trong hệ thống.";
                 return View("Login");
             }
             else
             {
-                Session["Account"] = check;
-                db.Configuration.ValidateOnSaveEnabled = false;
-                Session["Email"] = _user.Email;
-                Session["Password_User"] = _user.Password_User;
-                Session["NameAccount"] = _user.NameAccount;
-                return RedirectToAction("Index", "Home");
+                if (check_email.Password_User != _user.Password_User)
+                {
+                    ViewBag.ErrorInfo = "Mật khẩu không đúng.";
+                    return View("Login");
+                }
+                else
+                {
+                    Session["Account"] = check_email;
+                    Session["Email"] = _user.Email;
+                    Session["Password_User"] = _user.Password_User;
+                    Session["NameAccount"] = check_email.NameAccount;
+                    return RedirectToAction("Index", "Home");
+                }
             }
         }
+
 
         public ActionResult LogOut()
         {
@@ -56,7 +65,19 @@ namespace DoAn.Controllers
                 Random r = new Random();
                 _user.IdAccount = r.Next(1, 100000);
                 var check_ID = db.Accounts.Where(s => s.IdAccount == _user.IdAccount).FirstOrDefault();
+                var check_Name = db.Accounts.Where(s => s.NameAccount == _user.NameAccount).FirstOrDefault();
                 var check_email = db.Accounts.Where(s => s.Email == _user.Email).FirstOrDefault();
+
+                if (check_Name != null)
+                {
+                    ModelState.AddModelError("NameAccount", "Tên tài khoản đã tồn tại trong hệ thống.");
+                }
+
+                if (check_email != null)
+                {
+                    ModelState.AddModelError("Email", "Email đã tồn tại trong hệ thống.");
+                }
+
                 if (check_ID == null && check_email == null)
                 {
                     db.Configuration.ValidateOnSaveEnabled = false;

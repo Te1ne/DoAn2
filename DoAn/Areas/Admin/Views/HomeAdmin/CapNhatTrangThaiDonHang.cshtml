@@ -7,38 +7,41 @@
 
 <h2>CapNhatTrangThaiDonHang</h2>
 
-@using (Html.BeginForm("CapNhatTrangThaiDonHang", "HomeAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
 <div class="form-horizontal">
     <h4>OrderDetail</h4>
-    <form asp-action="CapNhatTrangThaiDonHang" method="post" enctype="multipart/form-data" class="forms-sample">
-        <input type="hidden" asp-for="Id_Orderdt" />
-        <input type="hidden" asp-for="Id_Product" />
-        <input type="hidden" asp-for="UnitPrice" />
-        <input type="hidden" asp-for="Quantity" />
-        <input type="hidden" asp-for="IdOrder" />
-        <input type="hidden" asp-for="StatePayment" />
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id_Orderdt)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.StateDelivery, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(
-                    model => model.StateDelivery,
-                    new SelectList(new List<string> { "Đã đặt hàng", "Đã xác nhận", "Đang vận chuyển", "Đã giao" }),
-                    new { @class = "form-control" }
-                )
-                @Html.ValidationMessageFor(model => model.StateDelivery, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdOrder, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.IdOrder, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.IdOrder, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.StateDelivery, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(
+                model => model.StateDelivery,
+                new SelectList(new List<string> { "Đã đặt hàng", "Đã xác nhận", "Đang vận chuyển", "Đã giao" }),
+                new { @class = "form-control" }
+            )
+            @Html.ValidationMessageFor(model => model.StateDelivery, "", new { @class = "text-danger" })
         </div>
-    </form>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
 </div>
 }
 

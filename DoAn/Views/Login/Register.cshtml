@@ -1,110 +1,80 @@
 ﻿@model DoAn.Models.Account
 
-
 @{
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <style>
-    .field-validation-error{
-        color:red;
+    .field-validation-error {
+        color: red;
+        font-size: 0.9em;
     }
+
+    .login__input {
+        margin-bottom: 10px;
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    .login__btn {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+        .login__btn:hover {
+            background-color: #45a049;
+        }
 </style>
 
+<div class="main">
+    <div class="content">
+        <div class="grid wide">
+            <h4 class="login__header">Register</h4>
+            <div class="login__container">
+                @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
 
-<body>
-    <div class="main">
-        <!-- Location -->
-        <div class="location">
-            <div class="grid wide">
-                <div class="location__container">
-                    <a href="@Url.Action("Index","Home")" class="location__link"><i class="location__icon fa-solid fa-house"></i></a>
-                    <p class="location__text">/ Register</p>
-                </div>
+                    <!-- Name Account -->
+                    <p class="login__name">@Html.LabelFor(model => model.NameAccount) <span class="red">*</span></p>
+                    @Html.TextBoxFor(model => model.NameAccount, new { @class = "login__input", placeholder = "Your Name" })
+                    @Html.ValidationMessageFor(model => model.NameAccount)
+
+                    <!-- Email -->
+                    <p class="login__name">@Html.LabelFor(model => model.Email) <span class="red">*</span></p>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "login__input", type = "email", placeholder = "Your Email" })
+                    @Html.ValidationMessageFor(model => model.Email)
+
+                    <!-- Password -->
+                    <p class="login__name">@Html.LabelFor(model => model.Password_User) <span class="red">*</span></p>
+                    @Html.PasswordFor(model => model.Password_User, new { @class = "login__input", placeholder = "Your Password" })
+                    @Html.ValidationMessageFor(model => model.Password_User)
+
+                    <!-- Confirm Password -->
+                    <p class="login__name">@Html.LabelFor(model => model.ConfirmPass) <span class="red">*</span></p>
+                    @Html.PasswordFor(model => model.ConfirmPass, new { @class = "login__input", placeholder = "Confirm Password" })
+                    @Html.ValidationMessageFor(model => model.ConfirmPass)
+
+                    <!-- Phone Number -->
+                    <p class="login__name">@Html.LabelFor(model => model.PhoneNumber) <span class="red">*</span></p>
+                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "login__input", type = "tel", placeholder = "Your PhoneNumber" })
+                    @Html.ValidationMessageFor(model => model.PhoneNumber)
+
+                    <!-- City -->
+                    <p class="login__name">@Html.LabelFor(model => model.City)</p>
+                    @Html.TextBoxFor(model => model.City, new { @class = "login__input", placeholder = "Your City" })
+                    @Html.ValidationMessageFor(model => model.City)
+
+                    <!-- Submit Button -->
+                    <input type="submit" value="Register" class="login__btn" />
+                }
             </div>
         </div>
-        <!-- End Location -->
-        <!-- Content -->
-        <div class="content">
-            <div class="grid wide">
-                <h3 class="content__header">My Account</h3>
-                <h4 class="login__header">Register</h4>
-                <div class="login__container">
-                    @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                    {
-                        @Html.AntiForgeryToken()
-
-                        <p class="login__name">@Html.LabelFor(model => model.NameAccount) <span class="red">*</span></p>
-                        <input class="login__input" id="NameAccount" name="NameAccount" type="text" value="" placeholder="Your Name">
-                        @Html.ValidationMessageFor(model => model.NameAccount)
-                        <p class="login__name">@Html.LabelFor(model => model.Email) <span class="red">*</span></p>
-                        <input class="login__input" id="Email" name="Email" type="email" value="" placeholder="Your Email">
-                        <p>@Html.ValidationMessageFor(model => model.Email)</p>
-                        <p class="login__name">@Html.LabelFor(model => model.Password_User) <span class="red">*</span></p>
-                        <input class="login__input" id="Password_User" name="Password_User" type="password" value="" placeholder="Your Password">
-
-
-                        <p class="login__name">@Html.LabelFor(model => model.ConfirmPass) <span class="red">*</span></p>
-                        <input class="login__input" id="ConfirmPass" name="ConfirmPass" type="password" value="" placeholder="Confirm Password">
-                        <p>@Html.ValidationMessageFor(model => model.ConfirmPass)</p>
-
-                        <p class="login__name">@Html.LabelFor(model => model.PhoneNumber) <span class="red">*</span></p>
-                        <input class="login__input" id="PhoneNumber" name="PhoneNumber" type="tel" value="" placeholder="Your PhoneNumber">
-                        <p>@Html.ValidationMessageFor(model => model.PhoneNumber)</p>
-
-                        <p class="login__name">@Html.LabelFor(model => model.City) <span class="red">*</span></p>
-                        <input class="login__input" id="City" name="City" type="text" value="" placeholder="Your City">
-                        <input type="submit" value="Register" class="login__btn" />
-                    }
-                </div>
-            </div>
-        </div>
-        <!-- End Content -->
-        <!-- Slider bar -->
-        <div class="sidebar">
-            <div class="sidebar__container grid wide">
-                <div class="sidebar__box row">
-                    <div class="sidebar__box-img col l-4 m-4 c-6">
-                        <a href="http://snstheme.com/" class="sidebar__link">
-                            <img src="~/Content/assets/images/lamino.png"
-                                 width="100%" height="100%" alt="" class="sidebar__img">
-                        </a>
-                        <div class="overlay"></div>
-                    </div>
-                    <div class="sidebar__box-img col l-4 m-4 c-6">
-                        <a href="http://snstheme.com/" class="sidebar__link">
-                            <img src="~/Content/assets/images/avio.png" width="100%"
-                                 height="100%" alt="" class="sidebar__img">
-                        </a>
-                        <div class="overlay"></div>
-                    </div>
-                    <div class="sidebar__box-img col l-4 m-4 c-6">
-                        <a href="http://snstheme.com/" class="sidebar__link">
-                            <img src="~/Content/assets/images/nova.png" width="100%"
-                                 height="100%" alt="" class="sidebar__img">
-                        </a>
-                        <div class="overlay"></div>
-                    </div>
-                    <div class="sidebar__box-img col l-4 m-4 c-6">
-                        <a href="http://snstheme.com/" class="sidebar__link">
-                            <img src="~/Content/assets/images/avan.png" width="100%"
-                                 height="100%" alt="" class="sidebar__img">
-                        </a>
-                        <div class="overlay"></div>
-                    </div>
-                    <div class="sidebar__box-img col l-4 m-4 c-6">
-                        <a href="http://snstheme.com/" class="sidebar__link">
-                            <img src="~/Content/assets/images/nazic.png" width="100%"
-                                 height="100%" alt="" class="sidebar__img">
-                        </a>
-                        <div class="overlay"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Sidebar -->
     </div>
-</body>
-</html>
-
+</div>

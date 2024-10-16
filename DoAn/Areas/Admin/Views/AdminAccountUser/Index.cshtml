@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DoAn.Models.Account>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Account User</h1>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zip_Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password_User)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zip_Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password_User)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.IdAccount }) |
+            @Html.ActionLink("Vô hiệu hóa", "Delete", new { id=item.IdAccount })
+        </td>
+    </tr>
+}
+
+</table>

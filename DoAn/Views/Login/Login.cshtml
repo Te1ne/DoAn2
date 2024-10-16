@@ -10,6 +10,10 @@
     .field-validation-error {
         color: red;
     }
+
+    .error-message {
+        color: red;
+    }
 </style>
 
 
@@ -34,16 +38,20 @@
                 <h3 class="content__header">My Account</h3>
                 <h4 class="login__header">Login</h4>
                 <div class="login__container">
+                    <!-- Email -->
                     <p class="login__name">@Html.LabelFor(model => model.Email) <span class="red">*</span></p>
                     <input class="login__input" id="Email" name="Email" type="email" value="" placeholder="Your Email">
-                    <p>  @Html.ValidationMessageFor(model => model.Email)</p>
+                    <p> @Html.ValidationMessageFor(model => model.Email)</p>
+
+                    <!-- Password -->
                     <p class="login__name">@Html.LabelFor(model => model.Password_User) <span class="red">*</span></p>
                     <input class="login__input" id="Password_User" name="Password_User" type="password" value="" placeholder="Your Password">
-                    <p>   @Html.ValidationMessageFor(model => model.Password_User)</p>
+                    <p> @Html.ValidationMessageFor(model => model.Password_User)</p>
 
-                    @if (ViewBag.ErrorInfo == null)
+                    <!-- Hiển thị lỗi nếu có -->
+                    @if (ViewBag.ErrorInfo != null)
                     {
-                        <p>@ViewBag.ErrorInfo</p>
+                        <p class="error-message">@ViewBag.ErrorInfo</p>
                     }
                     <input type="submit" value="Login" class="login__btn" />
                     <a href="Register" class="register">Register</a>

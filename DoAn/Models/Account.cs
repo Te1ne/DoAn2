@@ -28,16 +28,20 @@ namespace DoAn.Models
         [Required(ErrorMessage = "Email not empty")]
         [RegularExpression("^[a-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@[a-z0-9-]+(\\.[a-z0-9]+)*\\.([a-z]{2,4})$", ErrorMessage = "Invalid email format.")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Phone not empty")]
 
+        [Required(ErrorMessage = "Phone not empty")]
+        [RegularExpression("^\\d{10}$", ErrorMessage = "Phone number must be 10 digits.")]
         public string PhoneNumber { get; set; }
+
+
         [Required(ErrorMessage = "Name not empty")]
+        [StringLength(16, MinimumLength = 4, ErrorMessage = "Name must be between 4 and 16 characters.")]
         public string NameAccount { get; set; }
         public string City { get; set; }
         public string Zip_Code { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter a valid password")]
-        [DataType(DataType.Password)]
-        [StringLength(20, ErrorMessage = "Password must 6 to 20 letter", MinimumLength = 6)]
+
+        [Required(ErrorMessage = "Password is required.")]
+        [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,}$", ErrorMessage = "Password must have at least one uppercase letter, one lowercase letter, and number.")]
         public string Password_User { get; set; }
         [Compare(otherProperty: "Password_User", ErrorMessage = " Confirm password does not match")]
         public string ConfirmPass { get; set; }

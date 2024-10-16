@@ -129,6 +129,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminAccountUserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AfterLoginController.cs" />
@@ -494,6 +496,14 @@
       <DependentUpon>Simen.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Admin\Views\HomeAdmin\CapNhatTrangThaiDonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminCategory\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAccountUser\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAccountUser\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAccountUser\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

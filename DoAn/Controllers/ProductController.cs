@@ -104,9 +104,21 @@ namespace DoAn.Controllers
         }
         public ActionResult SearchOption(double min = double.MinValue, double max = double.MaxValue)
         {
+            if (min < 0 || max < 0)
+            {
+                ViewBag.ErrorMessage = "Giá phải lớn hơn hoặc bằng 0.";
+                return View(new List<Product>());
+            }
+
+            if (min >= max)
+            {
+                ViewBag.ErrorMessage = "Giá tối thiểu phải nhỏ hơn giá tối đa.";
+                return View(new List<Product>());
+            }
             var list = db.Products.Where(p => (double)p.Price >= min && (double)p.Price <= max).ToList();
             return View(list);
         }
+
         public ActionResult MintoMax()
         {
             var products = from p in db.Products

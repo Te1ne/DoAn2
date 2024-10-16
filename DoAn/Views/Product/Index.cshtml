@@ -6,6 +6,15 @@
 }
 
 
+<style>
+    .search-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+</style>
 
 <!-- Location -->
 <div class="location">
@@ -37,100 +46,100 @@
             </div>
             @* Data *@
             @{var user = Session["Account"] as DoAn.Models.Account;}
-        <div class="content-right col l-9">
-            <div class="content__box-img">
-                <img src="~/Content/assets/images/shop-featured.png" width="100%" height="80%" alt="" class="content-right__img">
-            </div>
-            <h3 class="content-right__header">PRODUCT</h3>
-            @if (user != null)
-            {
-
-
-                <a href="/Product/SearchOption" class="menu__link product__btn">Search</a>
-                if (user.Email == "admin@gmail.com")
+            <div class="content-right col l-9">
+                <div class="content__box-img">
+                    <img src="~/Content/assets/images/shop-featured.png" width="100%" height="80%" alt="" class="content-right__img">
+                </div>
+                <h3 class="content-right__header">PRODUCT</h3>
+                @if (user != null)
                 {
-                    <a href="@Url.Action("Create","Product")" class="menu__link product__btn">Add Product</a>
+
+                    <input style="display:block" type="text" id="searchInput" placeholder="Search by product name..." class="search-input" />
+                    <a href="/Product/SearchOption" class="menu__link product__btn">Advance Search</a>
+                    if (user.Email == "admin@gmail.com")
+                    {
+                        <a href="@Url.Action("Create","Product")" class="menu__link product__btn">Add Product</a>
+                    }
+
                 }
-
-            }
-            else
-            {
-                <span></span>
-            }
-            <div class="content__product signature__product">
-                <div class="singnature__containter row">
-                    @if (user != null)
-                    {
-                        foreach (var item in Model)
+                else
+                {
+                    <span></span>
+                }
+                <div class="content__product signature__product">
+                    <div class="singnature__containter row">
+                        @if (user != null)
                         {
-                            <a href="@Url.Action("Details", "Product",new { id = item.Id })">
-                                <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
-                                    <div class="box__img">
-                                        <img src="@Url.Content(item.ImagePro)" width="100%" height="300" />
-                                        <div class="signature__subbox">
-                                            <div class="signature__subbox-top">
-                                                <a href="/ShoppingCart/AddToCart/@item.Id" class="signature__link signature__link-subbox">
-                                                    <p class="signature__add">
-                                                        <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            @if (user.Email == "admin@gmail.com")
-                                            {
-                                                <div class="signature__subbox-bottom">
-                                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
-                                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
+                            foreach (var item in Model)
+                            {
+                                <a href="@Url.Action("Details", "Product",new { id = item.Id })">
+                                    <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
+                                        <div class="box__img">
+                                            <img src="@Url.Content(item.ImagePro)" width="100%" height="300" />
+                                            <div class="signature__subbox">
+                                                <div class="signature__subbox-top">
+                                                    <a href="/ShoppingCart/AddToCart/@item.Id" class="signature__link signature__link-subbox">
+                                                        <p class="signature__add">
+                                                            <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
+                                                        </p>
+                                                    </a>
                                                 </div>
+                                                @if (user.Email == "admin@gmail.com")
+                                                {
+                                                    <div class="signature__subbox-bottom">
+                                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
+                                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="signature__product-decription">
+                                            <h4 class="signature__product-name">
+                                                <a href="@Url.Action("Details", "Product",new { id = item.Id })" class="signature__link-header">@Html.DisplayFor(model => item.NamePro)</a>
+                                            </h4>
+                                            @{
+                                                var formattedPrice = String.Format("{0:N0} đ", item.Price);
                                             }
+
+                                            <p class="signature__product-price">
+                                                @formattedPrice
+                                            </p>
+
+                                            <div class="signature__product-rate">
+                                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="signature__product-decription">
-                                        <h4 class="signature__product-name">
-                                            <a href="@Url.Action("Details", "Product",new { id = item.Id })" class="signature__link-header">@Html.DisplayFor(model => item.NamePro)</a>
-                                        </h4>
-                                        @{
-                                            var formattedPrice = String.Format("{0:N0} đ", item.Price);
-                                        }
-
-                                        <p class="signature__product-price">
-                                            @formattedPrice
-                                        </p>
-
-                                        <div class="signature__product-rate">
-                                            <i class="signature__product-icon fa-regular fa-star"></i>
-                                            <i class="signature__product-icon fa-regular fa-star"></i>
-                                            <i class="signature__product-icon fa-regular fa-star"></i>
-                                            <i class="signature__product-icon fa-regular fa-star"></i>
-                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                </a>
+                                @* End Product *@
+                            }
+                            if (user.Email == "admin@gmail.com")
+                            {
+                                @* Add Product *@
+                                <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
+                                    <div class="content-box__img content-box__img--add-product">
+                                        @Html.ActionLink("+", "Create", "Product", null, new { @class = "a--no-decor" })
+                                        <div class="signature__product-decription">
+                                            <h4 class="signature__product-name">
+                                                @Html.ActionLink("Add Product", "Create", "Product", null, new { @class = "signature__link-header" })
+                                            </h4>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
-                            @* End Product *@
+                                @* End Add Product *@
+                            }
                         }
-                        if (user.Email == "admin@gmail.com")
+                        else
                         {
-                            @* Add Product *@
-                            <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
-                                <div class="content-box__img content-box__img--add-product">
-                                    @Html.ActionLink("+", "Create", "Product", null, new { @class = "a--no-decor" })
-                                    <div class="signature__product-decription">
-                                        <h4 class="signature__product-name">
-                                            @Html.ActionLink("Add Product", "Create", "Product", null, new { @class = "signature__link-header" })
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            @* End Add Product *@
+                            <h4 style="text-align:center;font-size:4rem">Please <a class="navbar__link" style="color:red" href="@Url.Action("Login","Login")">login</a> or <a class="navbar__link" style="color:red" href="@Url.Action("Register","Login")">register</a> to see more product...</h4>
                         }
-                    }
-                    else
-                    {
-                        <h4 style="text-align:center;font-size:4rem">Please <a class="navbar__link" style="color:red" href="@Url.Action("Login","Login")">login</a> or <a class="navbar__link" style="color:red" href="@Url.Action("Register","Login")">register</a> to see more product...</h4>
-                    }
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 </div>
@@ -178,6 +187,28 @@
     </div>
 </div>
 <!-- End Sidebar -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var searchInput = document.getElementById('searchInput');
+        var productItems = document.querySelectorAll('.signature__product-box');
+
+        searchInput.addEventListener('keyup', function () {
+            var filter = searchInput.value.toLowerCase();
+
+            productItems.forEach(function (item) {
+                // Lấy nội dung của sản phẩm từ .signature__link-header
+                var productName = item.querySelector('.signature__link-header').innerText.toLowerCase();
+
+                if (productName.includes(filter)) {
+                    item.style.display = ''; // Hiển thị sản phẩm
+                } else {
+                    item.style.display = 'none'; // Ẩn sản phẩm
+                }
+            });
+        });
+    });
+</script>
 
 
 

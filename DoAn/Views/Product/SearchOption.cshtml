@@ -17,79 +17,88 @@
 <!-- Content -->
 @using (Html.BeginForm("SearchOption", "Product"))
 {
-<div class="content">
-    <div class="grid wide">
-        <div class="content__container row">
-            <div class="content-left col l-3 m-0 c-0">
-                <div class="content-left__box">
-                    <h3 class="content-left__header">PRODUCT</h3>
-                    <div class="content-left__box content-left__box--under">
-                        <ul class="content-left__list">
-                            <li class="content-left__item"><a href="@Url.Action("Top10_Pro","OrderDetail_Product")" class="content-left__link">Popular Product</a></li>
-                            <li class="content-left__item"><a href="@Url.Action("MintoMax","Product")" class="content-left__link">Min Price To Max Price</a></li>
-                            <li class="content-left__item"><a href="@Url.Action("MaxtoMin","Product")" class="content-left__link">Max Price To Min Price</a></li>
-                            <li class="content-left__item"><a href="@Url.Action("AtLeast","Product")" class="content-left__link">The Cheapest Price Product</a></li>
-                            <li class="content-left__item"><a href="@Url.Action("AtMax","Product")" class="content-left__link">The Most Expensive Price Product</a></li>
-                        </ul>
+    <div class="content">
+        <div class="grid wide">
+            <div class="content__container row">
+                <div class="content-left col l-3 m-0 c-0">
+                    <div class="content-left__box">
+                        <h3 class="content-left__header">PRODUCT</h3>
+                        <div class="content-left__box content-left__box--under">
+                            <ul class="content-left__list">
+                                <li class="content-left__item"><a href="@Url.Action("Top10_Pro","OrderDetail_Product")" class="content-left__link">Popular Product</a></li>
+                                <li class="content-left__item"><a href="@Url.Action("MintoMax","Product")" class="content-left__link">Min Price To Max Price</a></li>
+                                <li class="content-left__item"><a href="@Url.Action("MaxtoMin","Product")" class="content-left__link">Max Price To Min Price</a></li>
+                                <li class="content-left__item"><a href="@Url.Action("AtLeast","Product")" class="content-left__link">The Cheapest Price Product</a></li>
+                                <li class="content-left__item"><a href="@Url.Action("AtMax","Product")" class="content-left__link">The Most Expensive Price Product</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @* Data *@
-            <div class="content-right col l-9">
-                <div class="content__box-img">
-                    <img src="~/Content/assets/images/shop-featured.png" width="100%" height="80%" alt="" class="content-right__img">
-                </div>
-                <h3 class="content-right__header">PRODUCT</h3>
-                <text style="font-size:1.4rem">To</text> <input type="number" name="min" placeholder="Min Price" />
-                <text style="font-size:1.4rem">From</text> <input type="number" name="max" placeholder="Max Price" />
-                <input type="submit" value="Search" class="login__btn" />   
-                <div class="content__product signature__product">
-                    <div class="singnature__containter row">
-                        @foreach (var item in Model)
-                        {
-                            <a href="@Url.Action("Details", "Product", new { id = item.Id })">
-                                <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
-                                    <div class="box__img">
-                                        <img src="@Url.Content(item.ImagePro)" width="100%" height="280" />
-                                        <div class="signature__subbox">
-                                            <div class="signature__subbox-top">
-                                                <a href="/ShoppingCart/AddToCart/@item.Id" class="signature__link signature__link-subbox">
-                                                    <p class="signature__add">
-                                                        <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <div class="signature__subbox-bottom">
-                                                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
-                                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
+                @* Data *@
+                <div class="content-right col l-9">
+                    <div class="content__box-img">
+                        <img src="~/Content/assets/images/shop-featured.png" width="100%" height="80%" alt="" class="content-right__img">
+                    </div>
+                    <h3 class="content-right__header">PRODUCT</h3>
+                    <text style="font-size:1.4rem">To</text> <input type="number" name="min" placeholder="Min Price" />
+                    <text style="font-size:1.4rem">From</text> <input type="number" name="max" placeholder="Max Price" />
+                    <input type="submit" value="Search" class="login__btn" />
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.ErrorMessage
+                        </div>
+                    }
+                    <div class="content__product signature__product">
+                        <div class="singnature__containter row">
+                            @foreach (var item in Model)
+                            {
+                                <a href="@Url.Action("Details", "Product", new { id = item.Id })">
+                                    <div class="signature__product-box signature__product-box--in-sale col l-3 m-4 c-6">
+                                        <div class="box__img">
+                                            <img src="@Url.Content(item.ImagePro)" width="100%" height="280" />
+                                            <div class="signature__subbox">
+                                                <div class="signature__subbox-top">
+                                                    <a href="/ShoppingCart/AddToCart/@item.Id" class="signature__link signature__link-subbox">
+                                                        <p class="signature__add">
+                                                            <i class="signature__icon fa-solid fa-cart-shopping"></i>ADD TO CART
+                                                        </p>
+                                                    </a>
+                                                </div>
+                                                <div class="signature__subbox-bottom">
+                                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
+                                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "signature__link signature__link-bottom" })
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="signature__product-decription">
-                                        <h4 class="signature__product-name">
-                                            <a href="#" class="signature__link-header">@Html.DisplayFor(model => item.NamePro)</a>
-                                        </h4>
+                                        <div class="signature__product-decription">
+                                            <h4 class="signature__product-name">
+                                                <a href="#" class="signature__link-header">@Html.DisplayFor(model => item.NamePro)</a>
+                                            </h4>
+                                            @{
+                                                var formattedPrice = String.Format("{0:N0} đ", item.Price);
+                                            }
                                         <p class="signature__product-price">
-                                            @Html.DisplayFor(model => item.Price) <span>Vnđ</span>
+                                            @formattedPrice
                                         </p>
-                                        <div class="signature__product-rate">
-                                            <i class="signature__product-icon fa-regular fa-star"></i>
-                                            <i class="signature__product-icon fa-regular fa-star"></i>
-                                            <i class="signature__product-icon fa-regular fa-star"></i>
-                                            <i class="signature__product-icon fa-regular fa-star"></i>
-                                            <i class="signature__product-icon fa-regular fa-star"></i>
+                                            <div class="signature__product-rate">
+                                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                                <i class="signature__product-icon fa-regular fa-star"></i>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                        }
-                        @* End Product *@
+                                </a>
+                            }
+                            @* End Product *@
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 }
 <!-- End Content -->
 <!-- Slider bar -->
@@ -135,3 +144,29 @@
     </div>
 </div>
 <!-- End Sidebar -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var searchInput = document.getElementById('searchInput');
+        var minInput = document.querySelector('input[name="min"]');
+        var maxInput = document.querySelector('input[name="max"]');
+
+        document.querySelector('form').addEventListener('submit', function (event) {
+            var minPrice = parseFloat(minInput.value);
+            var maxPrice = parseFloat(maxInput.value);
+
+            // Kiểm tra giá trị âm
+            if (minPrice < 0 || maxPrice < 0) {
+                alert("Giá không được âm.");
+                event.preventDefault(); // Ngăn chặn gửi form
+                return;
+            }
+
+            // Kiểm tra min phải nhỏ hơn max
+            if (minPrice >= maxPrice) {
+                alert("Giá tối thiểu phải nhỏ hơn giá tối đa.");
+                event.preventDefault(); // Ngăn chặn gửi form
+            }
+        });
+    });
+</script>

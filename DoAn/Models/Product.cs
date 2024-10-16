@@ -31,8 +31,8 @@ namespace DoAn.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Tên danh mục không được để trống")]
-        [MinLength(4, ErrorMessage = "Tên danh mục phải có ít nhất 4 ký tự")]
+        [Required(ErrorMessage = "Tên sản phẩm không được để trống")]
+        [MinLength(4, ErrorMessage = "Tên sản phẩm phải có ít nhất 4 ký tự")]
         public string NamePro { get; set; }
 
         [Required(ErrorMessage = "Giá không được để trống")]

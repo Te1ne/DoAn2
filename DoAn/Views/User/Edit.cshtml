@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .text-danger{
+    }
+</style>
+
 
 @using (Html.BeginForm("Edit","User",FormMethod.Post, new {@enctype = "multipart/form-data" }))
 {
@@ -19,19 +24,33 @@
                 <div class="content-right l-7 m-7 c-12">
                     <div class="login__container upload__container">
                         @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "login__input", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
                         @Html.LabelFor(model => model.NameAccount, htmlAttributes: new { @class = "control-label col-md-2" })
                         @Html.EditorFor(model => model.NameAccount, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.ValidationMessageFor(model => model.NameAccount, "", new { @class = "text-danger" })
+
                         @Html.LabelFor(model => model.IdAccount, htmlAttributes: new { @class = "control-label col-md-2" })
-                        @Html.EditorFor(model => model.IdAccount, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.EditorFor(model => model.IdAccount, new { htmlAttributes = new { @class = "login__input", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.IdAccount, "", new { @class = "text-danger" })
+
                         @Html.LabelFor(model => model.Password_User, htmlAttributes: new { @class = "control-label col-md-2" })
-                        @Html.EditorFor(model => model.Password_User, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.EditorFor(model => model.Password_User, new { htmlAttributes = new { @class = "login__input", type = "password" } })
+                        @Html.ValidationMessageFor(model => model.Password_User, "", new { @class = "text-danger" })
+
                         @Html.LabelFor(model => model.ConfirmPass, htmlAttributes: new { @class = "control-label col-md-2" })
-                        @Html.EditorFor(model => model.ConfirmPass, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.EditorFor(model => model.ConfirmPass, new { htmlAttributes = new { @class = "login__input", type = "password" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmPass, "", new { @class = "text-danger" })
+
                         @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
                         @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+
                         @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
                         @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "login__input" } })
+                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+
                         <input type="submit" value="Save" class="login__btn">
                     </div>
                     <div>

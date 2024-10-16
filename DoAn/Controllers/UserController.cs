@@ -29,6 +29,7 @@ namespace DoAn.Controllers
         public ActionResult Edit([Bind(Include = "IdAccount,Email,PhoneNumber,NameAccount,City,Password_User")] Account account)
         {
             var pro = db.Accounts.FirstOrDefault(s => s.IdAccount == account.IdAccount);
+
             if (pro != null)
             {
                 pro.IdAccount = account.IdAccount;
@@ -38,8 +39,8 @@ namespace DoAn.Controllers
                 pro.City = account.City;
                 pro.Password_User = account.Password_User;
                 pro.ConfirmPass = account.Password_User;
-
             }
+
             try
             {
                 db.SaveChanges();
@@ -48,7 +49,7 @@ namespace DoAn.Controllers
             {
                 Console.WriteLine(ex);
             }
-            return RedirectToAction("Index/" + pro.IdAccount);
+            return RedirectToAction("Index", "Home");
         }
 
     }

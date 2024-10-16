@@ -60,6 +60,7 @@ namespace DoAn.Areas.Admin.Controllers
         {
             try
             {
+
                 Random r = new Random();
 
                 if (pro.UploadImage != null)
@@ -71,6 +72,11 @@ namespace DoAn.Areas.Admin.Controllers
                     pro.ImagePro = "~/Content/assets/images/" + filename;
                     pro.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/assets/images/"), filename));
                 }
+                if (!ModelState.IsValid)
+                {
+                    return View(pro);
+                }
+
                 db.Products.Add(pro);
                 db.SaveChanges();
                 return RedirectToAction("DanhMucSanPham");

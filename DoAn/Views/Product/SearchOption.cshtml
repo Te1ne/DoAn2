@@ -155,17 +155,22 @@
             var minPrice = parseFloat(minInput.value);
             var maxPrice = parseFloat(maxInput.value);
 
-            // Kiểm tra giá trị âm
-            if (minPrice < 0 || maxPrice < 0) {
-                alert("Giá không được âm.");
-                event.preventDefault(); // Ngăn chặn gửi form
+            if (minInput.value === '' || maxInput.value === '') {
+                alert("Giá tối thiểu và giá tối đa không được để trống.");
+                event.preventDefault();
                 return;
             }
 
-            // Kiểm tra min phải nhỏ hơn max
+            if (minPrice < 0 || maxPrice < 0) {
+                alert("Giá không được âm.");
+                event.preventDefault(); 
+                return;
+            }
+
+
             if (minPrice >= maxPrice) {
                 alert("Giá tối thiểu phải nhỏ hơn giá tối đa.");
-                event.preventDefault(); // Ngăn chặn gửi form
+                event.preventDefault(); 
             }
         });
     });

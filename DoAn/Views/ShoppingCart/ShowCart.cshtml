@@ -1,5 +1,4 @@
-﻿
-@model DoAn.Models.Cart
+﻿@model DoAn.Models.Cart
 
 @{
     ViewBag.Title = "ShowCart";
@@ -7,8 +6,8 @@
 }
 
 <style>
-    .cart__item{
-        margin:10px 0px;
+    .cart__item {
+        margin: 10px 0px;
     }
 </style>
 
@@ -27,8 +26,8 @@
             foreach (var item in Model.Items)
             {
                 decimal total = item._quantity * (decimal)item._product.Price.Value;
-            <div style="width: 100%; margin-top: 20px; border:1px solid #DDDDDD; padding:16px" class="table">
-                <div class="row" style="font-size:1.6rem;">
+                <div style="width: 100%; margin-top: 20px; border:1px solid #DDDDDD; padding:16px" class="table">
+                    <div class="row" style="font-size:1.6rem;">
                         <div class="col l-2 m-3 c-6 cart__item">
                             <h3>Tên sản phẩm</h3>
                             <div style="display:flex; align-items:center; height:100%">
@@ -48,67 +47,100 @@
                         <div class="col l-2 m-3 c-6 cart__item">
                             <h3>Số lượng</h3>
                             <div style="display:flex; align-items:center; height:100%">
-                                <form action="/ShoppingCart/Update_Cart_Quantity" method="post" style="display:flex">
+                                <form id="quantityForm-@item._product.Id" action="/ShoppingCart/Update_Cart_Quantity" method="post" style="display:flex">
                                     <input type="hidden" value="@item._product.Id" name="idPro">
-                                    <input type="number" value="@item._quantity" name="cartQuantity" style="width:100%">
+                                    <input type="number" value="@item._quantity" id="cartQuantity-@item._product.Id" name="cartQuantity" style="width:100%">
                                     <input type="submit" value="Update" class="login__btn" style="display:inline-block">
                                 </form>
                             </div>
-                            </div>
+                        </div>
                         <div class="col l-2 m-3 c-6 cart__item">
                             <h3>Thành tiền</h3>
                             <div style="display:flex; align-items:center; height:100%">
                                 <p style="text-align: center;">
                                     @String.Format("{0:N0} đ", total)
                                 </p>
-
                             </div>
-                            </div>
+                        </div>
                         <div class="col l-2 m-3 c-6 cart__item">
                             <h3>Xóa</h3>
                             <div style="display:flex; align-items:center; height:100%">
                                 <a class="menu__link" href="/ShoppingCart/RemoveCart/@item._product.Id" style="font-size:2rem">Xóa</a>
                             </div>
-                         </div>
-
                         </div>
-                <div>
+                    </div>
+                    <div></div>
+                </div>
+                <hr style="margin:20px 0px" />
+            }
+
+            <div>
+                @using (Html.BeginForm("CheckOut", "ShoppingCart"))
+                {
+                    <div class="row" style="width:100%;border-spacing:5px; font-size:1.6rem;margin-top:20px">
+                        <div class="col l-4 m-6 c-12">
+                            <div>Code Customer:</div>
+                            <div><input style="padding: 8px 10px;width:100%" placeholder="Vui lòng xem ID trong MyAccount và xác nhận" type="number" name="CodeCustomer" required /></div>
+                        </div>
+                        <div class="col l-4 m-6 c-12">
+                            <div>AddressDelivery:</div>
+                            <div><input style="padding: 8px 10px;width:100%" placeholder="Nhập địa chỉ" type="text" name="AddressDelivery" required /></div>
+                        </div>
+                        <div class="col l-4 m-6 c-12" style="display:flex; flex-direction:column; justify-content:center">
+                            <div>CheckOut:</div>
+                            <input type="submit" value="CheckOut" style="float:right" class="login_ btn btn-success login__btn" />
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div>
+                <div style="display: flex; align-items: center; margin-top:20px">
+                    <div style="text-align:right; font-size:1.6rem; margin-right:10px">
+                        Tổng tiền: @String.Format("{0:N0} đ", Model.Total_money()) <span>Vnđ</span>
+                    </div>
+                    <div style="text-align: right; font-size: 1.6rem">
+                        Tổng sản phẩm: @Model.Total_quantity()
+                    </div>
                 </div>
             </div>
-            <hr style="margin:20px 0px" />
-            }
-                    <div>
-                        @using (Html.BeginForm("CheckOut", "ShoppingCart"))
-                        {
-                            <div class="row" style="width:100%;border-spacing:5px; font-size:1.6rem;margin-top:20px">
-                                <div class="col l-4 m-6 c-12">
-                                    <div>Code Customer:</div>
-                                    <div><input style="padding: 8px 10px;width:100%" placeholder="Vui lòng xem ID trong MyAccount và xác nhận" type="number" name="CodeCustomer" required /></div>
-                                </div>
-                                <div class="col l-4 m-6 c-12">
-                                    <div>AddressDelivery:</div>
-                                    <div><input style="padding: 8px 10px;width:100%" placeholder="Nhập địa chỉ" type="text" name="AddressDelivery" required /></div>
-                                </div>
-                                <div class="col l-4 m-6 c-12" style="display:flex; flex-direction:column; justify-content:center">
-                                    <div>CheckOut:</div>
-                                    <input type="submit" value="CheckOut" style="float:right" class="login_ btn btn-success login__btn" />
-                                </div>
-                            </div>
-                        }
-                    </div>
-                <div>
-                    <div style="display: flex; align-items: center; margin-top:20px">
-                        <div style="text-align:right; font-size:1.6rem; margin-right:10px">
-                            Tổng tiền: @String.Format("{0:N0} đ", Model.Total_money()) <span>Vnđ</span>
-                        </div>
-                        <div style="text-align: right; font-size: 1.6rem">
-                            Tổng sản phẩm: @Model.Total_quantity()
-                        </div>
-                    </div>
-                </div>
         }
     </div>
 </div>
 
+<script>
+    document.querySelectorAll('form[id^="quantityForm"]').forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            var quantityInput = form.querySelector('input[name="cartQuantity"]');
+            var quantityValue = quantityInput.value.trim();
 
+            if (quantityValue === '') {
+                alert("Số lượng không được để trống.");
+                event.preventDefault();
+                return;
+            }
+
+            var quantityNumber = parseFloat(quantityValue);
+
+            if (quantityNumber < 0) {
+                alert("Số lượng không được là số âm.");
+                event.preventDefault();
+                return;
+            }
+
+            var regex = /^[0-9]+$/;
+            if (!regex.test(quantityValue)) {
+                alert("Số lượng chỉ được chứa chữ số, không chứa chữ cái hoặc ký tự đặc biệt.");
+                event.preventDefault();
+                return;
+            }
+
+            if (!Number.isInteger(quantityNumber)) {
+                alert("Số lượng phải là số nguyên, không được là số thực.");
+                event.preventDefault();
+                return;
+            }
+        });
+    });
+</script>
 

@@ -11,6 +11,11 @@
     }
 </style>
 
+@{
+    var user = Session["Account"] as DoAn.Models.Account;
+    var currentUserID = user?.IdAccount;
+}
+
 <div class="content">
     <div class="grid wide">
         <h2 style="font-size:2.6rem">Giỏ Hàng</h2>
@@ -80,11 +85,16 @@
                     <div class="row" style="width:100%;border-spacing:5px; font-size:1.6rem;margin-top:20px">
                         <div class="col l-4 m-6 c-12">
                             <div>Code Customer:</div>
-                            <div><input style="padding: 8px 10px;width:100%" placeholder="Vui lòng xem ID trong MyAccount và xác nhận" type="number" name="CodeCustomer" required /></div>
+                            <div>
+                                <input style="padding: 8px 10px;width:100%" placeholder="Vui lòng xem ID trong MyAccount và xác nhận" id="codeCustomerInput" type="number" name="CodeCustomer" required />
+                                <input type="hidden" id="currentUserID" value="@currentUserID" />
+                            </div>
                         </div>
                         <div class="col l-4 m-6 c-12">
                             <div>AddressDelivery:</div>
-                            <div><input style="padding: 8px 10px;width:100%" placeholder="Nhập địa chỉ" type="text" name="AddressDelivery" required /></div>
+                            <div>
+                                <input style="padding: 8px 10px;width:100%" placeholder="Nhập địa chỉ" type="text" name="AddressDelivery" id="addressInput" required />
+                            </div>
                         </div>
                         <div class="col l-4 m-6 c-12" style="display:flex; flex-direction:column; justify-content:center">
                             <div>CheckOut:</div>
@@ -142,5 +152,22 @@
             }
         });
     });
-</script>
 
+    document.querySelector('form[action="/ShoppingCart/CheckOut"]').addEventListener('submit', function (event) {
+        var enteredCodeCustomer = document.getElementById('codeCustomerInput').value.trim();
+        var currentUserID = document.getElementById('currentUserID').value;
+        var addressInput = document.getElementById('addressInput').value.trim();
+
+        if (enteredCodeCustomer !== currentUserID) {
+            alert("Mã khách hàng không khớp với ID của bạn.");
+            event.preventDefault();
+            return;
+        }
+
+        if (addressInput === "") {
+            alert("Địa chỉ không được để trống.");
+            event.preventDefault();
+            return;
+        }
+    });
+</script>

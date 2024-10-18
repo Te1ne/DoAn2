@@ -164,5 +164,47 @@ namespace DoAn.Areas.Admin.Controllers
             return RedirectToAction("LichSuMuaHang");
         }
 
+        public ActionResult SearchProduct(string searchName)
+        {
+            if (string.IsNullOrEmpty(searchName))
+            {
+                ViewBag.ErrorMessage = "Vui lòng nhập tên sản phẩm để tìm kiếm.";
+                return View("DanhMucSanPham", new List<Product>());
+            }
+
+            var list = db.Products.Where(a => a.NamePro.Contains(searchName)).ToList();
+
+            if (!list.Any())
+            {
+                ViewBag.ErrorMessage = "Không tìm thấy sản phẩm nào.";
+            }
+
+            return View("DanhMucSanPham", list);
+        }
+
+        public ActionResult SearchOrder(int? id)
+        {
+            if (!id.HasValue || id <= 0)
+            {
+                ViewBag.ErrorMessage = "Vui lòng nhập ID";
+                return View("LichSuMuaHang", new List<OrderDetail>());
+            }
+
+            if (id <= 0)
+            {
+                ViewBag.ErrorMessage = "Vui lòng nhập ID sản phẩm hợp lệ.";
+                return View("LichSuMuaHang", new List<OrderDetail>());
+            }
+            var list = db.OrderDetails.Where(a => a.Id_Orderdt == id).ToList();
+
+            if (!list.Any())
+            {
+                ViewBag.ErrorMessage = "Không tìm thấy Order nào.";
+            }
+
+            return View("LichSuMuaHang", list);
+        }
+
+
     }
 }

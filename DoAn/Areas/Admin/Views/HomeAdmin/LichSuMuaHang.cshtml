@@ -6,6 +6,21 @@
 }
 
 <h2 style="font-size: 40px; margin: 20px 0px">Order History</h2>
+
+
+@using (Html.BeginForm("SearchOrder", "HomeAdmin", FormMethod.Get))
+{
+    <input type="number" name="id" placeholder="Nhập Id order" />
+    <input type="submit" value="Tìm kiếm" />
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
 <table class="table">
     <tr>
         <th style="margin: 10px">
@@ -36,7 +51,7 @@
                 <img src="@Url.Content(item.Product.ImagePro)" width="150" height="150" />
             </td>
             <th>
-                <p style="font-size: 20px; margin: 0px 20px">@item.IdOrder</p>
+                <p style="font-size: 20px; margin: 0px 20px">@item.Id_Orderdt</p>
             </th>
             <td>
                 <p style="font-size: 12px; margin: 0px 20px">@item.Product.NamePro</p>

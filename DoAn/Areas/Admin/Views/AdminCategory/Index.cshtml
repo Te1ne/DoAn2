@@ -10,6 +10,21 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm("SearchCategory", "AdminCategory", FormMethod.Get))
+{
+    <input type="text" name="searchName" placeholder="Nhập tên category" />
+    <input type="submit" value="Tìm kiếm" />
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+
 <table class="table">
     <tr>
         <th>
@@ -21,20 +36,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdCate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NameCate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdCate }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdCate }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdCate })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameCate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdCate }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdCate }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdCate })
+            </td>
+        </tr>
+    }
 
 </table>

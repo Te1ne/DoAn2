@@ -39,6 +39,9 @@ namespace DoAn.Models
         [RegularExpression(@"^[a-zA-Z0-9]*$", ErrorMessage = "Name cannot contain special characters.")]
         public string NameAccount { get; set; }
 
+        [Required(ErrorMessage = "City is required.")]
+        [StringLength(50, ErrorMessage = "City name cannot be longer than 50 characters.")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "City name can only contain letters and spaces.")]
         public string City { get; set; }
         public string Zip_Code { get; set; }
 

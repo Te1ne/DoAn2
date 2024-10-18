@@ -43,5 +43,24 @@ namespace DoAn.Areas.Admin.Controllers
                 return Content("This data using in other table, Error Delete");
             }
         }
+
+        public ActionResult SearchAccount(string searchName)
+        {
+            if (string.IsNullOrEmpty(searchName))
+            {
+                ViewBag.ErrorMessage = "Vui lòng nhập tên người dùng để tìm kiếm.";
+                return View("Index", new List<Account>());
+            }
+
+            var list = db.Accounts.Where(a => a.NameAccount.Contains(searchName)).ToList();
+
+            if (!list.Any())
+            {
+                ViewBag.ErrorMessage = "Không tìm thấy người dùng nào.";
+            }
+
+            return View("Index", list);
+        }
+
     }
 }

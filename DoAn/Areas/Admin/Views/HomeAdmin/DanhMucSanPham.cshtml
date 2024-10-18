@@ -10,6 +10,19 @@
 <p>
     <a href="/Admin/HomeAdmin/Create">Thêm sản phẩm mới</a>
 </p>
+
+@using (Html.BeginForm("SearchProduct", "HomeAdmin", FormMethod.Get))
+{
+    <input type="text" name="searchName" placeholder="Nhập tên người dùng" />
+    <input type="submit" value="Tìm kiếm" />
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
 <table class="table">
     <tr>
         <th>
@@ -33,32 +46,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <img src="@Url.Content(item.ImagePro)" width="100%" height="1000" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NamePro)
-        </td>
-        <td>
-            @String.Format("{0:N0} đ", item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Size)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description_Pro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Color)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@Url.Content(item.ImagePro)" width="100%" height="1000" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamePro)
+            </td>
+            <td>
+                @String.Format("{0:N0} đ", item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_Pro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

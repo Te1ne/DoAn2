@@ -110,5 +110,23 @@ namespace DoAn.Areas.Admin.Controllers
                 return Content("This data using in other table, Error Delete");
             }
         }
+
+        public ActionResult SearchCategory(string searchName)
+        {
+            if (string.IsNullOrEmpty(searchName))
+            {
+                ViewBag.ErrorMessage = "Vui lòng nhập tên category để tìm kiếm.";
+                return View("Index", new List<Category>());
+            }
+
+            var list = db.Categories.Where(a => a.NameCate.Contains(searchName)).ToList();
+
+            if (!list.Any())
+            {
+                ViewBag.ErrorMessage = "Không tìm thấy category nào.";
+            }
+
+            return View("Index", list);
+        }
     }
 }

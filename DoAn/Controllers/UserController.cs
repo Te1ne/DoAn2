@@ -28,29 +28,36 @@ namespace DoAn.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdAccount,Email,PhoneNumber,NameAccount,City,Password_User")] Account account)
         {
-            var pro = db.Accounts.FirstOrDefault(s => s.IdAccount == account.IdAccount);
+            if (ModelState.IsValid)
+            {
+                var pro = db.Accounts.FirstOrDefault(s => s.IdAccount == account.IdAccount);
 
-            if (pro != null)
-            {
-                pro.IdAccount = account.IdAccount;
-                pro.NameAccount = account.NameAccount;
-                pro.Email = account.Email;
-                pro.PhoneNumber = account.PhoneNumber;
-                pro.City = account.City;
-                pro.Password_User = account.Password_User;
-                pro.ConfirmPass = account.Password_User;
+                if (pro != null)
+                {
+                    pro.IdAccount = account.IdAccount;
+                    pro.NameAccount = account.NameAccount;
+                    pro.Email = account.Email;
+                    pro.PhoneNumber = account.PhoneNumber;
+                    pro.City = account.City;
+                    pro.Password_User = account.Password_User;
+                    pro.ConfirmPass = account.Password_User;
+                }
+
+                try
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    Console.WriteLine(ex);
+                    ModelState.AddModelError("", "Có lỗi xảy ra khi lưu dữ liệu. Vui lòng thử lại.");
+                }
             }
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbEntityValidationException ex)
-            {
-                Console.WriteLine(ex);
-            }
-            return RedirectToAction("Index", "Home");
+            return View(account);
         }
+
 
     }
 }
